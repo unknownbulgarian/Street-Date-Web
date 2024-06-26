@@ -16,9 +16,11 @@ import { ParticlesComponent } from './Components/ParticlesComponent/ParticlesCom
 import Register from './Pages/Register/Register.tsx'
 import Login from './Pages/Login/Login.tsx'
 import Try from './Pages/Try/Try.tsx'
+import ProfileArea from './Components/ProfileArea/ProfileArea.tsx'
 
 //Guards
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
+import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -32,6 +34,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path='/versuchen' element={<LoginGuardRoute component={Try} />} />
               <Route path='/registrierung' element={<LoginGuardRoute component={Register} />} />
               <Route path='/anmelden' element={<LoginGuardRoute component={Login} />} />
+              <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
             </Routes>
           </AOSProvider>
         </OnlineProvider>
