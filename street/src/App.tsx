@@ -13,7 +13,7 @@ import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 
 
-export function App() {
+export default function App() {
 
   const { removeOnline } = useOnlineProvider()
   const { isSession } = useSession()
