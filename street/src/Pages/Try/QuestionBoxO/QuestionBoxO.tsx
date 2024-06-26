@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './QuestionBoxO.module.css'
+import styles from './QuestionBox.module.css'
 
 interface QuestionProps {
     gameProgress: number;
