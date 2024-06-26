@@ -4,9 +4,13 @@ import App from './App.tsx'
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import './index.css'
 
+//Providers
 import { AOSProvider } from './States/AOS/AOS.tsx'
 import { SessionProvider } from './States/Session/Session.tsx'
 import { OnlineProvider } from './States/Online/Online.tsx'
+
+//Other
+import { ParticlesComponent } from './Components/ParticlesComponent/ParticlesComponent.tsx'
 
 //Pages
 import Register from './Pages/Register/Register.tsx'
@@ -21,6 +25,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <SessionProvider>
         <OnlineProvider>
           <AOSProvider>
+            <ParticlesComponent />
             <Routes>
               <Route path='/' element={<App />} />
               <Route path='/registrierung' element={<LoginGuardRoute component={Register} />} />
