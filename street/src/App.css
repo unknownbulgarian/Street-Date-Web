@@ -1,42 +1,265 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8em;
+  gap: 10em;
+  width: 100%;
+}
+
+.welcome {
+  position: relative;
+  width: 700px;
+  color: rgb(241, 238, 238);
+}
+
+.welcome h1 {
+  color: white;
+  font-size: 4rem;
+}
+
+.btns {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  margin-top: 1em;
+}
+
+.btns button {
+  cursor: pointer;
+  border-radius: 0.3em;
+  height: 30px;
+  padding-left: 1em;
+  padding-right: 1em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  border: none;
+}
+
+.apps {
+  display: flex;
+  gap: 0.5em;
+  margin-top: 2em;
+}
+
+.apps img {
+  width: 145px;
+  cursor: pointer;
+}
+
+.guest {
+  background-color: rgba(152, 78, 248, 0.568);
+  color: white;
+}
+
+.create {
+  background-color: rgba(176, 132, 226, 0.164);
+  color: rgb(255, 255, 255);
+}
+
+.no {
+  text-decoration: line-through;
+  color: rgb(255, 107, 107);
+  user-select: none;
+}
+
+.right {
+  position: relative;
+}
+
+.right img {
+  width: 350px;
+  border-radius: 0.5em;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(159, 117, 236, 0.705) !important;
+}
+
+.second {
+  position: relative;
+  margin-top: 7em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 5em;
+  gap: 1.5em;
+}
+
+.second h2 {
+  font-size: 1.8rem;
+  color: white;
+}
+
+.second img {
+  width: 1000px;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+  border-radius: 0.3em;
+}
+
+.nothard {
+  color: rgb(255, 107, 107);
+  text-decoration: line-through;
+}
+
+.secondboxes {
+  margin-top: 1.5em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2em;
+}
+
+.secondbox{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  width: 350px;
+}
+
+.secondboxicon{
+  font-size: 2rem;
+}
+
+.faq{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 5em;
+  gap: 1.3em;
+}
+
+.faqboxes{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+}
+
+.faq h2{
+  font-size: 1.8rem;
+  color: white;
+}
+
+.faqbox{
+  display: flex;
+  flex-direction: column;
+  width: 700px;
+}
+
+.mainfaqbox{
+  display: flex;
+  align-items: center;
+  width: 700px;
+  height: 35px;
+  background-color: rgba(96, 47, 187, 0.74);
+  border-top-left-radius: 0.3em;
+  border-top-right-radius: 0.3em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+  cursor: pointer;
+}
+
+.mainfaqbox:hover{
+  background-color: rgba(151, 101, 231, 0.658);
+}
+
+.mainfaqbox p{
+  padding-left: 1em;
+  padding-right: 1em;
+}
+
+.expandbox{
+  display: flex;
+  align-items: center;
+  background-color: rgba(130, 85, 214, 0.767);
+  width: 100%;
+  border-bottom-left-radius: 0.3em;
+  border-bottom-right-radius: 0.3em;
+  transition: all 0.3s;
+  overflow: hidden;
+  height: 40px;
+}
+
+
+
+.expandbox p{
+  font-size: 0.9rem;
+  padding-left: 1em;
+  padding-right: 1em;
+  color: rgb(248, 242, 242) !important;
+}
+
+.faqbox p{
+  color: white;
+}
+
+.faqbox span{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 0.5em;
+  transition: all 0.5s;
+  width: auto;
+  color: white;
+}
+
+.rotatedicon{
+  transform: rotate(90deg);
+}
+
+.discordjoin{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 5em;
+}
+
+.discordbox{
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3em;
+  padding-left: 3em;
+  padding-right: 3em;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  height: 75px;
+  background-color: rgba(61, 19, 139, 0.74);
+  border-radius: 0.3em;
+}
+
+.discordbox span{
+  display: flex;
+  align-items: center;
+  color: white;
+  font-size: 2rem;
+}
+
+.discordtext{
+  display: flex;
   text-align: center;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.discordbox p{
+  color: white;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.discordbox button{
+  border: none;
+  color: white;
+  background-color: rgba(113, 59, 201, 0.658);
+  width: 120px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+  height: 30px;
+  border-radius: 0.3em;
+  transition: all 0.3s;
+  cursor: pointer;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
+.discordbox button:hover{
+  background-color: rgba(151, 101, 231, 0.658);
 }
