@@ -1,0 +1,76 @@
+.register{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.register h1{
+    color: white;
+}
+
+.register p{
+    color: rgb(238, 230, 230);
+    margin-bottom: 1em;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    padding: 1em;
+    border-radius: 0.3em;
+    background-color: transparent;
+}
+
+.box input{
+    outline: none;
+}
+
+.box button{
+    background-color: transparent;
+    border: none;
+    border-radius: 0.3em;
+    height: 30px;
+    color: white;
+    cursor: pointer;
+    background-color: rgb(125, 61, 228);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+}
+
+.already{
+    display: flex;
+    align-items: center;
+    margin-bottom: -1em;
+}
+
+.already p{
+    margin-left: auto;
+    color: rgb(165, 127, 226);
+    text-decoration: underline;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.errors{
+    display: flex;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    width: 800px;
+    gap: 0.5em;
+    margin-top: 1em;
+}
+
+.errors li{
+    color: rgb(255, 0, 0);
+    padding-left: 1.5em;
+    padding-right: 1.5em;
+    text-shadow: 4px 4px 6px rgba(0, 0, 0, 0.3);
+}
