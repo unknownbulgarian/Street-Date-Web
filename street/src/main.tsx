@@ -15,6 +15,7 @@ import { ParticlesComponent } from './Components/ParticlesComponent/ParticlesCom
 //Pages
 import Register from './Pages/Register/Register.tsx'
 import Login from './Pages/Login/Login.tsx'
+import Try from './Pages/Try/Try.tsx'
 
 //Guards
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
@@ -28,6 +29,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <ParticlesComponent />
             <Routes>
               <Route path='/' element={<App />} />
+              <Route path='/versuchen' element={<LoginGuardRoute component={Try} />} />
               <Route path='/registrierung' element={<LoginGuardRoute component={Register} />} />
               <Route path='/anmelden' element={<LoginGuardRoute component={Login} />} />
             </Routes>
