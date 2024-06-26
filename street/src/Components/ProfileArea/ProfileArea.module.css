@@ -1,0 +1,268 @@
+.area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+}
+
+.boxes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.box {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 350px;
+    align-items: center;
+    padding: 1em;
+    background-color: rgba(60, 17, 139, 0.795);
+    border-radius: 0.3em;
+    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
+    gap: 0.5em;
+    cursor: pointer;
+}
+
+.box2 {
+    border: 2px solid transparent;
+    animation: rainbow 5s infinite linear;
+}
+
+.playbtn{
+    background-color: rgb(98, 1, 255) !important;
+}
+
+.boxicon {
+    color: white;
+    font-size: 3rem;
+}
+
+.box h2 {
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.box button {
+    border-radius: 0.3em;
+    margin-top: 0.5em;
+    width: 150px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    height: 30px;
+    color: white;
+    border: none;
+    background-color: rgba(106, 55, 199, 0.637);
+    cursor: pointer;
+}
+
+.box p {
+    color: rgb(247, 245, 245);
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+
+
+.stepsbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    width: 480px;
+    padding: 1em;
+    background-color: rgb(36, 8, 88);
+    border-radius: 0.3em;
+    border: 2px solid rgba(255, 255, 255, 0.493);
+}
+
+.stepsbox h2 {
+    text-align: center;
+    margin-top: 0.5em;
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 1.7rem;
+}
+
+.stepsbox p {
+    text-align: center;
+    color: rgb(233, 229, 229);
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.stepsbox button {
+    border-radius: 0.3em;
+    border: none;
+    width: 160px;
+    height: 25px;
+    background-color: rgba(147, 100, 224, 0.671);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    cursor: pointer;
+}
+
+
+
+.settingsbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 480px;
+    padding: 1em;
+    background-color: rgb(36, 8, 88);
+    border-radius: 0.3em;
+    border: 2px solid rgba(255, 255, 255, 0.493);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+.settingsbox h2 {
+    text-align: center;
+    margin-top: 0.5em;
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 1.7rem;
+}
+
+.settingsclose{
+    position: absolute;
+    right: 1em;
+    top: 0.5em;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.thesettings {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6em;
+}
+
+.thesettings h3 {
+    font-size: 1rem;
+    color: rgb(240, 233, 233);
+}
+
+.thesettings select {
+    outline: none;
+    border: none;
+    width: 320px;
+    height: 30px;
+    border-radius: 0.3em;
+    padding-left: 1em;
+    color: white;
+    background-color: rgba(122, 12, 247, 0.856);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.thesettings select option {
+    background-color: rgb(84, 6, 185);
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.inputfile+label {
+    font-size: 1rem;
+    font-weight: 400;
+    color: white;
+    background-color: rgba(122, 12, 247, 0.856);
+    border: none;
+    width: 320px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    outline: transparent;
+    display: inline-block;
+    height: 30px;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 30px;
+}
+
+
+.inputfile:focus+label {
+    outline: transparent;
+}
+
+.thesettings button {
+    border-radius: 0.3em;
+    width: 180px;
+    height: 30px;
+    background-color: rgba(122, 12, 247, 0.856);
+    color: white;
+    border: none;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+.success{
+    color: green;
+}
+
+.error{
+    color: red;
+}
+
+@keyframes rainbow {
+
+    0%,
+    100% {
+        border-color: red;
+    }
+
+    14.28% {
+        border-color: orange;
+    }
+
+    28.57% {
+        border-color: yellow;
+    }
+
+    42.85% {
+        border-color: green;
+    }
+
+    57.14% {
+        border-color: blue;
+    }
+
+    71.42% {
+        border-color: indigo;
+    }
+
+    85.71% {
+        border-color: violet;
+    }
+}
