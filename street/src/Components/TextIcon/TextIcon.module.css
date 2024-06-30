@@ -1,0 +1,14 @@
+.box{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.3em;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.icon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
