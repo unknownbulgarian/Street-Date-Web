@@ -19,6 +19,7 @@ interface InputIconProps {
     border?: string;
     iconFontSize?: string;
     disabled?: boolean;
+    isBoxShadow?: boolean;
     onInput?: FormEventHandler<HTMLInputElement>
     onKeyDown?: FormEventHandler<HTMLInputElement>
     onBlur?: FormEventHandler<HTMLInputElement>;
@@ -33,7 +34,8 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
     backColor, width, height, borderRadius, children, color,
     fontSize, iconBackColor, iconBorderRadius,
     title, titleColor,  type, classN, onInput,
-    value, marginBottom, onKeyDown, onBlur, onFocus, onChange, border, iconFontSize, disabled
+    value, marginBottom, onKeyDown, onBlur, onFocus, onChange,
+     border, iconFontSize, disabled, isBoxShadow
 }: InputIconProps, ref: Ref<HTMLInputElement>) => {
     return (
         <div className={styles.inputicon}
@@ -43,7 +45,8 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
                 height: height,
                 borderRadius: borderRadius,
                 marginBottom: marginBottom,
-                border
+                border,
+                boxShadow: !isBoxShadow ? '5px 5px 10px rgba(0, 0, 0, 0.5)' : ''
             }}>
             <span className={styles.icon}
                 style={{
