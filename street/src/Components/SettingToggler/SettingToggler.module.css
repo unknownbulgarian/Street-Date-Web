@@ -1,0 +1,53 @@
+.toggler{
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    width: 90%;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    border-radius: 0.3em;
+    background-color: rgba(160, 97, 241, 0.192);
+    transition: all 0.3s;
+}
+
+.toggler:hover{
+    background-color: rgba(185, 136, 250, 0.192);
+}
+
+.all{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    width: 90%;
+    margin-left: 1em;
+}
+
+.checker{
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.checkbox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 17px;
+    height: 17px;
+    border: 1px solid rgba(255, 255, 255, 0.162);
+    cursor: pointer;
+}
+
+.tick{
+    transition: all 0.3s;
+}
+
+.toggler h2{
+    color: white;
+    font-size: 1.2rem;
+}
+
+.toggler p{
+    color: rgba(243, 243, 243, 0.753);
+    text-shadow: unset;
+    font-size: 0.9rem;
+}
