@@ -1089,6 +1089,11 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
         }
     }, [gameProgress])
 
+
+
+
+
+
     useEffect(() => {
         let skipInterval: any;
         if (roomId !== '') {
@@ -1121,7 +1126,7 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
 
             const data = responseData
 
-            console.log(data)
+            // console.log(data)
 
             if (data.error) {
 
@@ -1215,7 +1220,7 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
 
     useEffect(() => {
         if (!isSearching) {
-            //removeOnline()
+            removeOnline()
         }
     }, [isSearching])
 
@@ -1372,6 +1377,23 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
     return (
         <>
 
+            {!isOnline &&
+                <div style={{
+                    position: 'absolute',
+                    width: '100%',
+                    backgroundColor: 'red',
+                    paddingTop: '1em',
+                    paddingBottom: '1em',
+                    zIndex: '2',
+                    color: 'white',
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignContent: 'center'
+                }}>
+                    <p style={{paddingLeft: '2em', paddingRight: '2em'}}>Du bist offline, bitte stelle die Verbindung wieder her!</p>
+                </div>
+            }
+
 
             {error !== '' &&
                 <div className={styles.error} data-aos="fade-down">
@@ -1423,8 +1445,7 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
 
                         <div className={styles.questions}
                             style={{
-                                borderTop: gameProgress > 1 ? '1px solid rgba(255, 255, 255, 0.377)' : '',
-                                borderBottom: gameProgress > 1 ? '1px solid rgba(255, 255, 255, 0.377)' : '',
+
                             }}>
                             <div className={styles.firstquestion}>
 

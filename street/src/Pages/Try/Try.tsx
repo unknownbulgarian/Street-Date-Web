@@ -21,7 +21,7 @@ interface someone {
 
 export default function Try() {
 
-  const { removeOnline } = useOnlineProvider()
+  const { removeOnline, isOnline } = useOnlineProvider()
 
   const [username, setUsername] = useState<string>('')
   const [isUsername, setIsUsername] = useState<boolean>(true)
@@ -1554,6 +1554,20 @@ export default function Try() {
       {isOtherFound &&
         <>
 
+          {!isOnline &&
+            <div style={{
+              position: 'absolute',
+              width: '100%',
+              backgroundColor: 'red',
+              paddingTop: '2em',
+              paddingBottom: '2em',
+              zIndex: '2',
+              color: 'white'
+            }}>
+              <p style={{ paddingLeft: '2em', paddingRight: '2em' }}>Du bist offline, bitte stelle die Verbindung wieder her</p>
+            </div>
+          }
+
           {!isSkipped &&
             <div className={styles.skip}>
               <button onClick={() => { resetGame(); skipUser() }}>Überspringen / Weiter</button>
@@ -1568,8 +1582,7 @@ export default function Try() {
 
             <div className={styles.questions}
               style={{
-                borderTop: gameProgress > 1 ? '1px solid rgba(255, 255, 255, 0.377)' : '',
-                borderBottom: gameProgress > 1 ? '1px solid rgba(255, 255, 255, 0.377)' : '',
+
               }}>
               <div className={styles.firstquestion}>
 
