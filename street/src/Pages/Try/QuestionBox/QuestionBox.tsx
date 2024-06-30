@@ -1,12 +1,12 @@
 import React from 'react'
-import styles from './QuestionBox.module.css'
+import styles from '../QuestionBox.module.css'
 
 interface QuestionProps {
     gameProgress: number;
     isFirst: boolean;
     partnerUsername: string;
     question: string;
-    answer: string
+    answer: string;
     writeQuestion: (value: string) => void;
     writeAnswer: (value: string) => void;
 
@@ -23,14 +23,14 @@ export default function QuestionBox({ gameProgress, isFirst, writeQuestion, writ
 
             <div className={styles.thequestion}>
                 {gameProgress === firstNum && isFirst &&
-                    <input data-aos="fade-right" spellCheck={false} autoComplete='off' onKeyDown={(e) => {
+                    <input  spellCheck={false} autoComplete='off' onKeyDown={(e) => {
                         if (e.keyCode === 13) {
                             writeQuestion(e.currentTarget.value)
                         }
                     }}  className={`${styles.question}`} placeholder='Schreibe deine Frage auf'></input>
                 }
-                {gameProgress > firstNum &&
-                    <div className={styles.finalquestion} data-aos="fade-right">
+                {gameProgress > firstNum && question !== '' &&
+                    <div className={styles.finalquestion} >
                         <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{!isFirst && `${partnerUsername}`}</span> {!isFirst && 'fragt:'} {question}</p>
                     </div>
                 }
@@ -43,8 +43,8 @@ export default function QuestionBox({ gameProgress, isFirst, writeQuestion, writ
                     }
                 }} className={styles.answer} placeholder='Schreibe deine Antwort auf'></input>
                 }
-                {gameProgress > lastNum &&
-                    <div className={styles.finalanswer} data-aos="fade-left">
+                {gameProgress > lastNum && answer !== '' &&
+                    <div className={styles.finalanswer} >
                         <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{isFirst && `${partnerUsername}`}</span> {isFirst && 'sagt:'} {answer}</p>
                     </div>
                 }

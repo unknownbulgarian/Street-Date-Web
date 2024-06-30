@@ -1,5 +1,5 @@
 import React from 'react'
-import styles from './QuestionBox.module.css'
+import styles from '../QuestionBox.module.css'
 
 interface QuestionProps {
     gameProgress: number;
@@ -24,7 +24,7 @@ export default function QuestionBoxO({ gameProgress, isFirst, writeQuestion, wri
 
                 <div className={styles.thequestion}>
                     {gameProgress === firstNum && !isFirst &&
-                        <input spellCheck={false} autoComplete='off' data-aos="fade-left" onKeyDown={(e) => {
+                        <input spellCheck={false} autoComplete='off' onKeyDown={(e) => {
                             if (e.keyCode === 13) {
                                 writeQuestion(e.currentTarget.value)
                             }
@@ -32,8 +32,8 @@ export default function QuestionBoxO({ gameProgress, isFirst, writeQuestion, wri
                     }
 
 
-                    {gameProgress > firstNum &&
-                        <div className={styles.finalquestion} data-aos="fade-right">
+                    {gameProgress > firstNum && question !== '' &&
+                        <div className={styles.finalquestion} >
                             <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{isFirst && `${partnerUsername}`}</span> {isFirst && 'fragt:'} {question}</p>
                         </div>
                     }
@@ -41,7 +41,7 @@ export default function QuestionBoxO({ gameProgress, isFirst, writeQuestion, wri
                 </div>
 
                 <div className={styles.theanswer}>
-                    {isFirst && gameProgress === secondNum && <input spellCheck={false} autoComplete='off' data-aos="fade-right" onKeyDown={(e) => {
+                    {isFirst && gameProgress === secondNum && <input spellCheck={false} autoComplete='off'  onKeyDown={(e) => {
                         if (e.keyCode === 13) {
                             writeAnswer(e.currentTarget.value)
                         }
@@ -50,8 +50,8 @@ export default function QuestionBoxO({ gameProgress, isFirst, writeQuestion, wri
 
 
 
-                    {gameProgress > lastNum &&
-                        <div className={styles.finalanswer} data-aos="fade-left">
+                    {gameProgress > lastNum && answer !== '' &&
+                        <div className={styles.finalanswer}>
                             <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{!isFirst && `${partnerUsername}`}</span> {!isFirst && 'sagt:'} {answer}</p>
                         </div>
                     }
