@@ -13,9 +13,13 @@ import TextIcon from '../TextIcon/TextIcon';
 
 interface SettingsProps {
     close: MouseEventHandler<any>;
+    name: string;
+    photoUrl: string;
+    gender: string;
+    instagram: string;
 }
 
-export default function Settings({ close }: SettingsProps) {
+export default function Settings({ close, name, photoUrl, gender, instagram }: SettingsProps) {
 
     const [isParticles, setIsParticles] = useState<boolean>(true)
 
@@ -135,7 +139,7 @@ export default function Settings({ close }: SettingsProps) {
 
                                         <div className={styles.profileinputs}>
                                             <InputIcon
-                                                backColor='hsla(279, 100%, 76%, 0.322)'
+                                                backColor='hsla(272, 100%, 55%, 0.5)'
                                                 borderRadius='0.3em'
                                                 color='white'
                                                 title='Name'
@@ -152,7 +156,7 @@ export default function Settings({ close }: SettingsProps) {
                                             </InputIcon>
 
                                             <InputIcon
-                                                backColor='hsla(279, 100%, 76%, 0.322)'
+                                                backColor='hsla(272, 100%, 55%, 0.5)'
                                                 borderRadius='0.3em'
                                                 color='white'
                                                 title='Instagram'
@@ -176,12 +180,48 @@ export default function Settings({ close }: SettingsProps) {
                                             </select>
 
                                             <TextIcon
-                                            title='Aktualisierung'
-                                            
+                                                marginTop='0.3em'
+                                                title='Aktualisierung'
+                                                backgroundColor='hsla(272, 100%, 70%, 0.7)'
+                                                width='145px'
+                                                padding='0.3em'
+                                                titleColor='white'
+                                                borderRadius='0.3em'
+                                                color='white'
+                                                height='18px'
+                                                onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
+                                                onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
+                                                fontSize='0.9rem'
                                             >
                                                 <GrDocumentUpdate />
                                             </TextIcon>
                                         </div>
+                                    </div>
+                                </div>
+
+                                <div className={styles.gameinfo}>
+                                    <div className={styles.all}>
+                                        <h2>Ihr Vorzeigefoto</h2>
+                                        <p>Ändern Ihres Hauptfotos</p>
+                                        <img src={photoUrl}></img>
+                                        <input type="file" name="file" id="file" className={styles.inputfile} />
+                                        <label htmlFor="file">Wählen Sie ein Foto</label>
+                                        <TextIcon
+                                            marginTop='1em'
+                                            title='Aktualisierung'
+                                            backgroundColor='hsla(272, 100%, 70%, 0.7)'
+                                            width='145px'
+                                            padding='0.3em'
+                                            titleColor='white'
+                                            borderRadius='0.3em'
+                                            color='white'
+                                            height='18px'
+                                            onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
+                                            onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
+                                            fontSize='0.9rem'
+                                        >
+                                            <GrDocumentUpdate />
+                                        </TextIcon>
                                     </div>
                                 </div>
                             </>

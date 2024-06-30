@@ -13,8 +13,7 @@
     background-color: rgb(36, 8, 88);
     border-radius: 0.3em;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 
@@ -97,13 +96,15 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding-bottom: 3.5em;
     gap: 1em;
     flex: 1;
 }
 
 .gameinfo {
     width: 90%;
-    height: 200px;
     padding-top: 0.8em;
     padding-bottom: 0.8em;
     background-color: #a061f131;
@@ -127,7 +128,15 @@
 }
 
 .all {
+    display: flex;
+    flex-direction: column;
     margin-left: 1em;
+}
+
+.all img{
+    width: 200px;
+    border-radius: 0.3em;
+    margin-top: 1em;
 }
 
 .profileinputs{
@@ -138,7 +147,7 @@
 }
 
 .profileinputs select {
-    background-color: hsla(279, 100%, 76%, 0.322);
+    background-color: hsla(272, 100%, 55%, 0.5);
     border: none;
     width: 70%;
     border-radius: 0.3em;
@@ -151,4 +160,61 @@
 
 .profileinputs select option {
     background-color: rgb(130, 75, 218);
+}
+
+
+
+
+.right::-webkit-scrollbar {
+    width: 3px;
+    height: 3px;
+    cursor: pointer;
+}
+
+.right::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    cursor: pointer;
+}
+
+.right::-webkit-scrollbar-thumb {
+    background: #7b24ec;
+    border-radius: 0px;
+    cursor: pointer;
+}
+
+.right::-webkit-scrollbar-thumb:hover {
+    background: #7b24ec;
+}
+
+.inputfile {
+    width: 0.1px;
+    height: 0.1px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+    z-index: -1;
+}
+
+
+.inputfile+label {
+    font-size: 0.9rem;
+    font-weight: 400;
+    color: white;
+    background-color: hsla(272, 100%, 55%, 0.5);
+    border: none;
+    width: 180px;
+    margin-top: 0.5em;
+    outline: transparent;
+    display: inline-block;
+    height: 30px;
+    border-radius: 0.3em;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+    line-height: 30px;
+}
+
+
+.inputfile:focus+label {
+    outline: transparent;
 }
