@@ -10,9 +10,7 @@ import Navbar from '../../Components/Navbar/Navbar';
 
 import { IoIosSettings } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa6";
-import { IoPersonSharp } from "react-icons/io5";
-import { MdEmail } from "react-icons/md";
-import { IoMdClose } from "react-icons/io";
+import Settings from '../Settings/Settings.tsx';
 
 import { useSession } from '../../States/Session/Session';
 import { useOnlineProvider } from '../../States/Online/Online';
@@ -265,91 +263,7 @@ export default function ProfileArea() {
 
 
                     {isSettings &&
-                        <div className={styles.settings}>
-                            <div className={styles.settingsbox} data-aos="zoom-in">
-                                <span onClick={() => { setIsSettings(false); resetLogs() }} className={styles.settingsclose}><IoMdClose /></span>
-                                <h2>Profil-Einstellungen</h2>
-                                <div className={styles.thesettings}>
-                                    <h3>Spiel-Einstellungen</h3>
-                                    <select value={gender} onChange={(e) => { setGender(e.currentTarget.value) }}>
-                                        <option value=''>Wählen Sie Ihr Geschlecht</option>
-                                        <option value='Männlich'>Männlich</option>
-                                        <option value='Weiblich'>Weiblich</option>
-                                        <option value='Andere'>Andere</option>
-                                    </select>
-
-                                    <InputIcon
-                                        backColor='rgba(122, 12, 247, 0.856)'
-                                        border='none'
-                                        borderRadius='0.3em'
-                                        color='white'
-                                        height='30px'
-                                        title='Schreiben Sie Ihr Instagram'
-                                        titleColor='white'
-                                        width='320px'
-                                        value={instagram}
-                                        onInput={(e: any) => { setInstagram(e.currentTarget.value) }}
-                                        type='text'
-
-                                    >
-                                        <FaInstagram />
-                                    </InputIcon>
-
-                                    <input onChange={(e) => {
-                                        if (e.currentTarget.files && e.currentTarget.files[0]) {
-                                            setPhoto(e.currentTarget.files[0]);
-                                        }
-                                    }} type="file" name="file" id="file" className={styles.inputfile} />
-                                    <label htmlFor="file">Wählen Sie ein Foto</label>
-                                    <button onClick={() => { updateUserInfo() }}>Aktualisieren</button>
-                                    {success !== '' && successCode === 1 && <p data-aos="fade-right" className={styles.success}>{success}!</p>}
-                                    {error !== '' && errorCode === 1 && <p data-aos="fade-right" className={styles.error}>{error}!</p>}
-                                </div>
-
-                                <h2>Kontoeinstellungen</h2>
-                                <div className={styles.thesettings}>
-                                    <h3>Allgemein</h3>
-                                    <InputIcon
-                                        backColor='rgba(122, 12, 247, 0.856)'
-                                        border='none'
-                                        borderRadius='0.3em'
-                                        color='white'
-                                        height='30px'
-                                        title='Schreiben Sie Ihr Instagram'
-                                        titleColor='white'
-                                        width='320px'
-                                        value={name}
-                                        onInput={(e: any) => { setName(e.currentTarget.value) }}
-                                        type='text'
-
-                                    >
-                                        <IoPersonSharp />
-                                    </InputIcon>
-
-                                    <button onClick={() => { updateName() }}>Name aktualisieren</button>
-                                    {success !== '' && successCode === 2 && <p  className={styles.success}>{success}!</p>}
-                                    {error !== '' && errorCode === 2 && <p  className={styles.error}>{error}!</p>}
-                                    <InputIcon
-                                        backColor='rgba(122, 12, 247, 0.856)'
-                                        border='none'
-                                        borderRadius='0.3em'
-                                        color='white'
-                                        height='30px'
-                                        title='Schreiben Sie Ihr Instagram'
-                                        titleColor='white'
-                                        disabled={true}
-                                        width='320px'
-                                        value={email}
-                                        onInput={(e: any) => { setEmail(e.currentTarget.value) }}
-                                        type='text'
-
-                                    >
-                                        <MdEmail />
-                                    </InputIcon>
-
-                                </div>
-                            </div>
-                        </div>
+                        <Settings close={() => { setIsSettings(false); resetLogs() }} />
                     }
 
 
