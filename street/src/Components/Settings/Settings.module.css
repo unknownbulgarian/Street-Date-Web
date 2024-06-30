@@ -1,0 +1,154 @@
+.settingsbox {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    width: 680px;
+    height: 400px;
+    padding: 1em;
+    background-color: rgb(36, 8, 88);
+    border-radius: 0.3em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+
+.settingsclose {
+    position: absolute;
+    right: 1em;
+    top: 0.5em;
+    color: white;
+    font-size: 1.4rem;
+    cursor: pointer;
+}
+
+.settingstop {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.settingstop h2 {
+    color: white;
+    font-size: 1.3rem;
+}
+
+.settingprogress {
+    margin-top: 1em;
+    width: 100%;
+    height: 2px;
+    background: rgb(89, 60, 175);
+    background: linear-gradient(98deg, rgba(89, 60, 175, 1) 0%, rgba(66, 37, 154, 1) 100%);
+    border-radius: 0.3em;
+}
+
+.progress {
+    width: 15%;
+    height: 100%;
+    background: linear-gradient(45deg,
+            #8a2be2,
+            #da70d6,
+            #ba55d3,
+            #9400d3,
+            #8a2be2);
+    background-size: 400% 400%;
+    transition: all 800ms;
+}
+
+.mainsettings {
+    display: flex;
+    height: 100%;
+}
+
+.sidesetting {
+    display: flex;
+    flex-direction: column;
+    gap: 0.3em;
+    padding-right: 1em;
+    height: 100%;
+}
+
+.sidebox {
+    color: white;
+    transition: all 0.1s linear;
+    cursor: pointer;
+}
+
+.sidebox p {
+    padding-left: 1em;
+    padding-right: 1em;
+    padding-bottom: 0.2em;
+    padding-top: 0.2em;
+    transition: all 0.3s;
+}
+
+
+.sidebox p:hover {
+    background-color: rgba(103, 16, 189, 0.575);
+    color: rgb(247, 0, 255);
+}
+
+.right {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+    flex: 1;
+}
+
+.gameinfo {
+    width: 90%;
+    height: 200px;
+    padding-top: 0.8em;
+    padding-bottom: 0.8em;
+    background-color: #a061f131;
+    border-radius: 0.3em;
+    transition: all 0.3s;
+}
+
+.gameinfo:hover {
+    background-color: rgba(185, 136, 250, 0.192);
+}
+
+.gameinfo h2 {
+    color: white;
+    font-size: 1.2rem;
+    margin-bottom: 0.3em;
+}
+
+.gameinfo p {
+    color: rgba(243, 243, 243, 0.753);
+    font-size: 0.9rem;
+}
+
+.all {
+    margin-left: 1em;
+}
+
+.profileinputs{
+    display: flex;
+    flex-direction: column;
+    gap: 0.7em;
+    margin-top: 1em;
+}
+
+.profileinputs select {
+    background-color: hsla(279, 100%, 76%, 0.322);
+    border: none;
+    width: 70%;
+    border-radius: 0.3em;
+    outline: none;
+    height: 30px;
+    padding-left: 0.6em;
+    color: white;
+    cursor: pointer;
+}
+
+.profileinputs select option {
+    background-color: rgb(130, 75, 218);
+}
