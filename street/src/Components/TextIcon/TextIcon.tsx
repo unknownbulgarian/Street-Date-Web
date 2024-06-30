@@ -20,6 +20,7 @@ interface BoxIconProps {
     iconFontSize?: string;
     titleColor?: string;
     nav?: boolean;
+    marginTop?: string;
     textShadow?: string;
     onClick?: MouseEventHandler<HTMLDivElement>;
     onHover?:  MouseEventHandler<HTMLDivElement>;
@@ -29,10 +30,10 @@ interface BoxIconProps {
 export default function TextIcon({ width, height, borderRadius, backgroundColor,
     title, children, border, titleFontWeight, padding, 
     paddingLeft, paddingRight, textTransform, nav, transition, color, fontSize, iconFontSize,
-    onClick, onHover, onUnHover, titleColor, textShadow }: BoxIconProps) {
+    onClick, marginTop, onHover, onUnHover, titleColor, textShadow }: BoxIconProps) {
     return (
         <div onClick={onClick} onMouseOver={onHover} onMouseLeave={onUnHover} style={{ width, height, borderRadius, backgroundColor, 
-            border, paddingLeft, paddingRight, transition, color, fontSize, padding }} 
+            border, paddingLeft, paddingRight, transition, color, fontSize, padding, marginTop }} 
         className=
         {`${nav ? `${styles.box} ${styles.navhover}` : `${styles.box} ${styles.default}` }`}>
                <span style={{fontSize: iconFontSize}} className={styles.icon}>{children}</span>
