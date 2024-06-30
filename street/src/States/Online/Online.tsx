@@ -46,9 +46,9 @@ export const OnlineProvider: React.FC<OnlineProviderProps> = ({ children }) => {
                         } else {
                             setOnline(false);
                             if (isSession) {
-                                window.location.href = '/profilbereich'
+                            //    window.location.href = '/profilbereich'
                             } else {
-                                window.location.href = '/'
+                                //window.location.href = '/'
                             }
                         }
                     })
@@ -57,7 +57,7 @@ export const OnlineProvider: React.FC<OnlineProviderProps> = ({ children }) => {
                         setOnline(false);
                     });
             }
-        }, 5000);
+        }, 1000);
 
         return () => clearInterval(intervalId);
     }, []);
