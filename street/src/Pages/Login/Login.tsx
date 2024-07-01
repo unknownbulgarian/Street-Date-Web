@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styles from './Login.module.css'
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import API from '../../Utils/API';
 
@@ -13,8 +14,11 @@ import { MdOutlinePassword } from "react-icons/md";
 
 export default function Login() {
 
+    const router = useNavigate()
+
     const [email, setEmail] = useState<string>('')
     const [password, setPassword] = useState<string>('')
+
 
 
     const [error, setError] = useState<string>('')
@@ -38,6 +42,7 @@ export default function Login() {
                 setError(data.error)
             } else {
                 setError('')
+                router('/profilbereich')
                 localStorage.setItem('token', data.userId)
             }
 

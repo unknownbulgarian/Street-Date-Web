@@ -7,6 +7,7 @@ import { IoPersonSharp } from "react-icons/io5";
 import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 import API from '../../Utils/API'
 
@@ -18,6 +19,8 @@ interface error {
 }
 
 export default function Register() {
+
+    const router = useNavigate()
 
     const [isName, setIsName] = useState<boolean>(true)
     const [isEmail, setIsEmail] = useState<boolean>(true)
@@ -56,6 +59,7 @@ export default function Register() {
             } else {
                 setErrors([])
                 setError('')
+                router('/profilbereich')
                 localStorage.setItem('token', data.userId)
             }
 
