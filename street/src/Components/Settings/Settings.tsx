@@ -1,8 +1,9 @@
-import React, { MouseEventHandler, useEffect, useState } from 'react'
+import React, { Dispatch, MouseEventHandler, SetStateAction, useEffect, useState } from 'react'
 import styles from './Settings.module.css'
 import { IoMdClose } from "react-icons/io";
 import SettingToggler from '../SettingToggler/SettingToggler';
 import { GrDocumentUpdate } from "react-icons/gr";
+import API from '../../Utils/API';
 
 import InputIcon from '../InputIcon/InputIcon';
 
@@ -13,19 +14,27 @@ import TextIcon from '../TextIcon/TextIcon';
 
 interface SettingsProps {
     close: MouseEventHandler<any>;
+    setGender: Dispatch<SetStateAction<string>>;
+    setName: Dispatch<SetStateAction<string>>;
+    setInstagram: Dispatch<SetStateAction<string>>;
+    setPhoto: any;
     name: string;
     photoUrl: string;
     gender: string;
     instagram: string;
 }
 
-export default function Settings({ close, name, photoUrl, gender, instagram }: SettingsProps) {
+export default function Settings({ close, name, photoUrl, gender, instagram, setGender, setPhoto, setName, setInstagram }: SettingsProps) {
 
     const [isParticles, setIsParticles] = useState<boolean>(true)
 
 
     const [progress, setProgress] = useState<number>(1)
     const [progessP, setProgressP] = useState<string>('')
+    const [photoPreview, setPhotoPreview] = useState<any>('')
+
+    const [error, setError] = useState<string>('')
+    const [success, setSuccess] = useState<string>('')
 
     useEffect(() => {
         switch (progress) {
@@ -46,6 +55,43 @@ export default function Settings({ close, name, photoUrl, gender, instagram }: S
                 break;
         }
     }, [progress])
+
+
+
+    const updateUserInfo = async () => {
+        try {
+
+
+            const token = localStorage.getItem('token')
+
+            const response = await fetch(API.api + '/addUserInfoMember', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token, name, gender, instagram }),
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+
+            console.log(data)
+
+            if (data.error) {
+                setError(data.error)
+                setSuccess('')
+            } else {
+                setSuccess('Benutzerinformationen erfolgreich aktualisiert')
+                setError('')
+            }
+
+            // console.log(data)
+
+        } catch (error: any) {
+            //  console.log(error)
+        }
+    };
 
 
 
@@ -143,14 +189,14 @@ export default function Settings({ close, name, photoUrl, gender, instagram }: S
                                                 borderRadius='0.3em'
                                                 color='white'
                                                 title='Name'
+                                                value={name}
                                                 width='70%'
                                                 isBoxShadow={true}
                                                 titleColor='white'
                                                 height='30px'
                                                 type='text'
-                                                onFocus={() => { }}
                                                 border='unset'
-                                                onInput={(e: any) => { }}
+                                                onInput={(e) => { setName(e.currentTarget.value); }}
                                             >
                                                 <FaUser />
                                             </InputIcon>
@@ -159,21 +205,21 @@ export default function Settings({ close, name, photoUrl, gender, instagram }: S
                                                 backColor='hsla(272, 100%, 55%, 0.5)'
                                                 borderRadius='0.3em'
                                                 color='white'
+                                                value={instagram}
                                                 title='Instagram'
                                                 width='70%'
                                                 isBoxShadow={true}
                                                 titleColor='white'
                                                 height='30px'
                                                 type='text'
-                                                onFocus={() => { }}
                                                 border='unset'
-                                                onInput={(e: any) => { }}
+                                                onInput={(e) => { setInstagram(e.currentTarget.value) }}
                                             >
                                                 <IoLogoInstagram />
                                             </InputIcon>
 
-                                            <select>
-                                                <option>Wählen Sie Ihr Geschlecht</option>
+                                            <select value={gender} onChange={(e) => { setGender(e.currentTarget.value) }} >
+                                                {gender === '' && <option>Wählen Sie Ihr Geschlecht</option>}
                                                 <option value='Männlich'>Männlich</option>
                                                 <option value='Weiblich'>Weiblich</option>
                                                 <option value='Andere'>Andere</option>
@@ -192,6 +238,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram }: S
                                                 onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
                                                 onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
                                                 fontSize='0.9rem'
+                                                onClick={() => { updateUserInfo() }}
                                             >
                                                 <GrDocumentUpdate />
                                             </TextIcon>
@@ -203,8 +250,19 @@ export default function Settings({ close, name, photoUrl, gender, instagram }: S
                                     <div className={styles.all}>
                                         <h2>Ihr Vorzeigefoto</h2>
                                         <p>Ändern Ihres Hauptfotos</p>
-                                        <img src={photoUrl}></img>
-                                        <input type="file" name="file" id="file" className={styles.inputfile} />
+                                        <img alt="Selected file preview" src={photoPreview ? photoPreview : photoUrl}></img>
+                                        <input onChange={(e) => {
+                                            const files = e.currentTarget.files;
+
+                                            if (files && files.length > 0 && files[0]) {
+                                                const file = files[0];
+                                                const fileUrl = URL.createObjectURL(file);
+                                                setPhotoPreview(fileUrl);
+                                            } else {
+
+                                            }
+
+                                        }} type="file" name="file" id="file" className={styles.inputfile} />
                                         <label htmlFor="file">Wählen Sie ein Foto</label>
                                         <TextIcon
                                             marginTop='1em'

@@ -30,11 +30,8 @@ export default function ProfileArea() {
     const [name, setName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
 
-    const [error, setError] = useState<string>('')
-    const [success, setSuccess] = useState<string>('')
 
-    const [errorCode, setErrorCode] = useState<number>(1)
-    const [successCode, setSuccessCode] = useState<number>(1)
+
 
     useEffect(() => {
         if (isPlaying === false) {
@@ -42,10 +39,7 @@ export default function ProfileArea() {
         }
     }, [isPlaying])
 
-    const resetLogs = () => {
-        setError('')
-        setSuccess('')
-    }
+
 
 
 
@@ -78,45 +72,6 @@ export default function ProfileArea() {
         }
     }
 
-    const updateUserInfo = async () => {
-        try {
-            const formData = new FormData();
-            formData.append('gender', gender);
-            formData.append('instagram', instagram);
-            const token = localStorage.getItem('token');
-            if (token) {
-                formData.append('token', token);
-            }
-            if (photo) {
-                formData.append('photo', photo);
-            }
-            const response = await fetch(API.api + '/addUserInfoMember', {
-                method: 'POST',
-                body: formData,
-            });
-
-            const responseData = await response.json();
-
-            const data = responseData
-
-            //  console.log(data)
-
-            if (data.error) {
-                setError(data.error)
-                setErrorCode(1)
-                setSuccess('')
-            } else {
-                setSuccess('Benutzerinformationen erfolgreich aktualisiert')
-                setSuccessCode(1)
-                setError('')
-            }
-
-            // console.log(data)
-
-        } catch (error: any) {
-            //  console.log(error)
-        }
-    };
 
     const getUserInfo = async () => {
         try {
@@ -139,10 +94,8 @@ export default function ProfileArea() {
                 setGender(data.gender)
                 setInstagram(data.instagram)
                 setPhoto(data.photo)
-
-                if (data.photo === '') {
-                    setPhoto('e')
-                }
+                setName(data.name)
+             
             }
 
             //console.log(data)
@@ -194,14 +147,14 @@ export default function ProfileArea() {
             // console.log(data)
 
             if (data.error) {
-                setError(data.error)
-                setSuccess('')
-                setErrorCode(2)
+              //  setError(data.error)
+           //     setSuccess('')
+      
             } else {
-                setName(data.name)
-                setError('')
-                setSuccess('Name wurde erfolgreich aktualisiert')
-                setSuccessCode(2)
+               // setName(data.name)
+              //  setError('')
+            //    setSuccess('Name wurde erfolgreich aktualisiert')
+            //    setSuccessCode(2)
             }
             //console.log(data)
 
@@ -263,7 +216,16 @@ export default function ProfileArea() {
 
 
                     {isSettings &&
-                        <Settings close={() => { setIsSettings(false); resetLogs() }} />
+                        <Settings
+                            gender={gender}
+                            instagram={instagram}
+                            name={name}
+                            photoUrl={photo}
+                            setGender={setGender}
+                            setPhoto={setPhoto}
+                            setName={setName}
+                            setInstagram={setInstagram}
+                            close={() => { setIsSettings(false);  getUserInfo() }} />
                     }
 
 
