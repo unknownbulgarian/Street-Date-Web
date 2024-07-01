@@ -137,6 +137,42 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
         clearInterval(intervalRef.current)
     }
 
+    useEffect(() => {
+        if (answer !== '') {
+            writeHistory()
+        }
+    }, [answer])
+
+    const writeHistory = async () => {
+        const token = localStorage.getItem('token')
+        try {
+            const response = await fetch(API.api + '/writeHistory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token, roomId, isFirst, partnerUsername, myUserId: yourId, answer, img: photoUrl })
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+
+            console.log(data)
+
+            if (data.error) {
+
+            } else {
+
+            }
+
+            //console.log(data)
+
+        } catch (error: any) {
+            //  console.log(error)
+        }
+
+    }
 
 
     const getGameProgress = async (roomId: string) => {
@@ -1390,7 +1426,7 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
                     justifyContent: 'center',
                     alignContent: 'center'
                 }}>
-                    <p style={{paddingLeft: '2em', paddingRight: '2em'}}>Du bist offline, bitte stelle die Verbindung wieder her!</p>
+                    <p style={{ paddingLeft: '2em', paddingRight: '2em' }}>Du bist offline, bitte stelle die Verbindung wieder her!</p>
                 </div>
             }
 
