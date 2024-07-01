@@ -60,8 +60,6 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
     const updateUserInfo = async () => {
         try {
-
-
             const token = localStorage.getItem('token')
 
             const response = await fetch(API.api + '/addUserInfoMember', {
@@ -76,7 +74,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
             const data = responseData
 
-            console.log(data)
+            //console.log(data)
 
             if (data.error) {
                 setError(data.error)
@@ -90,6 +88,41 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
         } catch (error: any) {
             //  console.log(error)
+        }
+    };
+
+    const updatePhoto = async () => {
+        const token = localStorage.getItem('token')
+        const formData = new FormData();
+
+        if (token) {
+            formData.append('token', token);
+        }
+
+
+        if (photoUrl) {
+            formData.append('photo', photoUrl);
+        }
+
+        try {
+            const response = await fetch(API.api + '/updatePhoto', {
+                method: 'POST',
+                body: formData,
+            });
+
+            const responseData = await response.json();
+            const data = responseData;
+
+            //console.log(data)
+
+            if (data.error) {
+                setError(data.error);
+            } else {
+                //router.push('/Settings/Profile/Profile');
+                setError('');
+            }
+        } catch (error) {
+            console.error('Photo update failed', error);
         }
     };
 
@@ -257,6 +290,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             if (files && files.length > 0 && files[0]) {
                                                 const file = files[0];
                                                 const fileUrl = URL.createObjectURL(file);
+                                                setPhoto(file)
                                                 setPhotoPreview(fileUrl);
                                             } else {
 
@@ -274,6 +308,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             borderRadius='0.3em'
                                             color='white'
                                             height='18px'
+                                            onClick={() => { updatePhoto() }}
                                             onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
                                             onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
                                             fontSize='0.9rem'
