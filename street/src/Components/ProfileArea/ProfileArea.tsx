@@ -13,8 +13,11 @@ import Settings from '../Settings/Settings.tsx';
 
 import { useSession } from '../../States/Session/Session';
 import { useOnlineProvider } from '../../States/Online/Online';
+import { useNavigate } from 'react-router-dom';
 
 export default function ProfileArea() {
+
+    const router = useNavigate()
 
     const { removeOnline } = useOnlineProvider()
 
@@ -245,7 +248,7 @@ export default function ProfileArea() {
                                 <button className={styles.playbtn}>Jetzt spielen</button>
                             </div>
 
-                            <div onClick={() => { }} className={styles.box} data-aos="zoom-in">
+                            <div onClick={() => { router('/statistiken/' + localStorage.getItem('publicId')) }} className={styles.box} data-aos="zoom-in">
                                 <span className={styles.boxicon}><IoIosSettings /></span>
                                 <h2>Deine Statistiken</h2>
                                 <p>Du kannst deine Lebenszeitstatistik sehen</p>
