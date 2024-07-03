@@ -44,6 +44,7 @@ export default function Login() {
                 setError('')
                 router('/profilbereich')
                 localStorage.setItem('token', data.userId)
+                localStorage.setItem('publicId', data.publicId)
             }
 
             //console.log(data)

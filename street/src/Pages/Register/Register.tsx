@@ -61,6 +61,7 @@ export default function Register() {
                 setError('')
                 router('/profilbereich')
                 localStorage.setItem('token', data.userId)
+                localStorage.setItem('publicId', data.publicId)
             }
 
             //console.log(data)
