@@ -45,7 +45,7 @@ export default function Stats() {
       //console.log(data)
 
       if (data.error) {
-
+        LoaderTime.loader(setIsLoading)
       } else {
         setName(data.name)
         setInstagrams(data.instagramCount)
@@ -108,8 +108,10 @@ export default function Stats() {
       return 'orange'
     } else if (rizz < 100) {
       return 'green'
-    } else {
+    } else if (rizz === 100) {
       return 'lightgreen'
+    } else {
+      return 'red'
     }
   }
 
@@ -138,10 +140,19 @@ export default function Stats() {
                   <ImCool2 className={styles.staticon} />
                   <h3>Gesamter Rizz: <span style={{
                     color: getRizzColor()
-                  }}>{rizz}%</span></h3>
+                  }}>{rizz > 0 ? rizz.toFixed(0) : rizz}%</span></h3>
                 </div>
 
               </div>
+
+              {isAuth &&
+
+                <div className={styles.auth}>
+
+                </div>
+
+              }
+
             </div>
             :
             <div className={styles.notexist}>
