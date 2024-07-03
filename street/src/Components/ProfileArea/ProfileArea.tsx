@@ -3,7 +3,6 @@ import styles from './ProfileArea.module.css'
 
 import API from '../../Utils/API';
 
-import InputIcon from '../../Components/InputIcon/InputIcon';
 
 import DefaultGame from '../DefaultGame/DefaultGame.tsx';
 import Navbar from '../../Components/Navbar/Navbar';
@@ -29,6 +28,7 @@ export default function ProfileArea() {
 
     const [name, setName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
+
 
 
 
@@ -95,7 +95,7 @@ export default function ProfileArea() {
                 setInstagram(data.instagram)
                 setPhoto(data.photo)
                 setName(data.name)
-             
+
             }
 
             //console.log(data)
@@ -147,14 +147,14 @@ export default function ProfileArea() {
             // console.log(data)
 
             if (data.error) {
-              //  setError(data.error)
-           //     setSuccess('')
-      
+                //  setError(data.error)
+                //     setSuccess('')
+
             } else {
-               // setName(data.name)
-              //  setError('')
-            //    setSuccess('Name wurde erfolgreich aktualisiert')
-            //    setSuccessCode(2)
+                // setName(data.name)
+                //  setError('')
+                //    setSuccess('Name wurde erfolgreich aktualisiert')
+                //    setSuccessCode(2)
             }
             //console.log(data)
 
@@ -225,7 +225,7 @@ export default function ProfileArea() {
                             setPhoto={setPhoto}
                             setName={setName}
                             setInstagram={setInstagram}
-                            close={() => { setIsSettings(false);  getUserInfo() }} />
+                            close={() => { setIsSettings(false); getUserInfo() }} />
                     }
 
 
@@ -245,7 +245,7 @@ export default function ProfileArea() {
                                 <button className={styles.playbtn}>Jetzt spielen</button>
                             </div>
 
-                            <div className={styles.box} data-aos="zoom-in">
+                            <div onClick={() => { }} className={styles.box} data-aos="zoom-in">
                                 <span className={styles.boxicon}><IoIosSettings /></span>
                                 <h2>Deine Statistiken</h2>
                                 <p>Du kannst deine Lebenszeitstatistik sehen</p>
@@ -259,7 +259,6 @@ export default function ProfileArea() {
 
 
             {isPlaying && <DefaultGame setIsPlaying={setIsPlaying} />}
-
 
 
         </>
