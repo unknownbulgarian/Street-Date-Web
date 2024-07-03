@@ -1,0 +1,41 @@
+.area {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    gap: 4em;
+    width: 100%;
+}
+
+.area h1 {
+    color: white;
+}
+
+.stats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 3em;
+}
+
+.statbox{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.3em;
+}
+
+.statbox h3{
+    color: white;
+    font-weight: 300;
+    font-size: 0.9rem;
+}
+
+.staticon{
+    color: white;
+    font-size: 1.8rem;
+}
+
