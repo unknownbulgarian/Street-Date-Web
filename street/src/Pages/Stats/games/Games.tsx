@@ -209,7 +209,7 @@ export default function Games() {
 
                                 {games?.map((game, index) => (
                                     <React.Fragment key={index}>
-                                        <div className={styles.gamebox}>
+                                        <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
                                             <h2>Du hast gespielt mit
                                                 <span style={{
                                                     color: 'hsla(293, 100%, 79%, 1)'
@@ -244,7 +244,7 @@ export default function Games() {
                                     borderRadius='0.3em'
                                     width='140px'
                                     height='25px'
-                                    onClick={() => {router('/statistiken/' + publicId)}}
+                                    onClick={() => { router('/statistiken/' + publicId) }}
                                 >
                                     <IoMdArrowRoundBack />
                                 </TextIcon>
@@ -257,7 +257,7 @@ export default function Games() {
                                     borderRadius='0.3em'
                                     width='170px'
                                     height='25px'
-                                    onClick={() => {router('/dokumentation')}}
+                                    onClick={() => { router('/dokumentation') }}
                                 >
                                     <IoIosDocument />
                                 </TextIcon>
