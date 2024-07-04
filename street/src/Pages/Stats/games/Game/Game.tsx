@@ -42,6 +42,7 @@ export default function Game() {
     const [gameProgress, setGameProgress] = useState<number>(15)
     const [photoUrl, setPhotoUrl] = useState<string>('')
     const [isFirst, setIsFirst] = useState<boolean>(false)
+    const [isLoading, setIsLoading] = useState<boolean>(true)
     const [data, setData] = useState<GameProps>(
         { answers: [], createdAt: '', finalAnswer: '', first: false, img: '', myUserId: '', partnerUsername: '', questions: [], roomId: '', users: [] }
     )
@@ -97,9 +98,10 @@ export default function Game() {
             console.log(data)
 
             if (data.error) {
+                LoaderTime.loader(setIsLoading)
                 router(`/statistiken/${publicId}/spiele/1`)
             } else {
-                //LoaderTime.loader(setIsLoading)
+                LoaderTime.loader(setIsLoading)
                 setIsFirst(data.first)
                 setPhotoUrl(data.img)
                 setData(data)
@@ -120,99 +122,103 @@ export default function Game() {
         <>
 
 
+            {isLoading && <Loader />}
+
+
+            {!isLoading &&
+                <>
+                    <div className={styles.found}>
+                        <div className={styles.foundmain} data-aos="fade-down">
+                            <h1>Du hattest ein Blind Date mit {data?.partnerUsername}</h1>
+                            <p>Die Geschichte des Spiels {game}</p>
+                        </div>
+
+                        <div className={styles.questions}
+                            style={{
+
+                            }}>
+                            <div className={styles.firstquestion}>
+
+                                {data.questions.map((game, index) => (
+                                    <React.Fragment key={index}>
+                                        {index <= 2 &&
+                                            <QuestionBox
+                                                writeQuestion={() => { }}
+                                                writeAnswer={() => { }}
+                                                question={game.question}
+                                                answer={game.answer}
+                                                isFirst={isFirst}
+                                                gameProgress={gameProgress}
+                                                partnerUsername={data?.partnerUsername}
+                                                firstNum={1}
+                                                secondNum={2}
+                                                lastNum={2}
+                                            />
+                                        }
+
+                                    </React.Fragment>
+                                ))}
 
 
 
-
-            <div className={styles.found}>
-                <div className={styles.foundmain} data-aos="fade-down">
-                    <h1>Du hattest ein Blind Date mit {data?.partnerUsername}</h1>
-                    <p>Die Geschichte des Spiels {game}</p>
-                </div>
-
-                <div className={styles.questions}
-                    style={{
-
-                    }}>
-                    <div className={styles.firstquestion}>
-
-                        {data.questions.map((game, index) => (
-                            <React.Fragment key={index}>
-                                {index <= 2 &&
-                                    <QuestionBox
-                                        writeQuestion={() => { }}
-                                        writeAnswer={() => { }}
-                                        question={game.question}
-                                        answer={game.answer}
-                                        isFirst={isFirst}
-                                        gameProgress={gameProgress}
-                                        partnerUsername={data?.partnerUsername}
-                                        firstNum={1}
-                                        secondNum={2}
-                                        lastNum={2}
-                                    />
-                                }
-
-                            </React.Fragment>
-                        ))}
-
-
-
-                    </div>
-
-                    {gameProgress > 6 && <p data-aos="fade-right" className={styles.middletxt}>{isFirst ? 'Nun wird Ihnen die Person 3 Fragen stellen' : 'Jetzt kannst du der Person 3 Fragen stellen'}</p>}
-
-
-                    <div className={styles.firstquestion}>
-                        {data.questions.map((game, index) => (
-                            <React.Fragment key={index}>
-                                {index > 2 &&
-                                    <QuestionBoxO
-                                        writeQuestion={() => { }}
-                                        writeAnswer={() => { }}
-                                        question={game.question}
-                                        answer={game.answer}
-                                        isFirst={isFirst}
-                                        gameProgress={gameProgress}
-                                        partnerUsername={data?.partnerUsername}
-                                        firstNum={7}
-                                        secondNum={8}
-                                        lastNum={8}
-                                    />
-                                }
-
-
-                            </React.Fragment>
-                        ))}
-
-
-
-                    </div>
-
-                </div>
-
-                {gameProgress > 12 &&
-                    <div className={styles.showphoto}>
-                        <h2>Endgültige Ergebnisse</h2>
-                        {photoUrl === '' &&
-                            <div className={styles.timerdiv}>
-                                <p className={styles.timertxt}>Zeigen des Fotos der anderen Person in 5 Sekunden.</p>
-                                <div className={styles.thetimer}></div>
                             </div>
-                        }
-                        {photoUrl !== '' &&
-                            <div className={styles.interests}>
-                                {data.finalAnswer !== '' &&
-                                    <div className={styles.finalanswer}>
-                                        <p><span style={{ textDecoration: 'underline' }}>{data?.partnerUsername}</span> {` sagt: ${data.finalAnswer}`}</p>
+
+                            {gameProgress > 6 && <p data-aos="fade-right" className={styles.middletxt}>{isFirst ? 'Nun wird Ihnen die Person 3 Fragen stellen' : 'Jetzt kannst du der Person 3 Fragen stellen'}</p>}
+
+
+                            <div className={styles.firstquestion}>
+                                {data.questions.map((game, index) => (
+                                    <React.Fragment key={index}>
+                                        {index > 2 &&
+                                            <QuestionBoxO
+                                                writeQuestion={() => { }}
+                                                writeAnswer={() => { }}
+                                                question={game.question}
+                                                answer={game.answer}
+                                                isFirst={isFirst}
+                                                gameProgress={gameProgress}
+                                                partnerUsername={data?.partnerUsername}
+                                                firstNum={7}
+                                                secondNum={8}
+                                                lastNum={8}
+                                            />
+                                        }
+
+
+                                    </React.Fragment>
+                                ))}
+
+
+
+                            </div>
+
+                        </div>
+
+                        {gameProgress > 12 &&
+                            <div className={styles.showphoto}>
+                                <h2>Endgültige Ergebnisse</h2>
+                                {photoUrl === '' &&
+                                    <div className={styles.timerdiv}>
+                                        <p className={styles.timertxt}>Zeigen des Fotos der anderen Person in 5 Sekunden.</p>
+                                        <div className={styles.thetimer}></div>
                                     </div>
                                 }
+                                {photoUrl !== '' &&
+                                    <div className={styles.interests}>
+                                        {data.finalAnswer !== '' &&
+                                            <div className={styles.finalanswer}>
+                                                <p><span style={{ textDecoration: 'underline' }}>{data?.partnerUsername}</span> {` sagt: ${data.finalAnswer}`}</p>
+                                            </div>
+                                        }
+                                    </div>
+                                }
+
                             </div>
                         }
-
                     </div>
-                }
-            </div>
+                </>
+            }
+
         </>
 
     )
