@@ -16,7 +16,7 @@ import { ParticlesComponent } from './Components/ParticlesComponent/ParticlesCom
 import Register from './Pages/Register/Register.tsx'
 import Login from './Pages/Login/Login.tsx'
 import Try from './Pages/Try/Try.tsx'
-import ProfileArea from './Components/ProfileArea/ProfileArea.tsx'
+import ProfileArea from './Pages/ProfileArea/ProfileArea.tsx'
 import Stats from './Pages/Stats/Stats.tsx'
 import Games from './Pages/Stats/games/Games.tsx'
 

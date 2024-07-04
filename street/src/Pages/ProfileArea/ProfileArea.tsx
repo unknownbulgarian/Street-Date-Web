@@ -1,18 +1,18 @@
 import React, { useEffect, useState } from 'react'
 import styles from './ProfileArea.module.css'
 
-import API from '../../Utils/API';
+import API from '../../Utils/API.tsx';
 
 
-import DefaultGame from '../DefaultGame/DefaultGame.tsx';
-import Navbar from '../../Components/Navbar/Navbar';
+import DefaultGame from '../../Components/DefaultGame/DefaultGame.tsx';
+import Navbar from '../../Components/Navbar/Navbar.tsx';
 
 import { IoIosSettings } from "react-icons/io";
 import { FaInstagram } from "react-icons/fa6";
-import Settings from '../Settings/Settings.tsx';
+import Settings from '../../Components/Settings/Settings.tsx';
 
-import { useSession } from '../../States/Session/Session';
-import { useOnlineProvider } from '../../States/Online/Online';
+import { useSession } from '../../States/Session/Session.tsx';
+import { useOnlineProvider } from '../../States/Online/Online.tsx';
 import { useNavigate } from 'react-router-dom';
 
 export default function ProfileArea() {
