@@ -1,0 +1,68 @@
+.games{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    gap: 2em;
+}
+
+.search {
+    display: flex;
+    justify-content: center;
+}
+
+.thegames{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.gamebox{
+    display: flex;
+    align-items: center;
+    width: 700px;
+    background-color: rgba(184, 102, 255, 0.5);
+    border-radius: 0.3em;
+    padding: 0.4em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.gamebox:hover{
+    background-color: rgba(184, 102, 255, 0.9);
+}
+
+.gamebox h2{
+    margin-left: 0.5em;
+    color: white;
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.gamebox p{
+    margin-left: auto;
+    margin-right: 0.5em;
+    color: rgb(238, 229, 229);
+}
+
+.nogames{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    font-size: 1.3rem;
+    color: white;
+}
+
+.btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+    margin-top: 0.8em;
+}
