@@ -18,20 +18,21 @@ export default function Navbar() {
             </div>
 
             <div className={styles.hrefs}>
-                <Link  className='link' to='/'><p>Startseite</p></Link>
-                <Link  className='link' to='/herunterladen'><p>Herunterladen</p></Link>
-                <Link className='link' to='/Über'><p>über</p></Link>
-                {isSession && <Link  className='link' to='/profilbereich'><p>Profilbereich</p></Link>}
+                <Link className='link' to='/'><p>Startseite</p></Link>
+                <Link className='link' to='/herunterladen'><p>Herunterladen</p></Link>
+                <Link className='link' to='/herunterladen'><p className={styles.dates}>Erkunde Dates</p></Link>
+                <Link className='link' to='/dokumentation'><p>Dokumentation</p></Link>
+                {isSession && <Link className='link' to='/profilbereich'><p>Profilbereich</p></Link>}
                 {!isSession &&
                     <>
-                        <Link  className='link' to='/registrierung'><p>Registrieren</p></Link>
+                        <Link className='link' to='/registrierung'><p>Registrieren</p></Link>
                         <Link className='link' to='/anmelden'> <p>Anmeldung</p></Link>
                     </>
                 }
             </div>
 
             <div className={styles.discord}>
-                <span onClick={() => {window.open('https://discord.gg/YDWqmevJxk', '_blank')}}><FaDiscord /></span>
+                <span onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}><FaDiscord /></span>
             </div>
         </div>
     )

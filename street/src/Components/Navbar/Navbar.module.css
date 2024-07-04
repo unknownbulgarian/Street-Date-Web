@@ -50,6 +50,14 @@
     cursor: pointer;
 }
 
+.dates{
+    color: hsla(287, 100%, 79%, 1) !important;
+}
+
+.dates:hover {
+    color: rgb(172, 98, 241) !important;
+}
+
 @keyframes expander {
     0% {
         transform: scale(1);
@@ -63,3 +71,5 @@
         transform: scale(1);
     }
 }
+
+
