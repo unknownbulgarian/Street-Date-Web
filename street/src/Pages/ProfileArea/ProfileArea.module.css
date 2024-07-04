@@ -71,9 +71,9 @@
 }
 
 
-
 .stepsbox {
     position: absolute;
+    z-index: 2;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%) !important;
@@ -83,10 +83,10 @@
     align-items: center;
     gap: 1em;
     width: 480px;
-    padding: 1em;
+    padding: 1.5em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     background-color: rgb(36, 8, 88);
     border-radius: 0.3em;
-    border: 2px solid rgba(255, 255, 255, 0.493);
 }
 
 .stepsbox h2 {
@@ -95,7 +95,7 @@
     color: white;
     padding-left: 1em;
     padding-right: 1em;
-    font-size: 1.7rem;
+    font-size: 1.5rem;
 }
 
 .stepsbox p {
@@ -103,6 +103,7 @@
     color: rgb(233, 229, 229);
     padding-left: 1em;
     padding-right: 1em;
+    font-size: 0.9rem;
 }
 
 .stepsbox button {
@@ -110,7 +111,7 @@
     border: none;
     width: 160px;
     height: 25px;
-    background-color: rgba(147, 100, 224, 0.671);
+    background-color: rgba(147, 100, 224, 0.781);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     color: white;
     cursor: pointer;
