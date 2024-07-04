@@ -6,13 +6,12 @@ interface BoxIconProps {
     height: string;
     borderRadius: string;
     backgroundColor: string;
-    title: string;
+    title: any;
     children: ReactNode;
     border?: string;
     fontSize?: string;
     color?: string;
     titleFontWeight?: string;
-    padding?: string;
     paddingLeft?: string;
     paddingRight?: string;
     textTransform?: any;
@@ -29,12 +28,12 @@ interface BoxIconProps {
 }
 
 export default function TextIcon({ width, height, borderRadius, backgroundColor,
-    title, children, border, titleFontWeight, padding, 
+    title, children, border, titleFontWeight, 
     paddingLeft, paddingRight, textTransform, nav, transition, color, fontSize, iconFontSize,
     onClick, marginTop, onHover, onUnHover, titleColor, textShadow,boxShadow }: BoxIconProps) {
     return (
         <div onClick={onClick} onMouseOver={onHover} onMouseLeave={onUnHover} style={{ width, height, borderRadius, backgroundColor, 
-            border, paddingLeft, paddingRight, transition, color, fontSize, padding, marginTop, boxShadow }} 
+            border, paddingLeft, paddingRight, transition, color, fontSize, marginTop, boxShadow }} 
         className=
         {`${nav ? `${styles.box} ${styles.navhover}` : `${styles.box} ${styles.default}` }`}>
                <span style={{fontSize: iconFontSize}} className={styles.icon}>{children}</span>
