@@ -18,6 +18,7 @@ import Login from './Pages/Login/Login.tsx'
 import Try from './Pages/Try/Try.tsx'
 import ProfileArea from './Components/ProfileArea/ProfileArea.tsx'
 import Stats from './Pages/Stats/Stats.tsx'
+import Games from './Pages/Stats/games/Games.tsx'
 
 //Guards
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
@@ -37,6 +38,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='/anmelden' element={<LoginGuardRoute component={Login} />} />
             <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
             <Route path='/statistiken/:publicId' element={<Stats />} />
+            <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
           </Routes>
 
         </OnlineProvider>
