@@ -8,9 +8,11 @@ import './index.css'
 import { AOSProvider } from './States/AOS/AOS.tsx'
 import { SessionProvider } from './States/Session/Session.tsx'
 import { OnlineProvider } from './States/Online/Online.tsx'
+import { BlankProvider } from './States/BlankState/BlankState.tsx'
 
 //Other
 import { ParticlesComponent } from './Components/ParticlesComponent/ParticlesComponent.tsx'
+import Blank from './Components/Blank/Blank.tsx'
 
 //Pages
 import Register from './Pages/Register/Register.tsx'
@@ -30,18 +32,19 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
     <BrowserRouter>
       <SessionProvider>
         <OnlineProvider>
-
-          <ParticlesComponent />
-          <Routes>
-            <Route path='/' element={<App />} />
-            <Route path='/versuchen' element={<LoginGuardRoute component={Try} />} />
-            <Route path='/registrierung' element={<LoginGuardRoute component={Register} />} />
-            <Route path='/anmelden' element={<LoginGuardRoute component={Login} />} />
-            <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
-            <Route path='/statistiken/:publicId' element={<Stats />} />
-            <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
-            <Route path='/statistiken/:publicId/spiele/geschichte/:game' element={<Game />} />
-          </Routes>
+          <BlankProvider>
+            <ParticlesComponent />
+            <Routes>
+              <Route path='/' element={<App />} />
+              <Route path='/versuchen' element={<LoginGuardRoute component={Try} />} />
+              <Route path='/registrierung' element={<LoginGuardRoute component={Register} />} />
+              <Route path='/anmelden' element={<LoginGuardRoute component={Login} />} />
+              <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
+              <Route path='/statistiken/:publicId' element={<Stats />} />
+              <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
+              <Route path='/statistiken/:publicId/spiele/geschichte/:game' element={<Game />} />
+            </Routes>
+          </BlankProvider>
         </OnlineProvider>
       </SessionProvider>
     </BrowserRouter>
