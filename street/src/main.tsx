@@ -40,7 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
             <Route path='/statistiken/:publicId' element={<Stats />} />
             <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
-            <Route path='/statistiken/:publicId/spiele/:page/:game' element={<Game />} />
+            <Route path='/statistiken/:publicId/spiele/geschichte/:game' element={<Game />} />
           </Routes>
         </OnlineProvider>
       </SessionProvider>
