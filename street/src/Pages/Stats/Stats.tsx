@@ -73,7 +73,6 @@ export default function Stats() {
 
   const getAuth = async () => {
     const token = localStorage.getItem('token')
-    const publicId = localStorage.getItem('publicId')
     try {
       const response = await fetch(API.api + '/getAuth', {
         method: 'POST',
@@ -87,7 +86,7 @@ export default function Stats() {
 
       const data = responseData
 
-      //console.log(data)
+      console.log(data)
 
       if (data.error) {
         setIsAuth(false)
