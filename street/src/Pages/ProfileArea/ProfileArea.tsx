@@ -14,12 +14,16 @@ import Settings from '../../Components/Settings/Settings.tsx';
 import { useSession } from '../../States/Session/Session.tsx';
 import { useOnlineProvider } from '../../States/Online/Online.tsx';
 import { useNavigate } from 'react-router-dom';
+import { useBlank } from '../../States/BlankState/BlankState.tsx';
+import Blank from '../../Components/Blank/Blank.tsx';
 
 export default function ProfileArea() {
 
     const router = useNavigate()
 
     const { removeOnline } = useOnlineProvider()
+
+    const { isBlank, toggleBlank, enableBlank } = useBlank()
 
     const [isUserInfo, setIsUserInfo] = useState<boolean>(true)
     const [isPlaying, setIsPlaying] = useState<boolean>(false)
@@ -32,7 +36,18 @@ export default function ProfileArea() {
     const [name, setName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
 
+    const [settingProgress, setSettingProgress] = useState<number>(1)
 
+
+
+    useEffect(() => {
+        if (!isUserInfo) {
+            enableBlank()
+        }
+        if (isSettings) {
+            enableBlank()
+        }
+    }, [isUserInfo, isSettings])
 
 
 
@@ -204,6 +219,7 @@ export default function ProfileArea() {
 
     return (
         <>
+            <Blank />
             {!isPlaying &&
                 <>
                     <Navbar />
@@ -211,8 +227,16 @@ export default function ProfileArea() {
                         <div className={styles.firststeps}>
                             <div className={styles.stepsbox} data-aos="fade-down">
                                 <h2>Du hast dein Konto immer noch nicht eingerichtet !</h2>
-                                <p>Suchen Sie nach Ihren Profileinstellungen und geben Sie die erforderlichen Informationen ein.</p>
-                                <button onClick={() => { setIsUserInfo(true) }}>Schließen</button>
+                                <p>Gehe zu: <span onClick={() => { setIsUserInfo(true); setSettingProgress(4); setIsSettings(true) }}
+                                    style={{
+                                        textDecoration: 'underline',
+                                        color: 'hsla(293, 100%, 79%, 1)',
+                                        cursor: 'pointer'
+                                    }}
+                                >Profil bearbeiten {'>'} Das Spiel
+                                </span>
+                                </p>
+                                <button onClick={() => { setIsUserInfo(true); toggleBlank(); }}>Schließen</button>
                             </div>
                         </div>
                     }
@@ -228,7 +252,9 @@ export default function ProfileArea() {
                             setPhoto={setPhoto}
                             setName={setName}
                             setInstagram={setInstagram}
-                            close={() => { setIsSettings(false); getUserInfo() }} />
+                            progress={settingProgress}
+                            setProgress={setSettingProgress}
+                            close={() => { setIsSettings(false); getUserInfo(); toggleBlank() }} />
                     }
 
 
