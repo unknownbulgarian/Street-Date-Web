@@ -1,0 +1,316 @@
+.error {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    padding: 1em;
+    z-index: 5;
+    background-color: red;
+    width: 100%;
+}
+
+
+.error p {
+    padding-left: 1em;
+    padding-right: 1em;
+    color: white;
+}
+
+.success {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    height: 40px;
+    padding: 1em;
+    z-index: 5;
+    background-color: green;
+    width: 100%;
+}
+
+.success p {
+    padding-left: 1em;
+    padding-right: 1em;
+    color: white;
+}
+
+
+
+.search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 100vh;
+    gap: 1em;
+}
+
+.search button {
+    width: 140px;
+    height: 30px;
+    border: none;
+    background-color: rgba(118, 66, 216, 0.651);
+    border-radius: 0.3em;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    cursor: pointer;
+}
+
+
+.searchicon {
+    color: white;
+    font-size: 1.6rem;
+    animation: search 2s infinite;
+}
+
+.found {
+    display: flex;
+    flex-direction: column;
+}
+
+.foundmain {
+    position: relative;
+    padding: 1em;
+    text-align: center;
+}
+
+.foundmain h1 {
+    color: white;
+}
+
+.foundmain p {
+    color: white;
+}
+
+.questions {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    gap: 1em;
+}
+
+.firstquestion {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1.2em;
+}
+
+
+.middletxt {
+    margin-top: 1em;
+    margin-bottom: 1em;
+    font-weight: 400;
+    padding-top: 0.5em;
+    padding-bottom: 0.5em;
+    text-align: center;
+    width: 400px;
+    border-top: 1px solid white;
+    border-bottom: 1px solid white;
+    color: white;
+}
+
+.timerdiv {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.timertxt {
+    color: white;
+    font-weight: 500;
+    font-size: 1rem;
+    margin-top: 1em;
+}
+
+.thetimer {
+    width: 100%;
+    height: 4px;
+    background-color: rgb(181, 89, 243);
+    animation: timerdiv 5s forwards;
+}
+
+@keyframes timerdiv {
+    0% {
+        width: 100%;
+    }
+
+    50% {
+        width: 50%;
+    }
+
+    100% {
+        width: 0;
+    }
+}
+
+.showphoto {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1em;
+    padding-bottom: 2em;
+    transition: all 0.3s;
+}
+
+.showphoto h2 {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.showphoto img {
+    width: 600px;
+    margin-top: 1.5em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0.3em;
+}
+
+.interests {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 1.5em;
+}
+
+.interests h2 {
+    color: white;
+    text-align: center;
+}
+
+.optionsin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-bottom: 2px solid white;
+    padding-bottom: 1em;
+    gap: 0.5em;
+}
+
+.optionsin button {
+    cursor: pointer;
+    border-radius: 0.3em;
+    border: none;
+    height: 30px;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 450px;
+    font-weight: 500;
+}
+
+.positive {
+    background-color: rgb(8, 146, 8);
+}
+
+.positived {
+    background-color: rgba(89, 163, 89, 0.808);
+}
+
+.middlepositive {
+    background-color: rgb(233, 74, 74);
+}
+
+.reject {
+    background-color: red;
+}
+
+.finalanswer {
+    margin-top: 0.5em;
+    padding-bottom: 1em;
+}
+
+.finalanswer p {
+    text-align: center;
+    color: rgb(255, 255, 255);
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+
+.skip button {
+    border-radius: 0.3em;
+    color: white;
+    border: none;
+    width: 195px;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    font-size: 1rem;
+    font-weight: 500;
+    height: 30px;
+    background-color: orange;
+    cursor: pointer;
+}
+
+.exit {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    z-index: 1;
+    right: 0.5em;
+    bottom: 0.5em;
+}
+
+.exit .exitbtn {
+    border-radius: 0.3em;
+    color: white;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border: none;
+    width: 130px;
+    font-size: 1rem;
+    font-weight: 500;
+    height: 30px;
+    background-color: red;
+    margin-left: auto;
+    cursor: pointer;
+}
+
+.skipdiv {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+    gap: 0.7em;
+}
+
+.skiptxt {
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    text-align: center;
+}
+
+.skipdiv button {
+    border-radius: 0.3em;
+    background-color: green;
+    border: none;
+    font-weight: 500;
+    width: 170px;
+    height: 25px;
+    color: white;
+    cursor: pointer;
+}
+
+@keyframes search {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.3);
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
