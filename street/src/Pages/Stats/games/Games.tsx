@@ -75,7 +75,7 @@ export default function Games() {
                 LoaderTime.loader(setIsLoading)
                 router('/statistiken/' + publicId)
             } else {
-                await getAuth()
+                 getAuth()
             }
 
             //console.log(data)
@@ -107,7 +107,7 @@ export default function Games() {
 
             } else {
                 //LoaderTime.loader(setIsLoading)
-                await getGames()
+                 getGames()
             }
 
             //console.log(data)
