@@ -118,6 +118,8 @@ export default function Stats() {
       return 'green'
     } else if (rizz >= 100) {
       return 'lightgreen'
+    } else {
+      return 'red'
     }
   }
 
