@@ -97,7 +97,7 @@ export default function Game() {
 
             const data = responseData
 
-            console.log(data)
+           // console.log(data)
 
             if (data.error) {
                 LoaderTime.loader(setIsLoading)
@@ -141,8 +141,9 @@ export default function Game() {
                                 marginTop="1em"
                                 borderRadius="0.3em"
                                 height="30px"
-                                onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 1)' }}
-                                onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 0.8)' }}
+                                onClick={() => {router(`/hochladen/${game}`)}}
+                                onHover={(e) => {e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 1)'}}
+                                onUnHover={(e) => {e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 0.8)'}}
                             >
                                 <FaCloudUploadAlt />
                             </TextIcon>
