@@ -22,14 +22,15 @@ interface SettingsProps {
     photoUrl: string;
     gender: string;
     instagram: string;
+    progress: number;
+    setProgress: Dispatch<SetStateAction<number>>;
 }
 
-export default function Settings({ close, name, photoUrl, gender, instagram, setGender, setPhoto, setName, setInstagram }: SettingsProps) {
+export default function Settings({ close, name, photoUrl, gender, instagram, setGender, setPhoto, setName, setInstagram, progress, setProgress }: SettingsProps) {
 
     const [isParticles, setIsParticles] = useState<boolean>(true)
 
 
-    const [progress, setProgress] = useState<number>(1)
     const [progessP, setProgressP] = useState<string>('')
     const [photoPreview, setPhotoPreview] = useState<any>('')
 
@@ -263,11 +264,10 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                                 title='Aktualisierung'
                                                 backgroundColor='hsla(272, 100%, 70%, 0.7)'
                                                 width='145px'
-                                                padding='0.3em'
                                                 titleColor='white'
                                                 borderRadius='0.3em'
                                                 color='white'
-                                                height='18px'
+                                                height='25px'
                                                 onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
                                                 onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
                                                 fontSize='0.9rem'
@@ -305,11 +305,10 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             title='Aktualisierung'
                                             backgroundColor='hsla(272, 100%, 70%, 0.7)'
                                             width='145px'
-                                            padding='0.3em'
                                             titleColor='white'
                                             borderRadius='0.3em'
                                             color='white'
-                                            height='18px'
+                                            height='25px'
                                             onClick={() => { updatePhoto() }}
                                             onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
                                             onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
