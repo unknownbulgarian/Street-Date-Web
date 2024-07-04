@@ -1,9 +1,13 @@
 import styles from './Blank.module.css'
+import { useBlank } from '../../States/BlankState/BlankState'
 
 export default function Blank() {
-  return (
-    <div className={styles.blank}>
 
-    </div>
-  )
+    const { isBlank } = useBlank()
+
+    return (
+        <>
+            {isBlank && <div className={styles.blank}></div>}
+        </>
+    )
 }
