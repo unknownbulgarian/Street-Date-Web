@@ -23,6 +23,7 @@ import Games from './Pages/Stats/games/Games.tsx'
 //Guards
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
 import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
+import Game from './Pages/Stats/games/Game/Game.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -39,8 +40,8 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
             <Route path='/statistiken/:publicId' element={<Stats />} />
             <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
+            <Route path='/statistiken/:publicId/spiele/:page/:game' element={<Game />} />
           </Routes>
-
         </OnlineProvider>
       </SessionProvider>
     </BrowserRouter>
