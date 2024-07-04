@@ -8,6 +8,8 @@ import styles from './Game.module.css'
 
 import QuestionBox from "../../../Try/QuestionBox/QuestionBox"
 import QuestionBoxO from "../../../Try/QuestionBoxO/QuestionBoxO"
+import TextIcon from "../../../../Components/TextIcon/TextIcon"
+import { FaCloudUploadAlt } from "react-icons/fa";
 
 interface answers {
     userId: string;
@@ -131,6 +133,19 @@ export default function Game() {
                         <div className={styles.foundmain} data-aos="fade-down">
                             <h1>Du hattest ein Blind Date mit {data?.partnerUsername}</h1>
                             <p>Die Geschichte des Spiels {game}</p>
+                            <TextIcon
+                                title='Spiel hochladen'
+                                color="white"
+                                backgroundColor="hsla(290, 100%, 69%, 0.8)"
+                                width="180px"
+                                marginTop="1em"
+                                borderRadius="0.3em"
+                                height="30px"
+                                onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 1)' }}
+                                onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 0.8)' }}
+                            >
+                                <FaCloudUploadAlt />
+                            </TextIcon>
                         </div>
 
                         <div className={styles.questions}
