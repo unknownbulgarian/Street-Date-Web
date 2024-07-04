@@ -282,8 +282,10 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                 <div className={styles.gameinfo}>
                                     <div className={styles.all}>
                                         <h2>Ihr Vorzeigefoto</h2>
-                                        <p>Ändern Ihres Hauptfotos</p>
-                                        <img alt="Selected file preview" src={photoPreview ? photoPreview : photoUrl}></img>
+                                        <p style={{
+                                            marginBottom: photoPreview ? '' : '1em'
+                                        }}>Ändern Ihres Hauptfotos</p>
+                                        {photoPreview && <img alt="Selected file preview" src={photoPreview ? photoPreview : photoUrl}></img>}
                                         <input onChange={(e) => {
                                             const files = e.currentTarget.files;
 
