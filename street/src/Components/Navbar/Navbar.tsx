@@ -20,7 +20,7 @@ export default function Navbar() {
             <div className={styles.hrefs}>
                 <Link className='link' to='/'><p>Startseite</p></Link>
                 <Link className='link' to='/herunterladen'><p>Herunterladen</p></Link>
-                <Link className='link' to='/herunterladen'><p className={styles.dates}>Erkunde Dates</p></Link>
+                <Link className='link' to='/erkunden'><p className={styles.dates}>Erkunde Dates</p></Link>
                 <Link className='link' to='/dokumentation'><p>Dokumentation</p></Link>
                 {isSession && <Link className='link' to='/profilbereich'><p>Profilbereich</p></Link>}
                 {!isSession &&
