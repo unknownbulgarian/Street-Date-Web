@@ -5,6 +5,7 @@ import Pagination from '../../Components/Pagination/Pagination'
 import Loader from '../../Components/Loader/Loader'
 import LoaderTime from '../../Utils/LoaderTime'
 
+import { useNavigate } from 'react-router-dom'
 import { useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
 
@@ -53,6 +54,8 @@ export default function Explore() {
 
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
+    const router = useNavigate()
+
     const getPublicPosts = async () => {
         try {
             const response = await fetch(API.api + '/getPublicPosts', {
@@ -99,10 +102,12 @@ export default function Explore() {
 
                     <div className={styles.posts}>
                         {posts?.map((post, index) => (
-                            <div key={index} className={styles.post}>
+                            <div
+                            onClick={() => {router(`/erkunden/${page}/${post.roomId}`)}} 
+                             key={index} className={styles.post}>
                                 <h2>{post.title[0].toUpperCase() + post.title.slice(1)}</h2>
                                 <p>[Gepostet von
-                                   <span className={styles.poster}> {post.from} </span>
+                                   <span onClick={(e) => {router(`/statistiken/${post.publicId}`); e.stopPropagation()}} className={styles.poster}> {post.from} </span>
                                     am
                                     <span className={styles.date}> {post.Date} </span>]
                                 </p>
