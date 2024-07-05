@@ -14,7 +14,7 @@ const OnlineContext = createContext<ContextType | undefined>(undefined);
 export const useOnlineProvider = () => {
     const context = useContext(OnlineContext);
     if (!context) {
-        throw new Error('useApiUrl must be used within an ApiUrlProvider');
+        throw new Error('');
     }
     return context;
 };
