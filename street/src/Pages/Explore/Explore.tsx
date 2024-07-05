@@ -69,7 +69,7 @@ export default function Explore() {
             const responseData = await response.json();
 
             const data = responseData
-            console.log(data)
+            //console.log(data)
 
             if (data.errors) {
 
@@ -127,7 +127,6 @@ export default function Explore() {
                         onPageChange={setCurrentPage}
                         currentPage={Number(page)}
                         totalPages={totalPages}
-
                     />
                 </>
             }
