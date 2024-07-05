@@ -75,7 +75,7 @@ export default function Games() {
                 LoaderTime.loader(setIsLoading)
                 router('/statistiken/' + publicId)
             } else {
-                 getAuth()
+                getAuth()
             }
 
             //console.log(data)
@@ -107,7 +107,7 @@ export default function Games() {
 
             } else {
                 //LoaderTime.loader(setIsLoading)
-                 getGames()
+                getGames()
             }
 
             //console.log(data)
@@ -223,6 +223,7 @@ export default function Games() {
 
                             {games &&
                                 <Pagination
+                                    routing={`/statistiken/${publicId}/spiele/${page}`}
                                     publicId={publicId}
                                     currentPage={Number(page)}
                                     totalPages={totalPages}
