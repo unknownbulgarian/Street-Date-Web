@@ -1,0 +1,92 @@
+.upload{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.uploadbox{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 500px;
+    padding: 1em;
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+    background-color: hsla(0, 0%, 0%, 0.527);
+    border-radius: 0.3em;
+}
+
+.uploadbox h2{
+    padding: 0.5em;
+    color: white;
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
+
+.input{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 0.5em;
+}
+
+.categories p{
+    margin-top: 0.5em;
+    color: rgb(240, 237, 237);
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.thecategories{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1em;
+    gap: 0.5em;
+}
+
+.categoriebox{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   background-color: rgb(136, 109, 233);
+   padding-left: 0.6em;
+   padding-right:0.6em;
+   box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+   border-radius: 0.3em;
+   height: 20px;
+   transition: all 0.3s;
+   cursor: pointer;
+}
+
+.categoriebox h3{
+    color: white;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.categoriebox:hover{
+    background-color: rgba(80, 35, 240, 0.719);
+}
+
+.error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 1em;
+    color: red;
+}
+
+.error p{
+    padding-left: 1em;
+    padding-right: 1em;
+    text-align: center;
+}
