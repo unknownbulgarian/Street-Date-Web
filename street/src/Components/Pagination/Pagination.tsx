@@ -14,17 +14,18 @@ interface PaginationProps {
     currentPage: number;
     totalPages: number;
     onPageChange: Dispatch<SetStateAction<number>>;
-    publicId: string | undefined;
+    publicId?: string | undefined;
+    routing: string;
 }
 
-export default function Pagination({ currentPage, totalPages, onPageChange, publicId }: PaginationProps) {
+export default function Pagination({ currentPage, totalPages, onPageChange, publicId, routing }: PaginationProps) {
 
     const navigate = useNavigate();
     
 
     const handlePageChange = (page: number) => {
         if (page < 1 || page > totalPages) return;
-        navigate(`/statistiken/${publicId}/spiele/${page}`);
+        navigate(routing);
     };
 
     const generatePageNumbers = () => {
