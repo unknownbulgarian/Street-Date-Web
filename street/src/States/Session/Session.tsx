@@ -19,7 +19,7 @@ const SessionContext = createContext<ContextType | undefined>(undefined);
 export const useSession = () => {
     const context = useContext(SessionContext);
     if (!context) {
-        throw new Error('useApiUrl must be used within an ApiUrlProvider');
+        throw new Error('');
     }
     return context;
 };
