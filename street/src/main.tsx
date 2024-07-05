@@ -46,7 +46,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
               <Route path='/statistiken/:publicId/spiele/geschichte/:game' element={<Game />} />
               <Route path='/hochladen/:game' element={<ProtectedRoute component={Upload} />} />
-              <Route path='/erkunden' element={<Explore />} />
+              <Route path='/erkunden/:page' element={<Explore />} />
             </Routes>
           </BlankProvider>
         </OnlineProvider>
