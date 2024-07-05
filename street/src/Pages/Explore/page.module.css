@@ -1,0 +1,83 @@
+.posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    gap: 0.5em;
+}
+
+.post {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 60px;
+    background-color: rgba(193, 87, 255, 0.623);
+    border-radius: 0.3em;
+    transition: all 0.3s;
+
+    cursor: pointer;
+}
+
+.post:hover{
+    background-color: rgba(193, 87, 255, 0.923);
+}
+
+.posts h2 {
+    font-weight: 500;
+    padding-left: 1em;
+    padding-right: 1em;
+    font-size: 1.3rem;
+    color: rgb(252, 246, 246);
+}
+
+.posts p{
+    color: rgb(247, 241, 241);
+}
+
+.categories {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 0.5em;
+}
+
+
+.categoriebox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(283, 100%, 66%, 0.5);
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+    border-radius: 0.3em;
+    height: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.categoriebox h3 {
+    color: white;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.categoriebox:hover {
+    background-color: hsla(283, 100%, 66%, 0.9);
+}
+
+.poster{
+    color: hsla(299, 100%, 79%, 1);
+    font-weight: 800;
+}
+
+.date {
+    color: rgb(211, 171, 235);
+}
