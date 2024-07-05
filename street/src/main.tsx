@@ -28,6 +28,7 @@ import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
 import Game from './Pages/Stats/games/Game/Game.tsx'
 import Upload from './Pages/Upload/Upload.tsx'
 import Explore from './Pages/Explore/Explore.tsx'
+import ExploreGame from './Pages/Explore/ExploreGame/ExploreGame.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -47,6 +48,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path='/statistiken/:publicId/spiele/geschichte/:game' element={<Game />} />
               <Route path='/hochladen/:game' element={<ProtectedRoute component={Upload} />} />
               <Route path='/erkunden/:page' element={<Explore />} />
+              <Route path='/erkunden/:page/:game' element={<ExploreGame />} />
             </Routes>
           </BlankProvider>
         </OnlineProvider>
