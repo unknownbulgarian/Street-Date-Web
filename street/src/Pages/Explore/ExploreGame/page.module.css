@@ -96,7 +96,7 @@
     align-items: center;
     justify-content: center;
     transition: all 0.3s;
-    padding-top: 2em;
+    padding-top: 1em;
     padding-bottom: 2em;
     gap: 1em;
 }
@@ -317,6 +317,44 @@
 
 .uploaddate {
     color: rgb(211, 171, 235);
+}
+
+.titleedit {
+    display: flex;
+    justify-content: center;
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    max-width: 1200px;
+    word-wrap: break-word;
+    word-break: break-word;
+    overflow-wrap: break-word;
+    white-space: normal;
+    text-align: center;
+}
+
+.titledit span {
+    outline: transparent;
+}
+
+.editicon {
+    font-size: 1.1rem;
+    padding-left: 0.5em;
+    color: hsla(290, 100%, 77%, 1);
+    cursor: pointer;
+}
+
+.removetitle {
+    margin-top: 1em;
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+}
+
+.trashicon {
+    font-size: 1.3rem;
+    color: red;
+    cursor: pointer;
 }
 
 @keyframes search {
