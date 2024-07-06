@@ -9,7 +9,9 @@ import { IoIosDocument } from "react-icons/io";
 
 import styles from './Games.module.css'
 
-
+import { FaRegTrashAlt } from "react-icons/fa";
+import { FaCloudUploadAlt } from "react-icons/fa";
+import { FaEye } from "react-icons/fa";
 
 import Pagination from '../../../Components/Pagination/Pagination';
 import InputIcon from '../../../Components/InputIcon/InputIcon';
@@ -39,6 +41,7 @@ interface games {
     myUserId: string;
     partnerUsername: string;
     questions: Array<questions>
+    isPublic: boolean;
     roomId: string;
     users: Array<string>
 }
@@ -53,6 +56,29 @@ export default function Games() {
     const [totalPages, setTotalPages] = useState<number>(1);
 
     const [games, setGames] = useState<Array<games>>()
+
+    const [isPublicGames, setIsPublicGames] = useState<boolean>(false)
+    const [isPrivateGames, setIsPrivateGames] = useState<boolean>(false)
+
+    const togglePublicGames = () => {
+        setIsPublicGames(p => !p)
+    }
+
+    const togglePrivateGames = () => {
+        setIsPrivateGames(p => !p)
+    }
+
+    useEffect(() => {
+        if (isPrivateGames) {
+            setIsPublicGames(false)
+        }
+    }, [isPrivateGames])
+
+    useEffect(() => {
+        if (isPublicGames) {
+            setIsPrivateGames(false)
+        }
+    }, [isPublicGames])
 
 
     const getUserInfo = async () => {
@@ -147,6 +173,35 @@ export default function Games() {
         }
     }
 
+    const removeGame = async (roomId: string) => {
+        const token = localStorage.getItem('token')
+        try {
+            const response = await fetch(API.api + '/removeLocalGame', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token, roomId })
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+
+            //console.log(data)
+
+            if (data.error) {
+
+            } else {
+                location.reload()
+            }
+
+            //console.log(data)
+
+        } catch (error: any) {
+        }
+    }
+
     const searchGames = async (value: string) => {
         const token = localStorage.getItem('token')
         try {
@@ -205,18 +260,97 @@ export default function Games() {
                                 </InputIcon>
                             </div>
 
+                            <div className={styles.filters}>
+                                <p>Filtern:</p>
+                                <div className={styles.thefilters}>
+                                    <div
+                                        style={{
+                                            backgroundColor: isPublicGames ? 'hsla(246, 100%, 72%, 1)' : ''
+                                        }}
+                                        onClick={() => { togglePublicGames() }} className={styles.filterbox}>
+                                        <p>Öffentliche Spiele</p>
+                                    </div>
+
+                                    <div
+                                        style={{
+                                            backgroundColor: isPrivateGames ? 'hsla(246, 100%, 72%, 1)' : ''
+                                        }}
+                                        onClick={() => { togglePrivateGames() }} className={styles.filterbox}>
+                                        <p>Private Spiele</p>
+                                    </div>
+                                </div>
+                            </div>
+
                             <div className={styles.thegames}>
 
                                 {games?.map((game, index) => (
                                     <React.Fragment key={index}>
-                                        <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
-                                            <h2>Du hast gespielt mit
-                                                <span style={{
-                                                    color: 'hsla(293, 100%, 79%, 1)'
-                                                }}> {game.partnerUsername}</span>
-                                            </h2>
-                                            <p>{game.createdAt}</p>
-                                        </div>
+                                        {!isPrivateGames && !isPublicGames &&
+                                            <div className={styles.gamecontainer}>
+                                                <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
+                                                    <h2>Du hast gespielt mit
+                                                        <span style={{
+                                                            color: 'hsla(293, 100%, 79%, 1)'
+                                                        }}> {game.partnerUsername}</span>
+                                                    </h2>
+                                                    <p>{game.createdAt}</p>
+                                                </div>
+
+                                                <div className={styles.actions}>
+                                                    <FaRegTrashAlt onClick={() => { removeGame(game.roomId) }} className={styles.trashicon} />
+                                                    {game.isPublic !== true
+                                                        &&
+                                                        <FaCloudUploadAlt onClick={() => { router(`/hochladen/${game.roomId}`) }} className={styles.uploadicon} />
+                                                    }
+                                                    {game.isPublic === true && <FaEye className={styles.eyeicon} />}
+                                                </div>
+                                            </div>
+                                        }
+
+                                        {isPrivateGames &&
+                                            <>
+                                                {!game.isPublic &&
+                                                    <div className={styles.gamecontainer}>
+                                                        <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
+                                                            <h2>Du hast gespielt mit
+                                                                <span style={{
+                                                                    color: 'hsla(293, 100%, 79%, 1)'
+                                                                }}> {game.partnerUsername}</span>
+                                                            </h2>
+                                                            <p>{game.createdAt}</p>
+                                                        </div>
+
+                                                        <div className={styles.actions}>
+                                                            <FaRegTrashAlt onClick={() => { removeGame(game.roomId) }} className={styles.trashicon} />
+                                                            <FaCloudUploadAlt onClick={() => { router(`/hochladen/${game.roomId}`) }} className={styles.uploadicon} />
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </>
+                                        }
+
+                                        {isPublicGames &&
+                                            <>
+                                                {game.isPublic === true &&
+                                                    <div className={styles.gamecontainer}>
+                                                        <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
+                                                            <h2>Du hast gespielt mit
+                                                                <span style={{
+                                                                    color: 'hsla(293, 100%, 79%, 1)'
+                                                                }}> {game.partnerUsername}</span>
+                                                            </h2>
+                                                            <p>{game.createdAt}</p>
+                                                        </div>
+
+                                                        <div className={styles.actions}>
+                                                            <FaRegTrashAlt onClick={() => { removeGame(game.roomId) }} className={styles.trashicon} />
+                                                            <FaEye className={styles.eyeicon} />
+                                                        </div>
+                                                    </div>
+                                                }
+                                            </>
+                                        }
+
                                     </React.Fragment>
                                 ))}
                             </div>
