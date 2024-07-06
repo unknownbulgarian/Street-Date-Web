@@ -15,17 +15,23 @@ interface PaginationProps {
     totalPages: number;
     onPageChange: Dispatch<SetStateAction<number>>;
     publicId?: string | undefined;
-    routing: string;
+    isGames?: boolean;
+    isPosts?: boolean;
 }
 
-export default function Pagination({ currentPage, totalPages, onPageChange, publicId, routing }: PaginationProps) {
+export default function Pagination({ currentPage, totalPages, onPageChange, publicId, isGames, isPosts }: PaginationProps) {
 
     const navigate = useNavigate();
     
 
     const handlePageChange = (page: number) => {
         if (page < 1 || page > totalPages) return;
-        navigate(routing);
+        if(isGames === true) {
+            navigate(`/statistiken/${publicId}/spiele/${page}`);
+        }
+        if(isPosts === true) {
+            navigate(`/erkunden/${page}`);
+        }
     };
 
     const generatePageNumbers = () => {
