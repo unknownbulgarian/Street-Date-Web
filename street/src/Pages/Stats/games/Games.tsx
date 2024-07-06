@@ -223,9 +223,9 @@ export default function Games() {
 
                             {games &&
                                 <Pagination
-                                    routing={`/statistiken/${publicId}/spiele/${page}`}
                                     publicId={publicId}
                                     currentPage={Number(page)}
+                                    isGames={true}
                                     totalPages={totalPages}
                                     onPageChange={setCurrentPage}
                                 />
