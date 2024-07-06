@@ -123,7 +123,6 @@ export default function Explore() {
                     </div>
 
                     <Pagination
-                        routing={`/erkunden/${page}`}
                         onPageChange={setCurrentPage}
                         currentPage={Number(page)}
                         totalPages={totalPages}
