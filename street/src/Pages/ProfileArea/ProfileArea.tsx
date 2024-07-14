@@ -222,7 +222,7 @@ export default function ProfileArea() {
             <Blank />
             {!isPlaying &&
                 <>
-                    <Navbar />
+                    <Navbar tab={5} />
                     {!isUserInfo &&
                         <div className={styles.firststeps}>
                             <div className={styles.stepsbox} data-aos="fade-down">

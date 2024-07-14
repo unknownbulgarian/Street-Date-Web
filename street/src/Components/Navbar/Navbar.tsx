@@ -7,7 +7,11 @@ import { useSession } from '../../States/Session/Session';
 
 import { FaDiscord } from "react-icons/fa";
 
-export default function Navbar() {
+interface NavProps {
+    tab?: number;
+}
+
+export default function Navbar({ tab }: NavProps) {
 
     const { isSession } = useSession()
 
@@ -18,15 +22,15 @@ export default function Navbar() {
             </div>
 
             <div className={styles.hrefs}>
-                <Link className='link' to='/'><p>Startseite</p></Link>
-                <Link className='link' to='/herunterladen'><p>Herunterladen</p></Link>
-                <Link className='link' to='/erkunden/1'><p className={styles.dates}>Erkunde Dates</p></Link>
-                <Link className='link' to='/dokumentation'><p>Dokumentation</p></Link>
-                {isSession && <Link className='link' to='/profilbereich'><p>Profilbereich</p></Link>}
+                <Link className='link' to='/'><p className={`${tab === 1 ? styles.selected : ''}`}>Startseite</p></Link>
+                <Link className='link' to='/herunterladen'><p className={`${tab === 2 ? styles.selected : ''}`}>Herunterladen</p></Link>
+                <Link className='link' to='/erkunden/1'><p className={`${tab === 3 ? styles.selected : ''}`}>Erkunde Dates</p></Link>
+                <Link className='link' to='/dokumentation'><p className={`${tab === 4 ? styles.selected : ''}`}>Dokumentation</p></Link>
+                {isSession && <Link className='link' to='/profilbereich'><p className={`${tab === 5 ? styles.selected : ''}`}>Profilbereich</p></Link>}
                 {!isSession &&
                     <>
-                        <Link className='link' to='/registrierung'><p>Registrieren</p></Link>
-                        <Link className='link' to='/anmelden'> <p>Anmeldung</p></Link>
+                        <Link className='link' to='/registrierung'><p className={`${tab === 6 ? styles.selected : ''}`}>Registrieren</p></Link>
+                        <Link className='link' to='/anmelden'> <p className={`${tab === 7 ? styles.selected : ''}`}>Anmeldung</p></Link>
                     </>
                 }
             </div>

@@ -129,7 +129,7 @@ export default function Stats() {
 
       {!isLoading && (
         <>
-          <Navbar />
+          <Navbar tab={5} />
 
 
 
