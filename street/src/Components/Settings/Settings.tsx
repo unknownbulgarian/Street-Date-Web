@@ -35,7 +35,10 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
     const [photoPreview, setPhotoPreview] = useState<any>('')
 
     const [error, setError] = useState<string>('')
+    const [errorNum, setErrorNum] = useState<number>(0)
+
     const [success, setSuccess] = useState<string>('')
+    const [successNum, setSuccessNum] = useState<number>(0)
 
     useEffect(() => {
         switch (progress) {
@@ -79,9 +82,13 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
             if (data.error) {
                 setError(data.error)
+                setErrorNum(1)
                 setSuccess('')
+                setSuccessNum(0)
             } else {
                 setSuccess('Benutzerinformationen erfolgreich aktualisiert')
+                setSuccessNum(1)
+                setErrorNum(0)
                 setError('')
             }
 
@@ -118,9 +125,15 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
             if (data.error) {
                 setError(data.error);
+                setErrorNum(2)
+                setSuccess('')
+                setSuccessNum(0)
             } else {
                 //router.push('/Settings/Profile/Profile');
+                setSuccess('')
+                setSuccessNum(2)
                 setError('');
+                setErrorNum(0)
             }
         } catch (error) {
             console.error('Photo update failed', error);
@@ -275,6 +288,19 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             >
                                                 <GrDocumentUpdate />
                                             </TextIcon>
+
+                                            {error !== '' && errorNum === 1 && <p style={{
+                                                color: 'red',
+                                                fontWeight: '500'
+                                            }} >{error} !</p>}
+
+                                            {success !== '' && successNum === 1 &&
+                                                <p style={{
+                                                    color: 'green',
+                                                    fontWeight: '500'
+                                                }} >{success} !</p>}
+
+
                                         </div>
                                     </div>
                                 </div>
@@ -316,6 +342,21 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                         >
                                             <GrDocumentUpdate />
                                         </TextIcon>
+
+                                        {error !== '' && errorNum === 2 && <p style={{
+                                            color: 'red',
+                                            fontWeight: '500',
+                                            marginTop: '1em'
+                                        }} >{error} !</p>}
+
+                                        {success !== '' && successNum === 2 &&
+                                            <p style={{
+                                                color: 'green',
+                                                fontWeight: '500',
+                                                marginTop: '1em'
+                                            }} >{success} !</p>}
+
+
                                     </div>
                                 </div>
                             </>
