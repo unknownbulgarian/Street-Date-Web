@@ -21,6 +21,7 @@ import Try from './Pages/Try/Try.tsx'
 import ProfileArea from './Pages/ProfileArea/ProfileArea.tsx'
 import Stats from './Pages/Stats/Stats.tsx'
 import Games from './Pages/Stats/games/Games.tsx'
+import Documentation from './Pages/Documentation/Documentation.tsx'
 
 //Guards
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
@@ -49,6 +50,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path='/hochladen/:game' element={<ProtectedRoute component={Upload} />} />
               <Route path='/erkunden/:page' element={<Explore />} />
               <Route path='/erkunden/:page/:game' element={<ExploreGame />} />
+              <Route path='/dokumentation' element={<Documentation />} />
             </Routes>
           </BlankProvider>
         </OnlineProvider>
