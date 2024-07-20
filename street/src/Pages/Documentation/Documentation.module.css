@@ -3,6 +3,7 @@
 }
 
 .side {
+    position: relative;
     display: flex;
     flex-direction: column;
     width: 280px;
@@ -12,6 +13,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border-top-right-radius: 0.3em;
     border-bottom-right-radius: 0.3em;
+    overflow: hidden;
 }
 
 .top {
@@ -22,6 +24,7 @@
     padding-top: 1em;
     padding-bottom: 1em;
     background-color: rgba(255, 69, 240, 0.185);
+    gap: 1em;
     width: 100%;
 }
 
@@ -30,13 +33,63 @@
     font-weight: 600;
 }
 
-.themain{
+.themain {
     display: flex;
     gap: 1em;
     height: 100%;
 }
 
+.content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+    overflow-x: hidden;
+    overflow-y: auto;
+}
+
+.maintitle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width: 1100px;
+    height: 140px;
+    border-radius: 0.3em;
+    background-color: rgba(255, 0, 230, 0.644);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mainicon {
+    color: white;
+    font-size: 2.1rem;
+}
+
+.maintitle h1 {
+    color: white;
+}
+
+.thecontent {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    margin-top: 2.5em;
+    width: 1100px;
+    color: rgb(244, 238, 238);
+}
+
+.header {
+    font-size: 1.4rem;
+    font-weight: 450;
+}
+
+.small {
+    color: rgb(225, 224, 224);
+}
+
+
 .theside {
+    position: relative;
     display: flex;
     align-items: center;
     height: 100%;
@@ -55,16 +108,9 @@
     position: relative;
     top: 0px;
     height: 9%;
-    width: 2px;
-    background: linear-gradient(45deg,
-            #8a2be2,
-            #da70d6,
-            #ba55d3,
-            #9400d3,
-            #8a2be2);
-    background-size: 400% 400%;
+    width: 1px;
+    background-color: rgb(255, 109, 209);
     transition: all 800ms;
-    animation: shining 3s ease infinite;
 }
 
 .boxes {
@@ -88,7 +134,7 @@
     cursor: pointer;
 }
 
-.box:hover{
+.box:hover {
     background-color: rgba(0, 0, 0, 0.151);
 }
 
@@ -105,16 +151,68 @@
     margin-right: 0.5em;
 }
 
-@keyframes shining {
-    0% {
-        background-position: 0% 50%;
-    }
+.backarrow {
+    font-size: 1.4rem;
+    cursor: pointer;
+}
 
-    50% {
-        background-position: 100% 50%;
+.rightL {
+    position: relative;
+    animation: rightToLeft 0.6s forwards;
+}
+
+.leftL {
+    position: absolute;
+    animation: leftToRight 0.6s forwards;
+
+}
+
+.reverse {
+    position: relative;
+    animation: reverse2 0.6s forwards;
+}
+
+.op {
+    animation: opac 0.8s forwards;
+}
+
+
+@keyframes opac {
+    0% {
+        opacity: 0;
     }
 
     100% {
-        background-position: 0% 50%;
+        opacity: 1;
+    }
+}
+
+@keyframes rightToLeft {
+    0% {
+        left: 600px;
+    }
+
+    100% {
+        left: 0px;
+    }
+}
+
+@keyframes leftToRight {
+    0% {
+        left: 0px;
+    }
+
+    100% {
+        left: -600px;
+    }
+}
+
+@keyframes reverse2 {
+    0% {
+        left: -600px;
+    }
+
+    100% {
+        left: 0px;
     }
 }
