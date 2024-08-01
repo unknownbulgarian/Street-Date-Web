@@ -7,18 +7,21 @@ import { IoMdArrowBack } from "react-icons/io";
 
 import { FiKey } from "react-icons/fi";
 import StreetInfo from './StreetInfo/StreetInfo';
+import Tutorial from './Tutorial/Tutorial';
 
 export default function Documentation() {
 
     const [isClicked, setClicked] = useState<boolean>(false)
     const [mainTitle, setMainTitle] = useState<string>('Willkommen')
     const [streetTitle, setStreetTitle] = useState<string>('Über')
+    const [tutorialTitle, setTutorialTitle] = useState<string>('Wie man spielt')
 
     const [progress, setProgress] = useState<number>(1)
     const [mainProgress, setMainProgress] = useState<number>(0)
 
 
     const [streetProgress, setStreetProgress] = useState<number>(1)
+    const [tutorialProgress, setTutorialProgress] = useState<number>(1)
 
 
     const returnMainTitle = () => {
@@ -91,7 +94,7 @@ export default function Documentation() {
                             {mainProgress === 3 &&
                                 <div className={`${styles.progress} ${styles.rightL} `}>
                                     <div style={{
-                                        top: returnTop(progress)
+                                        top: returnTop(tutorialProgress)
                                     }} className={styles.bar}></div>
                                 </div>
                             }
@@ -160,23 +163,23 @@ export default function Documentation() {
 
                         {mainProgress === 3 &&
                             <div className={`${styles.boxes} ${styles.rightL}`}>
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
-                                    <p>Wie man spielt</p>
+                                <div onClick={(e) => { setTutorialProgress(1); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
+                                    <p>Wie man spielt ?</p>
                                 </div>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
+                                <div onClick={(e) => { setTutorialProgress(2); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
                                     <p>Konto erstellen</p>
                                 </div>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
+                                <div onClick={(e) => { setTutorialProgress(3); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
                                     <p>Profileinstellungen ändern</p>
                                 </div>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
+                                <div onClick={(e) => { setTutorialProgress(4); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
                                     <p>Spiel hochladen</p>
                                 </div>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
+                                <div onClick={(e) => { setTutorialProgress(5); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
                                     <p>Spiel löschen</p>
                                 </div>
                             </div>
@@ -207,6 +210,7 @@ export default function Documentation() {
                     <div className={styles.maintitle}>
                         {mainProgress === 0 && <h1>{mainTitle}</h1>}
                         {mainProgress === 1 && <h1>{streetTitle}</h1>}
+                        {mainProgress === 3 && <h1>{tutorialTitle}</h1>}
                         <FiKey className={styles.mainicon} />
                     </div>
 
@@ -231,11 +235,18 @@ export default function Documentation() {
                         </div>
                     }
 
-                    {mainProgress === 1 && <StreetInfo 
-                    progress={streetProgress}
-                    headerClass={styles.header}
-                    smallClass={styles.small}
-                    styles={`${styles.thecontent} ${styles.op}`}
+                    {mainProgress === 1 && <StreetInfo
+                        progress={streetProgress}
+                        headerClass={styles.header}
+                        smallClass={styles.small}
+                        styles={`${styles.thecontent} ${styles.op}`}
+                    />}
+
+                    {mainProgress === 3 && <Tutorial
+                        progress={tutorialProgress}
+                        headerClass={styles.header}
+                        smallClass={styles.small}
+                        styles2={`${styles.thecontent} ${styles.op}`}
                     />}
                 </div>
             </div >

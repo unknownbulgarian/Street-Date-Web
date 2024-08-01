@@ -1,0 +1,45 @@
+.boxes {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 1.5em;
+    gap: 1em;
+}
+
+.box {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+    background-color: rgba(255, 255, 255, 0.986);
+    border-radius: 0.3em;
+    width: 350px;
+    height: 220px;
+    transition: all 800ms;
+    padding: 1em;
+    cursor: pointer;
+}
+
+.box:hover{
+    transform: scale(1.03);
+}
+
+.boxicon{
+    color: black;
+    font-size: 2rem;
+}
+
+.box h2{
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: black;
+}
+
+.box p{
+    text-align: center;
+    padding-left: 1em;
+    padding-right: 1em;
+    color: black;
+}
