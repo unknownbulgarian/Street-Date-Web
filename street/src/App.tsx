@@ -26,7 +26,7 @@ export default function App() {
 
   return (
     <>
-      <Navbar />
+      <Navbar tab={1} />
       <div className={styles.main}>
         <div className={styles.welcome} data-aos="fade-right">
           <h1><span className={styles.no}>Street</span> Online Blind Date</h1>
@@ -37,19 +37,19 @@ export default function App() {
           </div>
 
           <div className={styles.apps}>
-            <img src='https://i.ibb.co/PWpV1RH/Get-It-On-Google-Play-Badge-Web-color-English.png'></img>
-            <img src='https://i.postimg.cc/dtWLSW0s/5a902db97f96951c82922874.png'></img>
+            <img src='https://i.postimg.cc/MK1Pt217/Get-It-On-Google-Play-Badge-Web-color-English.png'></img>
+            <img src='https://i.postimg.cc/FsXGYWw7/5a902db97f96951c82922874.png'></img>
           </div>
         </div>
 
         <div className={styles.right} data-aos="fade-left">
-          <img src='https://i.ibb.co/g7JdHCC/up.png'></img>
+          <img src='https://i.postimg.cc/d3yWzgpK/up.png'></img>
         </div>
       </div>
 
       <div className={styles.second}>
         <h2 data-aos="fade-down">Dating sollte nicht <span className={styles.nothard}>kompliziert</span> sein</h2>
-        <img data-aos="fade-right" src='https://i.ibb.co/cxq5S0k/Screenshot-2024-06-25-140805.png'></img>
+        <img data-aos="fade-right" src='https://i.postimg.cc/0N40Pcp5/Screenshot-2024-06-25-140805.png'></img>
         <div className={styles.secondboxes}>
           <div className={styles.secondbox} data-aos="zoom-in">
             <span className={styles.secondboxicon}><PiCrownSimpleFill /></span>
