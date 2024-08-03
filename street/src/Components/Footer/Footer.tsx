@@ -9,7 +9,7 @@ export default function Footer() {
             <div className={styles.footerboxes}>
 
                 <div onClick={() => { location.href = '/' }} className={styles.name}>
-                    <img src='https://i.ibb.co/hFtwvZb/Street-Date-transparent.png'></img>
+                    <img src='https://i.postimg.cc/SKH1Dy1G/Screenshot-6-removebg-preview.png'></img>
                     <p>StreetDate</p>
                 </div>
 

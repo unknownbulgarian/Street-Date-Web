@@ -18,7 +18,7 @@ export default function Navbar({ tab }: NavProps) {
     return (
         <div className={styles.navbar}>
             <div className={styles.logo}>
-                <Link className='link' to='/'><img src='https://i.ibb.co/hFtwvZb/Street-Date-transparent.png'></img></Link>
+                <Link className='link' to='/'><img src='https://i.postimg.cc/SKH1Dy1G/Screenshot-6-removebg-preview.png'></img></Link>
             </div>
 
             <div className={styles.hrefs}>
