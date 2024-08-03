@@ -1,6 +1,6 @@
 import { Dispatch, SetStateAction } from "react";
 
-const loaderTime: number = 1700
+const loaderTime: number = 400
 
 function loader(setIsLoading: Dispatch<SetStateAction<boolean>>) {
     setTimeout(() => {
