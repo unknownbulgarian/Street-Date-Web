@@ -1,31 +1,63 @@
-.footer{
+.main{
+    position: relative;
+    background: rgb(112,88,182);
+    background: linear-gradient(0deg, rgba(112,88,182,1) 0%, rgba(46,16,138,1) 100%);
+}
+
+
+.review {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    border-top: 2px solid rgb(255, 255, 255);
+    padding-top: 4em;
+    padding-bottom: 2em;
+    gap: 1em;
+    width: 100%;
+}
+
+.review h2 {
+    color: white;
+}
+
+.stars {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+    color: yellow;
+    gap: 0.5em;
+}
+
+
+.footer {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    background-color: rgb(73, 16, 165);
     padding-top: 3em;
     padding-bottom: 3em;
     width: 100%;
 }
 
-.name{
+.name {
     display: flex;
     align-items: center;
     gap: 0.7em;
     cursor: pointer;
 }
 
-.name img{
+.name img {
     width: 70px;
 }
 
-.name p{
+.name p {
     color: white;
 }
 
-.footerboxes{
+.footerboxes {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -33,24 +65,24 @@
     gap: 6em;
 }
 
-.footerbox{
+.footerbox {
     display: flex;
     flex-direction: column;
 }
 
-.footerbox h2{
+.footerbox h2 {
     margin-bottom: 0.3em;
     color: white;
     font-size: 1.3rem;
 }
 
-.footerbox p{
+.footerbox p {
     color: rgb(255, 255, 255);
     font-size: 0.9rem;
     cursor: pointer;
     transition: all 0.3s;
 }
 
-.footerbox p:hover{
-   color: rgb(183, 137, 236);
+.footerbox p:hover {
+    color: rgb(183, 137, 236);
 }
