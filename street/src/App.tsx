@@ -26,7 +26,6 @@ import Navbar from './Components/Navbar/Navbar'
 import Footer from './Components/Footer/Footer'
 import TextIcon from './Components/TextIcon/TextIcon'
 import Reviews from './Components/SwitchFaq/SwitchFaq'
-import ProgressiveBar from './Components/ProgressiveBar/ProgressiveBar'
 
 
 export default function App() {
