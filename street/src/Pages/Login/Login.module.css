@@ -13,7 +13,7 @@
     color: white;
 }
 
-.login p{
+.lol {
     color: rgb(238, 230, 230);
     margin-bottom: 1em;
 }
@@ -22,6 +22,8 @@
     position: relative;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    align-items: center;
     gap: 1em;
     padding: 1em;
     border-radius: 0.3em;
@@ -47,12 +49,11 @@
 .already{
     display: flex;
     align-items: center;
-    margin-bottom: -1em;
 }
 
 .already p{
     margin-left: auto;
-    color: rgb(165, 127, 226);
+    color: rgb(195, 163, 248);
     text-decoration: underline;
     font-size: 0.9rem;
     cursor: pointer;

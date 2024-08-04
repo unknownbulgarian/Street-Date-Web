@@ -6,11 +6,13 @@ import { useNavigate } from 'react-router-dom';
 import API from '../../Utils/API';
 
 import InputIcon from '../../Components/InputIcon/InputIcon';
+import { MdSupervisorAccount } from "react-icons/md";
 
 import Navbar from '../../Components/Navbar/Navbar';
 
 import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
+import TextIcon from '../../Components/TextIcon/TextIcon';
 
 export default function Login() {
 
@@ -60,11 +62,11 @@ export default function Login() {
             <div className={styles.login} data-aos="zoom-in">
 
                 <h1>Anmelden</h1>
-                <p>Melde dich in deinem Konto an</p>
+                <p className={styles.lol}>Melde dich in deinem Konto an</p>
 
                 <div className={styles.box}>
                     <InputIcon
-                        backColor='transperent'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
                         title='Email'
@@ -80,7 +82,7 @@ export default function Login() {
                     </InputIcon>
 
                     <InputIcon
-                        backColor='transperent'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
                         title='Passwort'
@@ -99,8 +101,20 @@ export default function Login() {
                     </div>
 
 
-
-                    <button onClick={() => { login() }}>Jetzt Anmelden</button>
+                    <TextIcon
+                        borderRadius='0.3em'
+                        title='Jetzt Anmelden'
+                        width='210px'
+                        color='white'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                        boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
+                        height='33px'
+                        iconFontSize='1.3rem'
+                        transition='all 800ms'
+                        onClick={() => { login() }}
+                    >
+                        <MdSupervisorAccount />
+                    </TextIcon>
                 </div>
 
                 <div className={styles.errors}>
