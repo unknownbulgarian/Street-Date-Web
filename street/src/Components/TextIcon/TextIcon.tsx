@@ -5,7 +5,7 @@ interface BoxIconProps {
     width: string;
     height: string;
     borderRadius: string;
-    backgroundColor: string;
+    backgroundColor?: string;
     title: any;
     children: ReactNode;
     border?: string;
