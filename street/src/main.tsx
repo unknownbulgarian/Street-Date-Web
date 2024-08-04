@@ -22,14 +22,15 @@ import ProfileArea from './Pages/ProfileArea/ProfileArea.tsx'
 import Stats from './Pages/Stats/Stats.tsx'
 import Games from './Pages/Stats/games/Games.tsx'
 import Documentation from './Pages/Documentation/Documentation.tsx'
-
-//Guards
-import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
-import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
 import Game from './Pages/Stats/games/Game/Game.tsx'
 import Upload from './Pages/Upload/Upload.tsx'
 import Explore from './Pages/Explore/Explore.tsx'
 import ExploreGame from './Pages/Explore/ExploreGame/ExploreGame.tsx'
+import Footer from './Components/Footer/Footer.tsx'
+
+//Guards
+import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
+import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -52,6 +53,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path='/erkunden/:page/:game' element={<ExploreGame />} />
               <Route path='/dokumentation' element={<Documentation />} />
             </Routes>
+            <Footer />
           </BlankProvider>
         </OnlineProvider>
       </SessionProvider>
