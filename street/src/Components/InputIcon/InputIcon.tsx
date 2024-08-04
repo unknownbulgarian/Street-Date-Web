@@ -2,7 +2,7 @@ import { ReactNode, forwardRef, Ref, FormEventHandler } from 'react';
 import styles from './InputIcon.module.css';
 
 interface InputIconProps {
-    backColor: string;
+    backColor?: string;
     width: string;
     height: string;
     borderRadius: string;
@@ -20,6 +20,7 @@ interface InputIconProps {
     iconFontSize?: string;
     disabled?: boolean;
     isBoxShadow?: boolean;
+    background?: string;
     onInput?: FormEventHandler<HTMLInputElement>
     onKeyDown?: FormEventHandler<HTMLInputElement>
     onBlur?: FormEventHandler<HTMLInputElement>;
@@ -35,7 +36,7 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
     fontSize, iconBackColor, iconBorderRadius,
     title, titleColor,  type, classN, onInput,
     value, marginBottom, onKeyDown, onBlur, onFocus, onChange,
-     border, iconFontSize, disabled, isBoxShadow
+     border, iconFontSize, disabled, isBoxShadow, background
 }: InputIconProps, ref: Ref<HTMLInputElement>) => {
     return (
         <div className={styles.inputicon}
@@ -45,6 +46,7 @@ const InputIcon = forwardRef<HTMLInputElement, InputIconProps>(({
                 height: height,
                 borderRadius: borderRadius,
                 marginBottom: marginBottom,
+                background: background,
                 border,
                 boxShadow: !isBoxShadow ? '5px 5px 10px rgba(0, 0, 0, 0.5)' : ''
             }}>
