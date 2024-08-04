@@ -8,8 +8,10 @@ import { MdEmail } from "react-icons/md";
 import { MdOutlinePassword } from "react-icons/md";
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
+import { IoEnterOutline } from "react-icons/io5";
 
 import API from '../../Utils/API'
+import TextIcon from '../../Components/TextIcon/TextIcon';
 
 interface error {
     type: string;
@@ -104,12 +106,12 @@ export default function Register() {
             <div className={styles.register} data-aos="fade-down">
 
                 <h1>Registrierung</h1>
-                <p>Register, um mehr Funktionen zu erhalten</p>
+                <p className={styles.lol}>Register, um mehr Funktionen zu erhalten</p>
 
                 <div className={styles.box}>
 
                     <InputIcon
-                        backColor='transperent'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
                         title='Name'
@@ -125,7 +127,7 @@ export default function Register() {
                     </InputIcon>
 
                     <InputIcon
-                        backColor='transperent'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
                         title='Email'
@@ -142,7 +144,7 @@ export default function Register() {
 
 
                     <InputIcon
-                        backColor='transperent'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
                         title='Passwort'
@@ -158,7 +160,7 @@ export default function Register() {
                     </InputIcon>
 
                     <InputIcon
-                        backColor='transperent'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
                         title='Passwort bestätigen'
@@ -177,7 +179,21 @@ export default function Register() {
                         <Link className='link' to={'/anmelden'}><p>Sie haben bereits ein Konto ?</p></Link>
                     </div>
 
-                    <button onClick={() => { register() }}>Jetzt registrieren</button>
+
+                    <TextIcon
+                        borderRadius='0.3em'
+                        title='Jetzt registrieren'
+                        width='210px'
+                        color='white'
+                        background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                        boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
+                        height='33px'
+                        iconFontSize='1.3rem'
+                        transition='all 800ms'
+                        onClick={() => { register() }}
+                    >
+                        <IoEnterOutline />
+                    </TextIcon>
                 </div>
 
                 <div className={styles.errors}>
