@@ -1,136 +1,357 @@
 .area {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
+    position: relative;
     display: flex;
-    align-items: center;
-    flex-direction: column;
+    justify-content: center;
+    padding-top: 12em;
+    padding-bottom: 12em;
+    gap: 2em;
     width: 100%;
 }
 
-.boxes {
+.firstcontent {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.first {
+    display: flex;
+    flex-direction: column;
+    padding: 2em;
+    width: 390px;
+    height: 160px;
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 0.5em;
+    gap: 0.5em;
+}
+
+.mainprofile {
+    display: flex;
+    gap: 1em;
+}
+
+.instabox {
+    display: flex;
+    align-items: center;
+    width: 170px;
+    height: 35px;
+    color: white;
+    background: rgb(191, 70, 230);
+    background: linear-gradient(98deg, rgba(191, 70, 230, 1) 0%, rgba(241, 139, 246, 1) 100%);
+    border-radius: 0.3em;
+}
+
+.instagrams {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4em;
+}
+
+.infoinsta {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: white;
+    border-top-right-radius: 0.1em;
+    border-bottom-right-radius: 0.1em;
+    margin-left: auto;
+    background-color: transparent;
+    border-left: 1px solid white;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.theinstagrams {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 0.4em;
+}
+
+.instaicon {
+    font-size: 1.6rem;
+}
+
+.indbox {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 1em;
+    gap: 0.5em;
+    width: 100%;
+}
+
+.notline{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.notification {
+    font-size: 1.5rem;
+    color: white;
+    background: rgb(191, 70, 230);
+    background: linear-gradient(98deg, rgba(191, 70, 230, 1) 0%, rgba(241, 139, 246, 1) 100%);
+    padding: 0.4em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.mainprofile img {
+    width: 78px;
+    height: 78px;
+    object-fit: cover;
+    border-radius: 0.3em;
+    box-shadow: 0 0 50px 5px #9069f5;
+    border: 2px solid #9069f5;
+    cursor: pointer;
+}
+
+.xp {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8em;
+}
+
+.xp h2 {
+    color: white;
+}
+
+.rizz {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 250px;
+    height: 30px;
+    background-color: rgb(235, 148, 247);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    color: white;
+    border-radius: 0.3em;
+}
+
+.level {
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 80%;
+    background: rgb(176, 88, 242);
+    background: linear-gradient(90deg, rgba(176, 88, 242, 1) 41%, rgba(197, 165, 255, 1) 100%);
+}
+
+.rizz p {
+    position: relative;
+    font-weight: 500;
+}
+
+.stats {
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1em;
+    width: 390px;
+    height: 90px;
+    border-radius: 0.3em;
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 2em;
 }
 
-.box {
+.statbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    gap: 0.2em;
+    height: 90px;
+    border-radius: 0.5em;
+    color: white;
+    background: rgb(191, 70, 230);
+    background: linear-gradient(98deg, rgba(191, 70, 230, 1) 0%, rgba(241, 139, 246, 1) 100%);
+    cursor: pointer;
+}
+
+.statbox p {
+    padding-left: 1em;
+    padding-right: 1em;
+}
+
+.staticon {
+    font-size: 2.5rem;
+}
+
+.second {
     position: relative;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    text-align: center;
-    width: 350px;
     align-items: center;
-    padding: 1em;
-    background-color: rgba(60, 17, 139, 0.795);
-    border-radius: 0.3em;
-    box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
-    gap: 0.5em;
-    cursor: pointer;
-}
-
-.box2 {
+    justify-content: center;
+    height: 210px;
+    padding: 2em;
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
+    border-radius: 0.5em;
+    width: 340px;
     border: 2px solid transparent;
     animation: rainbow 5s infinite linear;
+    box-shadow: 0 0 50px 5px #9069f5;
+    gap: 1.2em;
 }
 
-.playbtn {
-    background-color: rgb(98, 1, 255) !important;
-}
-
-.boxicon {
+.settingsicon {
+    position: absolute;
+    top: 0.3em;
+    left: 0.3em;
+    font-size: 2.5rem;
     color: white;
-    font-size: 3rem;
-}
-
-.box h2 {
-    color: white;
-    padding-left: 1em;
-    padding-right: 1em;
-}
-
-.box button {
-    border-radius: 0.3em;
-    margin-top: 0.5em;
-    width: 150px;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    height: 30px;
-    color: white;
-    border: none;
-    background-color: rgba(106, 55, 199, 0.637);
     cursor: pointer;
 }
 
-.box p {
-    color: rgb(247, 245, 245);
-    padding-left: 1em;
-    padding-right: 1em;
+
+
+.second h2 {
+    color: white;
+    font-size: 2.5rem;
 }
 
+.playarea {
+    display: flex;
+    flex-direction: column;
+    margin-top: auto;
+    text-align: center;
+    justify-content: center;
+    gap: 0.7em;
+}
 
-.stepsbox {
-    position: absolute;
-    z-index: 2;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
-    z-index: 2;
+.begin {
+    margin-top: auto;
+    text-align: center;
+    color: rgb(232, 238, 243);
+}
+
+.id {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: center;
     gap: 1em;
-    width: 480px;
-    padding: 1.5em;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    background-color: rgb(36, 8, 88);
+    width: 340px;
+    height: 120px;
     border-radius: 0.3em;
-}
-
-.stepsbox h2 {
-    text-align: center;
-    margin-top: 0.5em;
-    color: white;
-    padding-left: 1em;
-    padding-right: 1em;
-    font-size: 1.5rem;
-}
-
-.stepsbox p {
-    text-align: center;
-    color: rgb(233, 229, 229);
-    padding-left: 1em;
-    padding-right: 1em;
-    font-size: 0.9rem;
-}
-
-.stepsbox button {
-    border-radius: 0.3em;
-    border: none;
-    width: 160px;
-    height: 25px;
-    background-color: rgba(147, 100, 224, 0.781);
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 2em;
+}
+
+.id h2 {
     color: white;
+}
+
+
+.third {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 2em;
+    background: rgb(132, 62, 184);
+    background: linear-gradient(161deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
+    border-radius: 0.5em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    width: 370px;
+    height: 212px;
+    gap: 1em;
+}
+
+.third h2 {
+    color: white;
+    font-size: 1.8rem;
+}
+
+.gamemodes {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.mode {
+    display: flex;
+    flex-direction: column;
+    background: white;
+    align-items: center;
+    justify-content: center;
+    width: 80px;
+    height: 150px;
+    border-radius: 0.3em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     cursor: pointer;
 }
 
-
-
-
-.inputfile:focus+label {
-    outline: transparent;
+.modeicon {
+    margin-top: auto;
+    color: black;
+    font-size: 2.5rem;
 }
 
-.success {
-    color: green;
+.selectedmode {
+    background: rgb(241, 139, 246);
+    background: linear-gradient(357deg, rgba(241, 139, 246, 1) 26%, rgba(204, 70, 247, 1) 76%);
 }
 
-.error {
-    color: red;
+.selectedmode p {
+    color: white !important;
 }
+
+
+.mode p {
+    margin-top: auto;
+    color: black;
+    margin-bottom: 0.5em;
+    text-align: center;
+}
+
+.invitefriend {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+    width: 370px;
+    border-radius: 0.3em;
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    padding: 2em;
+}
+
+.friend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1em;
+}
+
+.friendicon {
+    color: white;
+    font-size: 1.4rem;
+}
+
+.friend h2 {
+    color: white;
+    font-size: 1.3rem;
+}
+
 
 @keyframes rainbow {
 
