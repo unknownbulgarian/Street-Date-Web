@@ -232,7 +232,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
                                         <div className={styles.profileinputs}>
                                             <InputIcon
-                                                backColor='hsla(272, 100%, 55%, 0.5)'
+                                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                                 borderRadius='0.3em'
                                                 color='white'
                                                 title='Name'
@@ -249,7 +249,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             </InputIcon>
 
                                             <InputIcon
-                                                backColor='hsla(272, 100%, 55%, 0.5)'
+                                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                                 borderRadius='0.3em'
                                                 color='white'
                                                 value={instagram}
@@ -275,12 +275,12 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             <TextIcon
                                                 marginTop='0.3em'
                                                 title='Aktualisierung'
-                                                backgroundColor='hsla(272, 100%, 70%, 0.7)'
+                                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                                 width='145px'
                                                 titleColor='white'
                                                 borderRadius='0.3em'
                                                 color='white'
-                                                height='25px'
+                                                height='30px'
                                                 onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
                                                 onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
                                                 fontSize='0.9rem'
@@ -329,12 +329,12 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                         <TextIcon
                                             marginTop='1em'
                                             title='Aktualisierung'
-                                            backgroundColor='hsla(272, 100%, 70%, 0.7)'
+                                            background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                             width='145px'
                                             titleColor='white'
                                             borderRadius='0.3em'
                                             color='white'
-                                            height='25px'
+                                            height='30px'
                                             onClick={() => { updatePhoto() }}
                                             onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
                                             onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
