@@ -31,6 +31,7 @@ import Footer from './Components/Footer/Footer.tsx'
 //Guards
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
 import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
+import Navbar from './Components/Navbar/Navbar.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -39,6 +40,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
         <OnlineProvider>
           <BlankProvider>
             <ParticlesComponent />
+            <Navbar />
             <Routes>
               <Route path='/' element={<App />} />
               <Route path='/versuchen' element={<LoginGuardRoute component={Try} />} />

@@ -129,9 +129,6 @@ export default function Stats() {
 
       {!isLoading && (
         <>
-          <Navbar tab={5} />
-
-
 
           {name && (
             <div className={styles.area}>
