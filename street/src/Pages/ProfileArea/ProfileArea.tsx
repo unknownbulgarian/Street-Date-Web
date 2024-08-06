@@ -69,6 +69,8 @@ export default function ProfileArea() {
 
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
+    const [idRef, setIdRef] = useState<any>()
+
 
 
     useEffect(() => {
@@ -108,7 +110,8 @@ export default function ProfileArea() {
             //console.log(data)
 
             if (data.error) {
-                setIsUserInfo(false)
+                setIsSettings(true)
+                setSettingProgress(4)
             } else {
                 setIsUserInfo(true)
                 play()
@@ -296,6 +299,12 @@ export default function ProfileArea() {
     }
 
 
+    const handleCopyClick = () => {
+        navigator.clipboard.writeText(publicId)
+        alert('ID Copied')
+    }
+
+
 
     return (
         <>
@@ -355,7 +364,7 @@ export default function ProfileArea() {
                                     <div className={styles.indbox}>
                                         <div className={styles.notline}>
                                             <IoIosNotifications className={styles.notification} />
-                                            <PiGameControllerFill className={styles.notification} />
+                                            <PiGameControllerFill onClick={() => { checkUserInfo() }} className={styles.notification} />
                                         </div>
 
                                         <div className={styles.notline}>
@@ -427,6 +436,7 @@ export default function ProfileArea() {
                                     isBoxShadow={true}
                                     fontSize='0.95rem'
                                     title='Public ID'
+                                    ref={idRef}
                                     background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                     width='350px'
                                 >
@@ -442,7 +452,7 @@ export default function ProfileArea() {
                                     height='35px'
                                     iconFontSize='1.3rem'
                                     transition='all 800ms'
-                                    onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}
+                                    onClick={() => { handleCopyClick() }}
                                 >
                                     <FaCopy />
                                 </TextIcon>
@@ -459,7 +469,7 @@ export default function ProfileArea() {
                                         <p>2 Persons</p>
                                     </div>
 
-                                    <div className={styles.mode}>
+                                    <div onClick={() => { alert('Coming Soon') }} className={styles.mode}>
                                         <FaPersonCirclePlus className={styles.modeicon} />
                                         <p>4 Persons</p>
                                     </div>
