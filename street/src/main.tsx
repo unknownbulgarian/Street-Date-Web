@@ -32,6 +32,7 @@ import Footer from './Components/Footer/Footer.tsx'
 import LoginGuardRoute from './Guards/LoginGuard/LoginGuard.tsx'
 import ProtectedRoute from './Guards/ProtectedAreaGuard/ProtectedAreaGuard.tsx'
 import Navbar from './Components/Navbar/Navbar.tsx'
+import NotFound from './Pages/NotFound/NotFound.tsx'
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
@@ -54,6 +55,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
               <Route path='/explore/:page' element={<Explore />} />
               <Route path='/explore/:page/:game' element={<ExploreGame />} />
               <Route path='/documentation' element={<Documentation />} />
+              <Route path='*' element={<NotFound />} />
             </Routes>
             <Footer />
           </BlankProvider>
