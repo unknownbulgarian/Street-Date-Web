@@ -55,7 +55,7 @@ export default function Game() {
         const token = localStorage.getItem('token')
         const publicIdg = localStorage.getItem('publicId')
         try {
-            const response = await fetch(API.api + '/getAuth', {
+            const response = await fetch(API.api + '/getStatsAuth', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
