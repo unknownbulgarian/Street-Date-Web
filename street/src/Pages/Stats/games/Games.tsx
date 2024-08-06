@@ -114,7 +114,7 @@ export default function Games() {
         const token = localStorage.getItem('token')
         const publicIdg = localStorage.getItem('publicId')
         try {
-            const response = await fetch(API.api + '/getAuth', {
+            const response = await fetch(API.api + '/getStatsAuth', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
@@ -369,29 +369,29 @@ export default function Games() {
 
                     {!games &&
                         <div className={styles.nogames}>
-                            <p>Du hast keine Spiele gespielt {'):'}</p>
+                            <p>You didn't finish any games {'):'}</p>
                             <div className={styles.btns}>
                                 <TextIcon
-                                    title='Zurückgehen'
+                                    title='Go Back'
                                     fontSize='1rem'
-                                    backgroundColor='rgba(152, 78, 248, 0.568)'
+                                    background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                     boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
                                     borderRadius='0.3em'
-                                    width='140px'
-                                    height='25px'
+                                    width='125px'
+                                    height='30px'
                                     onClick={() => { router('/stats/' + publicId) }}
                                 >
                                     <IoMdArrowRoundBack />
                                 </TextIcon>
 
                                 <TextIcon
-                                    title='Dokumentation'
+                                    title='Documentation'
                                     fontSize='1rem'
-                                    backgroundColor='rgba(176, 132, 226, 0.164)'
+                                    background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                     boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
                                     borderRadius='0.3em'
                                     width='170px'
-                                    height='25px'
+                                    height='30px'
                                     onClick={() => { router('/documentation') }}
                                 >
                                     <IoIosDocument />
