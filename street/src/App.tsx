@@ -173,7 +173,7 @@ export default function App() {
 
       <div className={styles.second}>
         <h2 data-aos="fade-down">Dating should not be <span className={styles.nothard}>complicated</span></h2>
-        <img data-aos="fade-right" src='https://i.postimg.cc/0N40Pcp5/Screenshot-2024-06-25-140805.png'></img>
+        <img data-aos="fade-right" src='https://i.postimg.cc/NMzVbccm/Screenshot-12.png'></img>
         <div className={styles.secondboxes}>
           <div className={styles.secondbox} data-aos="zoom-in">
             <span className={styles.secondboxicon}><PiCrownSimpleFill /></span>

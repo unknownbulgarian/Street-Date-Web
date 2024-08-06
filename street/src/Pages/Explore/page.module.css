@@ -55,12 +55,12 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: hsla(283, 100%, 66%, 0.5);
-    padding-left: 0.6em;
-    padding-right: 0.6em;
+    background-color: hsla(283, 92%, 74%, 0.5);
+    padding-left: 1em;
+    padding-right: 1em;
     box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
     border-radius: 0.3em;
-    height: 20px;
+    height: 30px;
     transition: all 0.3s;
     cursor: pointer;
 }
@@ -72,7 +72,7 @@
 }
 
 .categoriebox:hover {
-    background-color: hsla(283, 100%, 66%, 0.9);
+    background-color: hsla(283, 92%, 74%, 0.795);
 }
 
 .poster {

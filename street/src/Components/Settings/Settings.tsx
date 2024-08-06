@@ -266,10 +266,10 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             </InputIcon>
 
                                             <select value={gender} onChange={(e) => { setGender(e.currentTarget.value) }} >
-                                                {gender === '' && <option>Wählen Sie Ihr Geschlecht</option>}
-                                                <option value='Männlich'>Männlich</option>
-                                                <option value='Weiblich'>Weiblich</option>
-                                                <option value='Andere'>Andere</option>
+                                                {gender === '' && <option>Choose your Gender</option>}
+                                                <option value='Man'>Man</option>
+                                                <option value='Woman'>Woman</option>
+                                                <option value='Other'>Other</option>
                                             </select>
 
                                             <TextIcon

@@ -74,9 +74,7 @@
     font-size: 0.9rem;
 }
 
-.categoriebox:hover {
-    background-color: rgba(66, 24, 218, 0.719)
-}
+
 
 .error {
     display: flex;

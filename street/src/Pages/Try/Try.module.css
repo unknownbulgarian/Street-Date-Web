@@ -1,4 +1,4 @@
-.error{
+.error {
     position: fixed;
     display: flex;
     align-items: center;
@@ -6,50 +6,48 @@
     text-align: center;
     height: 40px;
     padding: 1em;
+    top: 0;
     z-index: 5;
     background-color: red;
     width: 100%;
 }
 
 
-.error p{
+.error p {
     padding-left: 1em;
     padding-right: 1em;
     color: white;
 }
 
-.success{
+.success {
     position: fixed;
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
     padding: 1em;
+    top: 0;
     height: 40px;
     z-index: 5;
     background-color: green;
     width: 100%;
 }
 
-.success p{
+.success p {
     padding-left: 1em;
     padding-right: 1em;
     color: white;
 }
 
 
-
-
-
-
 .main {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
+    padding-top: 21em;
+    padding-bottom: 21em;
     width: 100%;
 }
 
@@ -58,43 +56,10 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
     gap: 0.8em;
 }
 
-.enter input {
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 30px;
-    outline: none;
-    border: none;
-    width: 300px;
-    border-radius: 0.3em;
-    background-color: rgba(131, 40, 206, 0.63);
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    color: white;
-}
-
-.enter input::placeholder{
-    color: white;
-}
-
-.enter button {
-    width: 110px;
-    border-radius: 0.3em;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    height: 30px;
-    color: white;
-    border: none;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    background-color: rgba(131, 40, 206, 0.63);
-    transition: all 0.3s;
-    cursor: pointer;
-}
-
-
-.enter input::placeholder {
-    color: white;
-}
 
 .lastinfo {
     position: relative;
@@ -102,39 +67,29 @@
     align-items: center;
     flex-direction: column;
     gap: 1em;
-    background-color: rgba(39, 3, 68, 0.295);
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
     padding: 1.5em;
+    width: 350px;
     border-radius: 0.3em;
     box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.5);
 }
 
-.lastinfo input {
-    padding-left: 1em;
-    padding-right: 1em;
-    height: 30px;
-    outline: none;
-    border: none;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    width: 274px;
-    border-radius: 0.3em;
-    background-color: rgba(131, 40, 206, 0.63);
+.lastinfo h2{
     color: white;
 }
 
-.lastinfo input::placeholder {
-    color: white;
-}
 
 .lastinfo select {
     outline: none;
     border: none;
-    width: 300px;
-    height: 30px;
+    width: 350px;
+    height: 35px;
     border-radius: 0.3em;
     padding-left: 1em;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     color: white;
-    background-color: rgba(131, 40, 206, 0.63);
+    background: linear-gradient(90deg, rgba(176, 88, 242, 1) 65%, rgba(197, 165, 255, 1) 100%);
     cursor: pointer;
 }
 
@@ -144,7 +99,7 @@
 
 .imageinfo {
     text-align: center;
-    color:  rgb(155, 67, 226);
+    color: aliceblue;
     font-size: 0.8rem;
     width: 250px;
 }
@@ -163,13 +118,15 @@
     font-size: 0.9rem;
     font-weight: 400;
     color: white;
-    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-    background-color: rgba(131, 40, 206, 0.63);
+    background: linear-gradient(90deg, rgba(176, 88, 242, 1) 65%, rgba(197, 165, 255, 1) 100%);
     border: none;
-    width: 300px;
+    box-shadow: 0 0 50px 5px #9069f5;
+    width: 350px;
     outline: transparent;
-    display: inline-block;
-    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 35px;
     border-radius: 0.3em;
     cursor: pointer;
     transition: all 0.3s;
@@ -203,11 +160,11 @@
     gap: 0.6em;
 }
 
-.search button{
+.search button {
     width: 140px;
     height: 30px;
     border: none;
-    background-color: rgba(118, 66, 216, 0.651);
+    background: linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%);
     border-radius: 0.3em;
     color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -225,6 +182,7 @@
 .found {
     display: flex;
     flex-direction: column;
+    padding-bottom: 30em;
 }
 
 .foundmain {
@@ -274,6 +232,7 @@
     border-bottom: 1px solid white;
     color: white;
 }
+
 .timerdiv {
     display: flex;
     flex-direction: column;
@@ -318,7 +277,7 @@
     transition: all 0.3s;
 }
 
-.showphoto h2{
+.showphoto h2 {
     color: white;
     font-size: 1.8rem;
 }
@@ -401,7 +360,7 @@
     border-radius: 0.3em;
     color: white;
     border: none;
-    width: 195px;
+    width: 150px;
     font-size: 1rem;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     font-weight: 500;

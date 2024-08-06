@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     text-align: center;
+    top: 0;
     height: 40px;
     padding: 1em;
     z-index: 5;

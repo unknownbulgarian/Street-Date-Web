@@ -138,16 +138,16 @@ export default function Stats() {
               <div className={styles.stats}>
                 <div className={styles.statbox}>
                   <FaInstagram className={styles.staticon} />
-                  <h3>Instagrams genommen: {games}</h3>
+                  <h3>Instagrams taken: {games}</h3>
                 </div>
                 <div className={styles.statbox}>
                   <PiGameControllerFill className={styles.staticon} />
-                  <h3>Gespielte Spiele: {instagrams}</h3>
+                  <h3>Games Played: {instagrams}</h3>
                 </div>
                 <div className={styles.statbox}>
                   <ImCool2 className={styles.staticon} />
                   <h3>
-                    Gesamter Rizz: <span style={{ color: getRizzColor() }}>{rizz > 0 ? rizz.toFixed(0) : rizz}%</span>
+                    Total Rizz: <span style={{ color: getRizzColor() }}>{rizz > 0 ? rizz.toFixed(0) : rizz}%</span>
                   </h3>
                 </div>
               </div>
@@ -158,7 +158,7 @@ export default function Stats() {
                   <TextIcon
                     title='Deine Spiele'
                     borderRadius='0.3em'
-                    backgroundColor='rgba(152, 78, 248, 0.568)'
+                    background='rgba(152, 78, 248, 0.568)'
                     width='190px'
                     height='30px'
                     color='white'
@@ -177,7 +177,7 @@ export default function Stats() {
                   <TextIcon
                     title='Profil teilen'
                     borderRadius='0.3em'
-                    backgroundColor='hsla(215, 100%, 69%, 0.5)'
+                    background='hsla(215, 100%, 69%, 0.5)'
                     width='190px'
                     height='30px'
                     color='white'

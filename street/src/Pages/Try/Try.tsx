@@ -12,7 +12,15 @@ import QuestionBoxO from './QuestionBoxO/QuestionBoxO'
 import { IoMdClose } from "react-icons/io";
 import { useOnlineProvider } from '../../States/Online/Online'
 
-import { IoSearchOutline } from "react-icons/io5";
+import { IoEnterOutline, IoSearchOutline } from "react-icons/io5";
+import InputIcon from '../../Components/InputIcon/InputIcon'
+import { RiAccountPinCircleFill } from 'react-icons/ri'
+import { BiSolidUserAccount } from 'react-icons/bi'
+import TextIcon from '../../Components/TextIcon/TextIcon'
+import { MdSupervisorAccount } from 'react-icons/md'
+import { GrLinkNext } from 'react-icons/gr'
+import { TbPlayerTrackNext } from 'react-icons/tb'
+import { FaInstagram } from 'react-icons/fa'
 
 interface someone {
   username: string
@@ -83,6 +91,14 @@ export default function Try() {
 
   const [error, setError] = useState<string>('')
   const [success, setSuccess] = useState<string>('')
+
+  useEffect(() => {
+    if (error4 !== '') {
+      setTimeout(() => {
+        setError4('')
+      }, 2500);
+    }
+  }, [error4])
 
   useEffect(() => {
     let errorTimeout: any;
@@ -1025,11 +1041,6 @@ export default function Try() {
     return () => clearIntervalHandler();
   }, [photoUrl]);
 
-  useEffect(() => {
-    if (answer !== '') {
-      window.scroll(0, 300000000000000)
-    }
-  }, [answer])
 
 
 
@@ -1490,31 +1501,76 @@ export default function Try() {
 
       {!isOtherFound &&
         <>
-          <Navbar />
           <div className={styles.main}>
 
             {progress === 1 &&
               <div className={styles.enter} data-aos="fade-down">
-                <input style={{
-                  border: !isUsername && isTypedUsername ? '2px solid red' : ''
-                }} spellCheck={false} autoComplete='off' onInput={(e) => { checkUsername(e.currentTarget.value); }} onKeyDown={(e) => {
-                  if (e.keyCode === 13) {
-                    addUser()
-                  }
-                }} placeholder='Geben Sie Ihren Benutzernamen ein'></input>
-                <button onClick={() => { addUser() }}>Weiter</button>
+                <InputIcon
+                  background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                  borderRadius='0.3em'
+                  color='white'
+                  title='Write down your Username'
+                  width='450px'
+                  titleColor='white'
+                  height='35px'
+                  iconFontSize='1.2rem'
+                  fontSize='0.9rem'
+                  type='Email'
+                  onFocus={() => { }}
+                  border={!isUsername && isTypedUsername ? '2px solid red' : ''}
+                  onInput={(e: any) => { checkUsername(e.currentTarget.value); }}
+                  onKeyDown={(e: any) => {
+                    if (e.keyCode === 13) {
+                      addUser()
+                    }
+                  }}
+                >
+                  <BiSolidUserAccount />
+                </InputIcon>
+
+                <TextIcon
+                  borderRadius='0.3em'
+                  title='Next'
+                  width='130px'
+                  color='white'
+                  background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                  boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
+                  height='30px'
+                  iconFontSize='1rem'
+                  transition='all 800ms'
+                  onClick={() => { addUser() }}
+                >
+                  <TbPlayerTrackNext />
+                </TextIcon>
               </div>
             }
             {progress === 2 &&
               <div className={styles.lastinfo} data-aos="fade-down">
+                <h2>Start <span style={{textDecoration: 'underline'}}>Effortlessly</span> Dating</h2>
                 <select onChange={(e) => { setGender(e.currentTarget.value) }}>
-                  <option value=''>Wählen Sie Ihr Geschlecht</option>
-                  <option value='Männlich'>Männlich</option>
-                  <option value='Weiblich'>Weiblich</option>
-                  <option value='Andere'>Andere</option>
+                  <option value=''>Choose your Gender</option>
+                  <option value='Man'>Man</option>
+                  <option value='Woman'>Woman</option>
+                  <option value='Other'>Other</option>
                 </select>
 
-                <input type='text' placeholder='Schreiben Sie Ihr Instagram' onInput={(e) => { setInstagram(e.currentTarget.value) }}></input>
+                <InputIcon
+                  background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                  borderRadius='0.3em'
+                  color='white'
+                  title='Write down your Instagram'
+                  width='350px'
+                  titleColor='white'
+                  height='35px'
+                  type='text'
+                  iconFontSize='1.1rem'
+                  onFocus={() => { }}
+                  border={'unset'}
+                  onInput={(e: any) => { setInstagram(e.currentTarget.value) }}
+                >
+                  <FaInstagram />
+                </InputIcon>
+
 
 
                 <input onChange={(e) => {
@@ -1525,10 +1581,24 @@ export default function Try() {
                 <label htmlFor="file">Wählen Sie ein Foto</label>
 
                 <div className={styles.imageinfo}>
-                  <p>Das Foto wird am Ende gezeigt, und das Instagram wird versteckt, bis Sie nicht sagen, Sie haben Interessen!</p>
+                  <p>The photo will be shown at the end, and the Instagram will be hidden until you don't say you have interests!</p>
                 </div>
 
-                <button onClick={() => { addUserInfo() }}>Ich bin bereit</button>
+                <TextIcon
+                  borderRadius='0.3em'
+                  title='Enter Now'
+                  width='150px'
+                  color='white'
+                  background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                  boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
+                  height='33px'
+                  iconFontSize='1.3rem'
+                  marginTop='0.5em'
+                  transition='all 800ms'
+                  onClick={() => { addUserInfo() }}
+                >
+                  <IoEnterOutline />
+                </TextIcon>
               </div>
 
             }
@@ -1539,7 +1609,7 @@ export default function Try() {
                   <IoSearchOutline />
                 </div>
 
-                <button onClick={() => { removeOnline(); setProgress(1); setIsSearching(false); setGender(''); setUsername(''); setPhoto(null); setIsOtherFound(false); }}>Suche beenden</button>
+                <button onClick={() => { removeOnline(); setProgress(1); setIsSearching(false); setGender(''); setUsername(''); setPhoto(null); setIsOtherFound(false); }}>Stop Searching</button>
               </div>
             }
 
@@ -1570,14 +1640,14 @@ export default function Try() {
 
           {!isSkipped &&
             <div className={styles.skip}>
-              <button onClick={() => { resetGame(); skipUser() }}>Überspringen / Weiter</button>
+              <button onClick={() => { resetGame(); skipUser() }}>Skip / Next</button>
             </div>
           }
 
           <div className={styles.found}>
             <div className={styles.foundmain} data-aos="fade-down">
-              <h1>Du bist auf einem Blind Date mit {partnerUsername}</h1>
-              <p>{isFirst ? 'Sie werden der Person 3 Fragen stellen' : 'Die Person wird Ihnen nun 3 Fragen stellen, die Sie beantworten müssen'}</p>
+              <h1>You are on Blind Date with {partnerUsername}</h1>
+              <p>{isFirst ? 'You will ask the person 3 questions' : 'The person will now ask you 3 questions, which you must answer'}</p>
             </div>
 
             <div className={styles.questions}
@@ -1626,7 +1696,7 @@ export default function Try() {
                 />
               </div>
 
-              {gameProgress > 6 && <p data-aos="fade-right" className={styles.middletxt}>{isFirst ? 'Nun wird Ihnen die Person 3 Fragen stellen' : 'Jetzt kannst du der Person 3 Fragen stellen'}</p>}
+              {gameProgress > 6 && <p data-aos="fade-right" className={styles.middletxt}>{isFirst ? 'Now the person will ask you 3 questions' : 'Now you can ask the person 3 questions'}</p>}
 
 
               <div className={styles.firstquestion}>
@@ -1676,10 +1746,10 @@ export default function Try() {
 
             {gameProgress > 12 &&
               <div className={styles.showphoto}>
-                <h2>Endgültige Ergebnisse</h2>
+                <h2>Final Results</h2>
                 {photoUrl === '' &&
                   <div className={styles.timerdiv}>
-                    <p className={styles.timertxt}>Zeigen des Fotos der anderen Person in 5 Sekunden.</p>
+                    <p className={styles.timertxt}>Showing the photo of the other person in 5 seconds.</p>
                     <div className={styles.thetimer}></div>
                   </div>
                 }
@@ -1687,15 +1757,15 @@ export default function Try() {
                 {photoUrl !== '' &&
                   <div className={styles.interests}>
                     <div className={styles.optionsin} data-aos="fade-right">
-                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.positive}>Ja, ich habe Interessen.</button>
-                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.positived}>Ich bin mir nicht 100% sicher, aber ich werde eine Chance geben.</button>
-                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.middlepositive}>Nur Freunde, ich werde ihm trotzdem mein Instagram geben.</button>
-                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.reject}>Nein, ich möchte keinen Kontakt.</button>
+                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.positive}>Yes, I have interests.</button>
+                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.positived}>I'm not 100% sure, but I'll give it a chance.</button>
+                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.middlepositive}>Just friends, I'm still going to give my Instagram.</button>
+                      <button onClick={(e) => { finalAnswer(e.currentTarget.innerText) }} className={styles.reject}>No, I don't want any contact.</button>
                     </div>
 
                     {answer !== '' &&
                       <div className={styles.finalanswer}>
-                        <p><span style={{ textDecoration: 'underline' }}>{partnerUsername}</span> {` sagt: ${answer}`}</p>
+                        <p><span style={{ textDecoration: 'underline' }}>{partnerUsername}</span> {` said: ${answer}`}</p>
                       </div>
                     }
                   </div>
@@ -1705,15 +1775,15 @@ export default function Try() {
 
             {isSkipped &&
               <div className={styles.skipdiv}>
-                <p className={styles.skiptxt}>{partnerUsername} hat dich übersprungen {'):'}</p>
-                <button onClick={() => { resetGame(); skipUser() }}>Finde ein neues Spiel</button>
+                <p className={styles.skiptxt}>{partnerUsername} skipped you {'):'}</p>
+                <button onClick={() => { resetGame(); skipUser() }}>Find a new Game</button>
               </div>
             }
 
             {!isOtherOnline &&
               <div className={styles.skipdiv}>
-                <p className={styles.skiptxt}>{partnerUsername} verließ den Raum {'):'}</p>
-                <button onClick={() => { resetGame(); skipUser() }}>Finde ein neues Spiel</button>
+                <p className={styles.skiptxt}>{partnerUsername} left the room {'):'}</p>
+                <button onClick={() => { resetGame(); skipUser() }}>Find a new Game</button>
               </div>
             }
           </div>

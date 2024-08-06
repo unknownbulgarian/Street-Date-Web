@@ -102,12 +102,12 @@ export default function Explore() {
                     <div className={styles.posts}>
                         {posts?.map((post, index) => (
                             <div
-                            onClick={() => {router(`/erkunden/${page}/${post.roomId}`)}} 
+                            onClick={() => {router(`/explore/${page}/${post.roomId}`)}} 
                              key={index} className={styles.post}>
                                 <h2>{post.title[0].toUpperCase() + post.title.slice(1)}</h2>
-                                <p>[Gepostet von
-                                   <span onClick={(e) => {router(`/statistiken/${post.publicId}`); e.stopPropagation()}} className={styles.poster}> {post.from} </span>
-                                    am
+                                <p>[Post from
+                                   <span onClick={(e) => {router(`/stats/${post.publicId}`); e.stopPropagation()}} className={styles.poster}> {post.from} </span>
+                                    at
                                     <span className={styles.date}> {post.Date} </span>]
                                 </p>
                                 <div className={styles.categories}>

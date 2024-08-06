@@ -141,7 +141,7 @@ export default function ExploreGame() {
 
             if (data.error) {
                 LoaderTime.loader(setIsLoading)
-                router(`/erkunden/${page}`)
+                router(`/explore/${page}`)
             } else {
                 LoaderTime.loader(setIsLoading)
                 setIsFirst(data.game.first)
@@ -175,7 +175,7 @@ export default function ExploreGame() {
             if (data.error) {
 
             } else {
-                router(`/erkunden/${page}`)
+                router(`/explore/${page}`)
             }
 
         } catch (error: any) {
@@ -196,7 +196,7 @@ export default function ExploreGame() {
             const responseData = await response.json();
 
             const data = responseData
- 
+
             if (data.error) {
                 setError(data.error)
                 if (titleRef.current) {
@@ -250,7 +250,7 @@ export default function ExploreGame() {
                             color='white'
                             width='170px'
                             height='30px'
-                            onClick={() => { router(`/erkunden/${page}`) }}
+                            onClick={() => { router(`/explore/${page}`) }}
                         >
                             <IoMdExit />
                         </TextIcon>
@@ -259,7 +259,7 @@ export default function ExploreGame() {
                     <div className={styles.found}>
                         <div className={styles.foundmain} data-aos="fade-down">
                             <div className={styles.removetitle}>
-                                <h1>Blind Date zwischen {data?.from} und {data?.game.partnerUsername}</h1>
+                                <h1>Blind Date between {data?.from} and {data?.game.partnerUsername}</h1>
                                 {isAuth && <FaRegTrashAlt onClick={() => { removeGame() }} className={styles.trashicon} />}
                             </div>
                             {data?.title &&
@@ -288,13 +288,13 @@ export default function ExploreGame() {
                                             paddingRight: '0.2em'
                                         }}> {data?.title[0].toUpperCase() + data?.title.slice(1)}
                                     </span>
-                                    <FaEdit onClick={() => { setIsEditTitle(true) }} className={styles.editicon} />
+                                   {isAuth &&  <FaEdit onClick={() => { setIsEditTitle(true) }} className={styles.editicon} />}
                                 </div>
                             }
+
                             <p className={styles.moreinfo}>
-                                [Gepostet von
-                                <span onClick={() => { router(`/statistiken/${data?.publicId}`) }} className={styles.from}> {data?.from} </span>
-                                am
+                                [{!isAuth && 'Post from'}  {isAuth && 'You posted'}
+                                {!isAuth && <span onClick={() => { router(`/stats/${data?.publicId}`) }} className={styles.from}> {data?.from} </span>} at
                                 <span className={styles.uploaddate}> {data?.Date} </span>]
                             </p>
                         </div>
@@ -366,7 +366,7 @@ export default function ExploreGame() {
 
                         {gameProgress > 12 &&
                             <div className={styles.showphoto}>
-                                <h2>Endgültige Ergebnisse</h2>
+                                <h2>Final Results</h2>
                                 {photoUrl === '' &&
                                     <div className={styles.timerdiv}>
                                         <p className={styles.timertxt}>Zeigen des Fotos der anderen Person in 5 Sekunden.</p>
@@ -377,7 +377,7 @@ export default function ExploreGame() {
                                     <div className={styles.interests}>
                                         {data?.game.finalAnswer !== '' &&
                                             <div className={styles.finalanswer}>
-                                                <p><span style={{ textDecoration: 'underline' }}>{data?.game.partnerUsername}</span> {` sagt: ${data?.game.finalAnswer}`}</p>
+                                                <p><span style={{ textDecoration: 'underline' }}>{data?.game.partnerUsername}</span> {` said: ${data?.game.finalAnswer}`}</p>
                                             </div>
                                         }
                                     </div>

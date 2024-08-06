@@ -131,13 +131,13 @@ export default function Game() {
                 <>
                     <div className={styles.found}>
                         <div className={styles.foundmain} data-aos="fade-down">
-                            <h1>Du hattest ein Blind Date mit {data?.partnerUsername}</h1>
-                            <p>Die Geschichte des Spiels {game}</p>
+                            <h1>You had Blind Date with {data?.partnerUsername}</h1>
+                            <p>The history of the Game {game}</p>
                             <TextIcon
-                                title='Spiel hochladen'
+                                title='Upload Game'
                                 color="white"
-                                backgroundColor="hsla(290, 100%, 69%, 0.8)"
-                                width="180px"
+                                background="linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)"
+                                width="170px"
                                 marginTop="1em"
                                 borderRadius="0.3em"
                                 height="30px"

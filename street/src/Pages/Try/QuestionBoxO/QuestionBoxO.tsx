@@ -55,13 +55,13 @@ export default function QuestionBoxO({ isGameReview, from, gameProgress, isFirst
                             if (e.keyCode === 13) {
                                 writeQuestion(e.currentTarget.value)
                             }
-                        }}  className={`${styles.question}`} placeholder='Schreibe deine Frage auf'></input>
+                        }}  className={`${styles.question}`} placeholder='Write down your question'></input>
                     }
 
 
                     {gameProgress > firstNum && question !== '' &&
                         <div className={styles.finalquestion} >
-                            <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{isFirst ? `${partnerUsername}` : `${returnFrom()}`}</span> {isFirst ? 'fragt:' : returnFragt()} {question}</p>
+                            <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{isFirst ? `${partnerUsername}` : `${returnFrom()}`}</span> {isFirst ? 'asked:' : returnFragt()} {question}</p>
                         </div>
                     }
 
@@ -72,14 +72,14 @@ export default function QuestionBoxO({ isGameReview, from, gameProgress, isFirst
                         if (e.keyCode === 13) {
                             writeAnswer(e.currentTarget.value)
                         }
-                    }} className={styles.answer} placeholder='Schreibe deine Antwort auf'></input>
+                    }} className={styles.answer} placeholder='Write down your answer'></input>
                     }
 
 
 
                     {gameProgress > lastNum && answer !== '' &&
                         <div className={styles.finalanswer}>
-                            <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{!isFirst ? `${partnerUsername}` : `${returnFrom()}`}</span> {!isFirst ? 'sagt:' : returnSagt()} {answer}</p>
+                            <p><span style={{ textDecoration: 'underline', fontWeight: '800' }}>{!isFirst ? `${partnerUsername}` : `${returnFrom()}`}</span> {!isFirst ? 'said:' : returnSagt()} {answer}</p>
                         </div>
                     }
                 </div>

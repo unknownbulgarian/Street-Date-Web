@@ -287,7 +287,7 @@ export default function Games() {
                                     <React.Fragment key={index}>
                                         {!isPrivateGames && !isPublicGames &&
                                             <div className={styles.gamecontainer}>
-                                                <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
+                                                <div className={styles.gamebox} onClick={() => { window.open(`/stats/${publicId}/games/history/${game.roomId}`, '_blank') }}>
                                                     <h2>Du hast gespielt mit
                                                         <span style={{
                                                             color: 'hsla(293, 100%, 79%, 1)'
@@ -311,7 +311,7 @@ export default function Games() {
                                             <>
                                                 {!game.isPublic &&
                                                     <div className={styles.gamecontainer}>
-                                                        <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
+                                                        <div className={styles.gamebox} onClick={() => { window.open(`/stats/${publicId}/games/history/${game.roomId}`, '_blank') }}>
                                                             <h2>Du hast gespielt mit
                                                                 <span style={{
                                                                     color: 'hsla(293, 100%, 79%, 1)'
@@ -333,7 +333,7 @@ export default function Games() {
                                             <>
                                                 {game.isPublic === true &&
                                                     <div className={styles.gamecontainer}>
-                                                        <div className={styles.gamebox} onClick={() => { window.open(`/statistiken/${publicId}/spiele/geschichte/${game.roomId}`, '_blank') }}>
+                                                        <div className={styles.gamebox} onClick={() => { window.open(`/stats/${publicId}/games/history/${game.roomId}`, '_blank') }}>
                                                             <h2>Du hast gespielt mit
                                                                 <span style={{
                                                                     color: 'hsla(293, 100%, 79%, 1)'

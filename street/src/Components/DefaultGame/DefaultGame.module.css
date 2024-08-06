@@ -5,6 +5,7 @@
     justify-content: center;
     text-align: center;
     height: 40px;
+    top: 0;
     padding: 1em;
     z-index: 5;
     background-color: red;
@@ -25,6 +26,7 @@
     justify-content: center;
     text-align: center;
     height: 40px;
+    top: 0;
     padding: 1em;
     z-index: 5;
     background-color: green;
@@ -53,7 +55,7 @@
     width: 140px;
     height: 30px;
     border: none;
-    background-color: rgba(118, 66, 216, 0.651);
+    background: linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%);
     border-radius: 0.3em;
     color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
@@ -70,6 +72,7 @@
 .found {
     display: flex;
     flex-direction: column;
+    padding-bottom: 30em;
 }
 
 .foundmain {
@@ -241,7 +244,7 @@
     border-radius: 0.3em;
     color: white;
     border: none;
-    width: 195px;
+    width: 150px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     font-size: 1rem;
     font-weight: 500;
@@ -265,7 +268,7 @@
     color: white;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     border: none;
-    width: 130px;
+    width: 100px;
     font-size: 1rem;
     font-weight: 500;
     height: 30px;

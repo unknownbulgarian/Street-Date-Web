@@ -156,7 +156,7 @@ export default function Upload() {
                             <div className={styles.thecategories}>
                                 {categories.map((categorie, index) => (
                                     <div style={{
-                                        backgroundColor: pushedCategories.includes(categorie) ? 'green' : ''
+                                        background: pushedCategories.includes(categorie) ? 'green' : ''
                                     }} onClick={() => { pushCategorie(categorie) }} key={index} className={styles.categoriebox}>
                                         <h3>{categorie}</h3>
                                     </div>

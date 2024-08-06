@@ -13,7 +13,7 @@
     height: 23px;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     padding-left: 0.6em;
-    background-color: rgba(116, 58, 211, 0.733);
+    background: linear-gradient(90deg, rgba(176, 88, 242, 1) 65%, rgba(197, 165, 255, 1) 100%);
     outline: transparent;
     color: white;
     animation: LR 1s forwards;
@@ -59,7 +59,7 @@
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
     height: 23px;
     padding-left: 0.6em;
-    background-color: rgba(116, 58, 211, 0.733);
+    background: linear-gradient(90deg, rgba(176, 88, 242, 1) 65%, rgba(197, 165, 255, 1) 100%);
     outline: transparent;
     color: white;
     animation: RL 1s forwards;
