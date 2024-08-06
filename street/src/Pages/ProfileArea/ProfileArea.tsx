@@ -148,6 +148,8 @@ export default function ProfileArea() {
 
                 setRizz((data.instagramCount / data.totalGames) * 100)
                 setRizzLevel((data.instagramCount / data.totalGames) * 100)
+
+
             }
 
             //console.log(data)
@@ -174,6 +176,11 @@ export default function ProfileArea() {
 
             if (data.error) {
 
+                LoaderTime.loader(setIsLoading)
+                setPublicId(data.publicId)
+                setName(data.name)
+                setShowName(data.name)
+
             } else {
                 setGender(data.gender)
                 setInstagram(data.instagram)
@@ -187,7 +194,6 @@ export default function ProfileArea() {
                 getPublicInfo(data.publicId)
 
                 LoaderTime.loader(setIsLoading)
-
             }
 
             //console.log(data)
@@ -305,6 +311,14 @@ export default function ProfileArea() {
     }
 
 
+    const getPhoto = () => {
+        if (photo === undefined || photo === null || photo === '') {
+            return 'https://birtwistlewiki.com.au/images/d/dd/Unknown.png'
+        } else {
+            return showPhoto
+        }
+    }
+
 
     return (
         <>
@@ -313,216 +327,223 @@ export default function ProfileArea() {
 
             {isLoading && <Loader />}
 
-            {isSettings &&
-                <Settings
-                    gender={gender}
-                    instagram={instagram}
-                    name={name}
-                    photoUrl={photo}
-                    setGender={setGender}
-                    setPhoto={setPhoto}
-                    setName={setName}
-                    setInstagram={setInstagram}
-                    progress={settingProgress}
-                    setProgress={setSettingProgress}
-                    close={() => { setIsSettings(false); getUserInfo(); toggleBlank() }} />
-            }
 
 
-            {!isPlaying &&
+            {!isLoading &&
                 <>
-                    <div className={styles.area}>
+                    {isSettings &&
+                        <Settings
+                            gender={gender}
+                            instagram={instagram}
+                            name={name}
+                            photoUrl={photo}
+                            setGender={setGender}
+                            setPhoto={setPhoto}
+                            setName={setName}
+                            setInstagram={setInstagram}
+                            progress={settingProgress}
+                            setProgress={setSettingProgress}
+                            close={() => { setIsSettings(false); getUserInfo(); toggleBlank() }} />
+                    }
 
-                        <div className={styles.firstcontent}>
-                            <div className={styles.first}>
-                                <div className={styles.mainprofile}>
-                                    <img src={photo !== '' ? showPhoto : 'https://birtwistlewiki.com.au/images/d/dd/Unknown.png'}></img>
-                                    <div className={styles.instagrams}>
-                                        <div className={styles.instabox}>
-                                            <div className={styles.theinstagrams}>
-                                                <p>{instagrams}</p>
-                                                <AiFillInstagram className={styles.instaicon} />
 
-                                                <div className={styles.infoinsta}>
-                                                    <TiInfoLarge />
+                    {!isPlaying &&
+                        <>
+                            <div className={styles.area}>
+
+                                <div className={styles.firstcontent}>
+                                    <div className={styles.first}>
+                                        <div className={styles.mainprofile}>
+                                            <img onClick={() => {setIsSettings(true); setSettingProgress(4)}} src={getPhoto()}></img>
+                                            <div className={styles.instagrams}>
+                                                <div className={styles.instabox}>
+                                                    <div className={styles.theinstagrams}>
+                                                        <p>{instagrams}</p>
+                                                        <AiFillInstagram className={styles.instaicon} />
+
+                                                        <div className={styles.infoinsta}>
+                                                            <TiInfoLarge />
+                                                        </div>
+                                                    </div>
                                                 </div>
+
+                                                <div className={styles.instabox}>
+                                                    <div className={styles.theinstagrams}>
+                                                        <p>{games}</p>
+                                                        <FaGamepad className={styles.instaicon} />
+
+                                                        <div className={styles.infoinsta}>
+                                                            <TiInfoLarge />
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div className={styles.indbox}>
+                                                <div className={styles.notline}>
+                                                    <IoIosNotifications className={styles.notification} />
+                                                    <PiGameControllerFill onClick={() => { checkUserInfo() }} className={styles.notification} />
+                                                </div>
+
+                                                <div className={styles.notline}>
+                                                    <MdHistory onClick={() => { router('/stats/' + localStorage.getItem('publicId') + '/games/1') }} className={styles.notification} />
+                                                    <MdManageAccounts onClick={() => { setIsSettings(true); setSettingProgress(1) }} className={styles.notification} />
+                                                </div>
+                                            </div>
+
+                                        </div>
+
+                                        <div className={styles.xp}>
+                                            <h2>{showName}</h2>
+                                            <div className={styles.rizz}>
+                                                <div style={{ width: getRizzLevel() + '%' }} className={styles.level}></div>
+                                                <p>{rizz.toFixed(0)}%/RIZZ</p>
                                             </div>
                                         </div>
 
-                                        <div className={styles.instabox}>
-                                            <div className={styles.theinstagrams}>
-                                                <p>{games}</p>
-                                                <FaGamepad className={styles.instaicon} />
+                                    </div>
 
-                                                <div className={styles.infoinsta}>
-                                                    <TiInfoLarge />
-                                                </div>
+                                    <div className={styles.stats}>
+                                        <div className={styles.statbox}>
+                                            <MdOutlineLeaderboard className={styles.staticon} />
+                                            <p>Leaderboards</p>
+                                        </div>
+
+                                        <div onClick={() => { router('/stats/' + localStorage.getItem('publicId')) }} className={styles.statbox}>
+                                            <IoStatsChart className={styles.staticon} />
+                                            <p>Personal Stats</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div className={styles.firstcontent}>
+                                    <div className={styles.second}>
+                                        <CiSettings onClick={() => { setIsSettings(true); setSettingProgress(4) }} className={styles.settingsicon} />
+                                        <div className={styles.playarea}>
+                                            <h2><span>Street</span>Date</h2>
+                                            <TextIcon
+                                                borderRadius='0.3em'
+                                                title='Play Now'
+                                                width='270px'
+                                                color='white'
+                                                background='linear-gradient(161deg, rgba(99,184,62,1) 41%, rgba(19,145,18,1) 100%)'
+                                                height='40px'
+                                                iconFontSize='1.5rem'
+                                                transition='all 800ms'
+                                                onClick={() => { checkUserInfo() }}
+                                            >
+                                                <CiPlay1 />
+                                            </TextIcon>
+                                        </div>
+                                        <p className={styles.begin}>Start your search for a perfect partner effortlessly now.</p>
+                                    </div>
+
+                                    <div className={styles.id}>
+
+                                        <h2>Public ID</h2>
+
+                                        <InputIcon
+                                            color='white'
+                                            iconFontSize='1.4rem'
+                                            height='35px'
+                                            borderRadius='0.3em'
+                                            titleColor='white'
+                                            value={publicId}
+                                            disabled={true}
+                                            type='text'
+                                            isBoxShadow={true}
+                                            fontSize='0.95rem'
+                                            title='Public ID'
+                                            ref={idRef}
+                                            background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                                            width='350px'
+                                        >
+                                            <CiFileOn />
+                                        </InputIcon>
+
+                                        <TextIcon
+                                            borderRadius='0.3em'
+                                            title='Copy'
+                                            width='130px'
+                                            color='white'
+                                            background='linear-gradient(100deg, rgba(204,70,247,1) 58%, rgba(241,139,246,1) 100%)'
+                                            height='35px'
+                                            iconFontSize='1.3rem'
+                                            transition='all 800ms'
+                                            onClick={() => { handleCopyClick() }}
+                                        >
+                                            <FaCopy />
+                                        </TextIcon>
+                                    </div>
+
+                                </div>
+
+                                <div className={styles.firstcontent}>
+                                    <div className={styles.third}>
+                                        <h2>Select Game Mode</h2>
+                                        <div className={styles.gamemodes}>
+                                            <div className={`${styles.mode} ${styles.selectedmode}`}>
+                                                <FaPeopleArrows style={{ color: 'white' }} className={styles.modeicon} />
+                                                <p>2 Persons</p>
+                                            </div>
+
+                                            <div onClick={() => { alert('Coming Soon') }} className={styles.mode}>
+                                                <FaPersonCirclePlus className={styles.modeicon} />
+                                                <p>4 Persons</p>
                                             </div>
                                         </div>
                                     </div>
 
-                                    <div className={styles.indbox}>
-                                        <div className={styles.notline}>
-                                            <IoIosNotifications className={styles.notification} />
-                                            <PiGameControllerFill onClick={() => { checkUserInfo() }} className={styles.notification} />
+                                    <div className={styles.invitefriend}>
+                                        <div className={styles.friend}>
+                                            <FaUserFriends className={styles.friendicon} />
+                                            <h2>Invite a Friend</h2>
                                         </div>
 
-                                        <div className={styles.notline}>
-                                            <MdHistory onClick={() => { router('/stats/' + localStorage.getItem('publicId') + '/games/1') }} className={styles.notification} />
-                                            <MdManageAccounts onClick={() => { setIsSettings(true); setSettingProgress(1) }} className={styles.notification} />
-                                        </div>
-                                    </div>
+                                        <InputIcon
+                                            color='white'
+                                            iconFontSize='1.4rem'
+                                            height='35px'
+                                            borderRadius='0.3em'
+                                            titleColor='white'
+                                            isBoxShadow={true}
+                                            type='text'
+                                            fontSize='0.95rem'
+                                            title='User Public ID (5d57b7ea-b...)'
+                                            background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                                            width='380px'
+                                        >
+                                            <IoLinkOutline />
+                                        </InputIcon>
 
-                                </div>
-
-                                <div className={styles.xp}>
-                                    <h2>{showName}</h2>
-                                    <div className={styles.rizz}>
-                                        <div style={{ width: getRizzLevel() + '%' }} className={styles.level}></div>
-                                        <p>{rizz.toFixed(0)}%/RIZZ</p>
-                                    </div>
-                                </div>
-
-                            </div>
-
-                            <div className={styles.stats}>
-                                <div className={styles.statbox}>
-                                    <MdOutlineLeaderboard className={styles.staticon} />
-                                    <p>Leaderboards</p>
-                                </div>
-
-                                <div onClick={() => { router('/stats/' + localStorage.getItem('publicId')) }} className={styles.statbox}>
-                                    <IoStatsChart className={styles.staticon} />
-                                    <p>Personal Stats</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div className={styles.firstcontent}>
-                            <div className={styles.second}>
-                                <CiSettings onClick={() => { setIsSettings(true); setSettingProgress(4) }} className={styles.settingsicon} />
-                                <div className={styles.playarea}>
-                                    <h2><span>Street</span>Date</h2>
-                                    <TextIcon
-                                        borderRadius='0.3em'
-                                        title='Play Now'
-                                        width='270px'
-                                        color='white'
-                                        background='linear-gradient(161deg, rgba(99,184,62,1) 41%, rgba(19,145,18,1) 100%)'
-                                        height='40px'
-                                        iconFontSize='1.5rem'
-                                        transition='all 800ms'
-                                        onClick={() => { checkUserInfo() }}
-                                    >
-                                        <CiPlay1 />
-                                    </TextIcon>
-                                </div>
-                                <p className={styles.begin}>Start your search for a perfect partner effortlessly now.</p>
-                            </div>
-
-                            <div className={styles.id}>
-
-                                <h2>Public ID</h2>
-
-                                <InputIcon
-                                    color='white'
-                                    iconFontSize='1.4rem'
-                                    height='35px'
-                                    borderRadius='0.3em'
-                                    titleColor='white'
-                                    value={publicId}
-                                    disabled={true}
-                                    type='text'
-                                    isBoxShadow={true}
-                                    fontSize='0.95rem'
-                                    title='Public ID'
-                                    ref={idRef}
-                                    background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
-                                    width='350px'
-                                >
-                                    <CiFileOn />
-                                </InputIcon>
-
-                                <TextIcon
-                                    borderRadius='0.3em'
-                                    title='Copy'
-                                    width='130px'
-                                    color='white'
-                                    background='linear-gradient(100deg, rgba(204,70,247,1) 58%, rgba(241,139,246,1) 100%)'
-                                    height='35px'
-                                    iconFontSize='1.3rem'
-                                    transition='all 800ms'
-                                    onClick={() => { handleCopyClick() }}
-                                >
-                                    <FaCopy />
-                                </TextIcon>
-                            </div>
-
-                        </div>
-
-                        <div className={styles.firstcontent}>
-                            <div className={styles.third}>
-                                <h2>Select Game Mode</h2>
-                                <div className={styles.gamemodes}>
-                                    <div className={`${styles.mode} ${styles.selectedmode}`}>
-                                        <FaPeopleArrows style={{ color: 'white' }} className={styles.modeicon} />
-                                        <p>2 Persons</p>
-                                    </div>
-
-                                    <div onClick={() => { alert('Coming Soon') }} className={styles.mode}>
-                                        <FaPersonCirclePlus className={styles.modeicon} />
-                                        <p>4 Persons</p>
+                                        <TextIcon
+                                            borderRadius='0.3em'
+                                            title='Send Invite'
+                                            width='170px'
+                                            color='white'
+                                            background='linear-gradient(100deg, rgba(204,70,247,1) 58%, rgba(241,139,246,1) 100%)'
+                                            height='35px'
+                                            iconFontSize='1.3rem'
+                                            transition='all 800ms'
+                                            onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}
+                                        >
+                                            <IoSendSharp />
+                                        </TextIcon>
                                     </div>
                                 </div>
                             </div>
+                        </>
+                    }
 
-                            <div className={styles.invitefriend}>
-                                <div className={styles.friend}>
-                                    <FaUserFriends className={styles.friendicon} />
-                                    <h2>Invite a Friend</h2>
-                                </div>
 
-                                <InputIcon
-                                    color='white'
-                                    iconFontSize='1.4rem'
-                                    height='35px'
-                                    borderRadius='0.3em'
-                                    titleColor='white'
-                                    isBoxShadow={true}
-                                    type='text'
-                                    fontSize='0.95rem'
-                                    title='User Public ID (5d57b7ea-b...)'
-                                    background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
-                                    width='380px'
-                                >
-                                    <IoLinkOutline />
-                                </InputIcon>
 
-                                <TextIcon
-                                    borderRadius='0.3em'
-                                    title='Send Invite'
-                                    width='170px'
-                                    color='white'
-                                    background='linear-gradient(100deg, rgba(204,70,247,1) 58%, rgba(241,139,246,1) 100%)'
-                                    height='35px'
-                                    iconFontSize='1.3rem'
-                                    transition='all 800ms'
-                                    onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}
-                                >
-                                    <IoSendSharp />
-                                </TextIcon>
-                            </div>
-                        </div>
-                    </div>
+
+
+
+                    {isPlaying && <DefaultGame setIsPlaying={setIsPlaying} />}
+
                 </>
             }
-
-
-
-
-
-
-            {isPlaying && <DefaultGame setIsPlaying={setIsPlaying} />}
 
 
         </>
