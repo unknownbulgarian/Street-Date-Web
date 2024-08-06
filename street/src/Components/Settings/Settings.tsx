@@ -90,6 +90,9 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                 setSuccessNum(1)
                 setErrorNum(0)
                 setError('')
+                setTimeout(() => {
+                    location.reload()
+                }, 1000);
             }
 
             // console.log(data)
@@ -134,6 +137,9 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                 setSuccessNum(2)
                 setError('');
                 setErrorNum(0)
+                setTimeout(() => {
+                    location.reload()
+                }, 1000);
             }
         } catch (error) {
             console.error('Photo update failed', error);
