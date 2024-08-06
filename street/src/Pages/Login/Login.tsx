@@ -60,8 +60,8 @@ export default function Login() {
         <>
             <div className={styles.login} data-aos="zoom-in">
 
-                <h1>Anmelden</h1>
-                <p className={styles.lol}>Melde dich in deinem Konto an</p>
+                <h1>Login</h1>
+                <p className={styles.lol}>Login to your account, no more limits !</p>
 
                 <div className={styles.box}>
                     <InputIcon
@@ -84,7 +84,7 @@ export default function Login() {
                         background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
-                        title='Passwort'
+                        title='Password'
                         width='450px'
                         titleColor='white'
                         height='30px'
@@ -96,19 +96,20 @@ export default function Login() {
                         <MdOutlinePassword />
                     </InputIcon>
                     <div className={styles.already}>
-                        <Link className='link' to={'/registrierung'}><p>Sie haben kein Konto ?</p></Link>
+                        <Link className='link' to={'/register'}><p>Don't have an account ?</p></Link>
                     </div>
 
 
                     <TextIcon
                         borderRadius='0.3em'
-                        title='Jetzt Anmelden'
-                        width='210px'
+                        title='Login Now'
+                        width='170px'
                         color='white'
                         background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
                         height='33px'
-                        iconFontSize='1.3rem'
+                        marginTop='0.5em'
+                        iconFontSize='1.6rem'
                         transition='all 800ms'
                         onClick={() => { login() }}
                     >

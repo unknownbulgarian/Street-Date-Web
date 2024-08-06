@@ -104,8 +104,8 @@ export default function Register() {
         <>
             <div className={styles.register} data-aos="fade-down">
 
-                <h1>Registrierung</h1>
-                <p className={styles.lol}>Register, um mehr Funktionen zu erhalten</p>
+                <h1>Creating an Account</h1>
+                <p className={styles.lol}>Register, to explore all features of our app and get started today!</p>
 
                 <div className={styles.box}>
 
@@ -146,7 +146,7 @@ export default function Register() {
                         background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
-                        title='Passwort'
+                        title='Password'
                         width='450px'
                         titleColor='white'
                         height='30px'
@@ -162,7 +162,7 @@ export default function Register() {
                         background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                         borderRadius='0.3em'
                         color='white'
-                        title='Passwort bestätigen'
+                        title='Confirm Password'
                         width='450px'
                         titleColor='white'
                         height='30px'
@@ -175,7 +175,7 @@ export default function Register() {
                     </InputIcon>
 
                     <div className={styles.already}>
-                        <Link className='link' to={'/anmelden'}><p>Sie haben bereits ein Konto ?</p></Link>
+                        <Link className='link' to={'/login'}><p>Already have an account ?</p></Link>
                     </div>
 
 
@@ -188,6 +188,7 @@ export default function Register() {
                         boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
                         height='33px'
                         iconFontSize='1.3rem'
+                        marginTop='0.5em'
                         transition='all 800ms'
                         onClick={() => { register() }}
                     >
