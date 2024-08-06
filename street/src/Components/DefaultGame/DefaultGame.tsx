@@ -1408,18 +1408,19 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
 
             {!isOnline &&
                 <div style={{
-                    position: 'absolute',
+                    position: 'fixed',
                     width: '100%',
                     backgroundColor: 'red',
-                    paddingTop: '1em',
-                    paddingBottom: '1em',
+                    paddingTop: '2em',
+                    paddingBottom: '2em',
                     zIndex: '2',
                     color: 'white',
+                    top: '0',
                     display: 'flex',
                     justifyContent: 'center',
                     alignContent: 'center'
                 }}>
-                    <p style={{ paddingLeft: '2em', paddingRight: '2em' }}>Du bist offline, bitte stelle die Verbindung wieder her!</p>
+                    <p style={{ paddingLeft: '2em', paddingRight: '2em' }}>You are offline, please reconnect!</p>
                 </div>
             }
 
