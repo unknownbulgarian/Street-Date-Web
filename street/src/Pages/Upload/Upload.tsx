@@ -165,9 +165,9 @@ export default function Upload() {
                         </div>
 
                         <TextIcon
-                            title='Hochladen'
+                            title='Upload'
                             height='25px'
-                            width='160px'
+                            width='140px'
                             borderRadius='0.3em'
                             color='white'
                             background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
