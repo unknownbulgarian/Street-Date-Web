@@ -48,29 +48,29 @@ export default function App() {
 
   return (
     <>
-      <Navbar tab={1} />
       <div className={styles.main}>
         <div className={styles.welcome} data-aos="fade-right">
           <h1><span className={styles.no}>Street</span> Online Blind Date</h1>
-          <p>Du willst nicht nach draußen gehen, um das Spiel zu spielen? Keine Sorge, du kannst es jetzt auch online spielen!</p>
+          <p>
+            Don't want to go outside to play the game? Don't worry, you can now play it online from the comfort of your home and enjoy all the fun without stepping outside!</p>
           <div className={styles.btns}>
             <TextIcon
               borderRadius='0.3em'
-              title='Als Gast versuchen'
-              width='210px'
+              title='Try as Guest'
+              width='180px'
               color='white'
               background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
               boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
               height='33px'
               iconFontSize='1.3rem'
               transition='all 800ms'
-              onClick={() => { nav(isSession ? '/profilbereich' : '/versuchen') }}
+              onClick={() => { nav(isSession ? '/play' : '/try') }}
             >
               <IoRocketOutline />
             </TextIcon>
             <TextIcon
               borderRadius='0.3em'
-              title='Ein Konto erstellen'
+              title='Create an Account'
               width='210px'
               color='white'
               background='linear-gradient(98deg, rgba(162,74,245,1) 17%, rgba(165,79,246,1) 100%)'
@@ -78,7 +78,7 @@ export default function App() {
               height='33px'
               iconFontSize='1.5rem'
               transition='all 800ms'
-              onClick={() => { nav(isSession ? '/profilbereich' : '/registrierung') }}
+              onClick={() => { nav(isSession ? '/play' : '/register') }}
             >
               <IoEnterOutline />
             </TextIcon>
@@ -99,30 +99,30 @@ export default function App() {
         <div className={styles.box}>
           <div className={styles.boxtop}>
             <CiViewTimeline className={styles.boxicon} />
-            <h2>Jetzt anfangen</h2>
+            <h2>Start now</h2>
           </div>
-          <p>Starten Sie jetzt <strong>völlig kostenlos</strong> als Gast, erleben Sie das <strong>einfache Dating</strong> und haben Sie Spaß mit unserem Spiel.</p>
+          <p>Start now completely free of charge as a guest, experience easy dating and have fun with our game.</p>
         </div>
         <div className={`${styles.box} ${styles.box2}`}>
           <div className={styles.boxtop}>
             <CiMoneyBill className={styles.boxicon} />
-            <h2>Bezahlen, um <span style={{ textDecoration: 'line-through' }}>zu gewinnen</span></h2>
+            <h2>Pay <span style={{ textDecoration: 'line-through' }}>to win</span></h2>
           </div>
-          <p>Im Gegensatz zu anderen Dating-Plattformen ist unsere App <strong>nicht kostenpflichtig</strong>, es gibt <strong>keine speziellen</strong> Funktionen, die Ihr Date aufwerten.</p>
+          <p>Unlike other dating platforms, our app is free of charge and there are no special features that add value to your date.</p>
         </div>
         <div className={styles.box}>
           <div className={styles.boxtop}>
             <IoRocketOutline className={styles.boxicon} />
-            <h2>Uniqe Partnersuche</h2>
+            <h2>Uniqe Dating</h2>
           </div>
-          <p>Unsere App ist für einfaches Dating für <strong>die jungen Leute</strong> da draußen gemacht und ausgerichtet.</p>
+          <p>Our app is made and thoughtfully designed for easy and enjoyable dating experiences for the young people out there.</p>
         </div>
       </div>
 
 
       <div className={styles.new}>
-        <h2>Die <span style={{ textDecoration: 'underline' }}>neue</span> Generation der Partnersuche</h2>
-        <p>Es ist 2024 und die meisten Dinge haben sich <strong>weiterentwickelt</strong>, so auch <strong>die Partnersuche</strong>. </p>
+        <h2>The <span style={{ textDecoration: 'underline' }}>new</span> Generation of Modern Dating</h2>
+        <p>It's 2024 and most things have moved on, including dating.</p>
         <div className={styles.icons}>
           <CiTimer style={{ fontSize: '1rem' }} />
           <CiChat1 style={{ fontSize: '2rem' }} />
@@ -135,12 +135,13 @@ export default function App() {
 
         <TextIcon
           borderRadius='0.3em'
-          title='Daten erkunden'
-          width='200px'
+          title='Explore dates'
+          width='180px'
           color='white'
           background='linear-gradient(98deg, rgba(181,116,193,1) 17%, rgba(148,49,235,1) 100%)'
           height='35px'
           transition='all 800ms'
+          onClick={() => {nav('/explore/1')}}
         >
           <MdTravelExplore />
         </TextIcon>
@@ -151,14 +152,14 @@ export default function App() {
         <div className={styles.discordbox} data-aos="fade-right">
           <span><FaDiscord /></span>
           <div className={styles.discordtext}>
-            <p>Du kannst das Spiel auch auf unserem Discord-Server spielen</p>
+            <p>You can also play the game on our Discord server</p>
           </div>
           <TextIcon
             borderRadius='0.3em'
-            title='Jetzt beitreten'
-            width='210px'
+            title='Join now'
+            width='170px'
             color='white'
-            background='linear-gradient(98deg, rgba(162,74,245,1) 17%, rgba(165,79,246,1) 100%)'
+            background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
             boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
             height='35px'
             iconFontSize='1.5rem'
@@ -171,85 +172,89 @@ export default function App() {
       </div>
 
       <div className={styles.second}>
-        <h2 data-aos="fade-down">Dating sollte nicht <span className={styles.nothard}>kompliziert</span> sein</h2>
+        <h2 data-aos="fade-down">Dating should not be <span className={styles.nothard}>complicated</span></h2>
         <img data-aos="fade-right" src='https://i.postimg.cc/0N40Pcp5/Screenshot-2024-06-25-140805.png'></img>
         <div className={styles.secondboxes}>
           <div className={styles.secondbox} data-aos="zoom-in">
             <span className={styles.secondboxicon}><PiCrownSimpleFill /></span>
-            <h3>Einfachheit</h3>
-            <p>Du kannst buchstäblich in ein paar Minuten einen Partner finden</p>
+            <h3>Simplicity</h3>
+            <p>You can literally find a partner in just a few minutes with ease and convenience.</p>
           </div>
 
           <div className={styles.secondbox} data-aos="zoom-in">
             <span className={styles.secondboxicon}><FaStar /></span>
-            <h3>Jeder hat eine Chance</h3>
-            <p>Bei unserer App wird nicht bezahlt, um zu gewinnen, wir haben keine besonderen Funktionen, alle sind gleich</p>
+            <h3>Everyone has a chance</h3>
+            <p>With our app, you don't pay to win; we don't have any special features or perks. Everyone is treated equally and fairly, ensuring a level playing field for all users.
+
+
+
+
+
+
+</p>
           </div>
         </div>
       </div>
 
       <div className={styles.faq}>
-        <h2 data-aos="fade-down">Häufig gestellte Fragen</h2>
+        <h2 data-aos="fade-down">Frequently asked questions</h2>
         <div className={styles.faqboxes} data-aos="zoom-in">
           <div className={styles.faqbox}>
             <div className={styles.mainfaqbox} onClick={() => { faq === 1 ? setFaq(0) : setFaq(1) }}>
-              <p>Wie alt muss man sein?</p>
+              <p>How old do you have to be?</p>
               <span className={`${faq === 1 ? styles.rotatedicon : ''}`}><IoIosArrowForward /></span>
             </div>
 
             <div style={{
               height: faq === 1 ? '40px' : '0px',
             }} className={styles.expandbox}>
-              <p>Du musst <strong>mindestens 18</strong> Jahre alt sein.</p>
+              <p>You have to be <strong>at least 18</strong> years old.</p>
             </div>
           </div>
 
 
           <div className={styles.faqbox}>
             <div className={styles.mainfaqbox} onClick={() => { faq === 2 ? setFaq(0) : setFaq(2) }}>
-              <p>Wie man die App benutzt?</p>
+              <p>How to use the app?</p>
               <span className={`${faq === 2 ? styles.rotatedicon : ''}`}><IoIosArrowForward /></span>
             </div>
 
             <div style={{
               height: faq === 2 ? '40px' : '0px',
             }} className={styles.expandbox}>
-              <p>Besuch unserer Tutorial-Seite.</p>
+              <p>Visit our documentation page.</p>
             </div>
           </div>
 
           <div className={styles.faqbox}>
             <div className={styles.mainfaqbox} onClick={() => { faq === 3 ? setFaq(0) : setFaq(3) }}>
-              <p>Ist sie völlig kostenlos?</p>
+              <p>Is it completely free of charge?</p>
               <span className={`${faq === 3 ? styles.rotatedicon : ''}`}><IoIosArrowForward /></span>
             </div>
 
             <div style={{
               height: faq === 3 ? '40px' : '0px',
             }} className={styles.expandbox}>
-              <p>Unsere App bietet <strong>keine Pay-to-Win-Funktionen</strong>. Der einzige Unterschied bei kostenlosen Konten besteht darin, dass Sie <strong>maximal 15 Dates pro Tag</strong> wahrnehmen können.</p>
+              <p>Our app does not offer any pay-to-win functions. The only difference with free accounts is that you can go on a maximum of 15 dates per day.</p>
             </div>
           </div>
 
           <div className={styles.faqbox}>
             <div className={styles.mainfaqbox} onClick={() => { faq === 4 ? setFaq(0) : setFaq(4) }}>
-              <p>Muss ich irgendwelche persönlichen Informationen angeben?</p>
+              <p>Do I have to provide any personal information?</p>
               <span className={`${faq === 4 ? styles.rotatedicon : ''}`}><IoIosArrowForward /></span>
             </div>
 
             <div style={{
               height: faq === 4 ? '40px' : '0px',
             }} className={styles.expandbox}>
-              <p>Stelle sicher, dass du eine <strong>echte E-Mail-Adresse</strong> und einen <strong>echten Instagram-Namen</strong> angibst.</p>
+              <p>Make sure you enter a real email address and a real Instagram name.</p>
             </div>
           </div>
         </div>
       </div>
 
       <Reviews />
-
-
-      <Footer />
     </>
   )
 }

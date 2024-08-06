@@ -19,6 +19,7 @@
   font-size: 4rem;
 }
 
+
 .btns {
   display: flex;
   align-items: center;
@@ -331,7 +332,7 @@
   padding-left: 3em;
   padding-right: 3em;
   box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
-  width: 900px;
+  width: 720px;
   height: 95px;
   background: black;
   background: linear-gradient(98deg, rgba(138, 82, 241, 1) 16%, rgba(120, 3, 230, 1) 100%);

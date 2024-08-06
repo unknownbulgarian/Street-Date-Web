@@ -43,17 +43,17 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             <Navbar />
             <Routes>
               <Route path='/' element={<App />} />
-              <Route path='/versuchen' element={<LoginGuardRoute component={Try} />} />
-              <Route path='/registrierung' element={<LoginGuardRoute component={Register} />} />
-              <Route path='/anmelden' element={<LoginGuardRoute component={Login} />} />
-              <Route path='/profilbereich' element={<ProtectedRoute component={ProfileArea} />} />
-              <Route path='/statistiken/:publicId' element={<Stats />} />
-              <Route path='/statistiken/:publicId/spiele/:page' element={<Games />} />
-              <Route path='/statistiken/:publicId/spiele/geschichte/:game' element={<Game />} />
-              <Route path='/hochladen/:game' element={<ProtectedRoute component={Upload} />} />
-              <Route path='/erkunden/:page' element={<Explore />} />
-              <Route path='/erkunden/:page/:game' element={<ExploreGame />} />
-              <Route path='/dokumentation' element={<Documentation />} />
+              <Route path='/try' element={<LoginGuardRoute component={Try} />} />
+              <Route path='/register' element={<LoginGuardRoute component={Register} />} />
+              <Route path='/login' element={<LoginGuardRoute component={Login} />} />
+              <Route path='/play' element={<ProtectedRoute component={ProfileArea} />} />
+              <Route path='/stats/:publicId' element={<Stats />} />
+              <Route path='/stats/:publicId/games/:page' element={<Games />} />
+              <Route path='/stats/:publicId/games/history/:game' element={<Game />} />
+              <Route path='/upload/:game' element={<ProtectedRoute component={Upload} />} />
+              <Route path='/explore/:page' element={<Explore />} />
+              <Route path='/explore/:page/:game' element={<ExploreGame />} />
+              <Route path='/documentation' element={<Documentation />} />
             </Routes>
             <Footer />
           </BlankProvider>

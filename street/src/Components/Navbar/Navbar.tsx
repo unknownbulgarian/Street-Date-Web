@@ -22,15 +22,15 @@ export default function Navbar({ tab }: NavProps) {
             </div>
 
             <div className={styles.hrefs}>
-                <Link className='link' to='/'><p className={`${tab === 1 ? styles.selected : ''}`}>Startseite</p></Link>
-                <Link className='link' to='/herunterladen'><p className={`${tab === 2 ? styles.selected : ''}`}>Herunterladen</p></Link>
-                <Link className='link' to='/erkunden/1'><p className={`${tab === 3 ? styles.selected : ''}`}>Erkunde Dates</p></Link>
-                <Link className='link' to='/dokumentation'><p className={`${tab === 4 ? styles.selected : ''}`}>Dokumentation</p></Link>
-                {isSession && <Link className='link' to='/profilbereich'><p className={`${tab === 5 ? styles.selected : ''}`}>Profilbereich</p></Link>}
+                <Link className='link' to='/'><p className={`${tab === 1 ? styles.selected : ''}`}>Home</p></Link>
+                <Link className='link' to='/download'><p className={`${tab === 2 ? styles.selected : ''}`}>Download</p></Link>
+                <Link className='link' to='/explore/1'><p className={`${tab === 3 ? styles.selected : ''}`}>Explore Dates</p></Link>
+                <Link className='link' to='/documentation'><p className={`${tab === 4 ? styles.selected : ''}`}>Documentation</p></Link>
+                {isSession && <Link className='link' to='/play'><p className={`${tab === 5 ? styles.selected : ''}`}>Play</p></Link>}
                 {!isSession &&
                     <>
-                        <Link className='link' to='/registrierung'><p className={`${tab === 6 ? styles.selected : ''}`}>Registrieren</p></Link>
-                        <Link className='link' to='/anmelden'> <p className={`${tab === 7 ? styles.selected : ''}`}>Anmeldung</p></Link>
+                        <Link className='link' to='/register'><p className={`${tab === 6 ? styles.selected : ''}`}>Register</p></Link>
+                        <Link className='link' to='/login'> <p className={`${tab === 7 ? styles.selected : ''}`}>Login</p></Link>
                     </>
                 }
             </div>

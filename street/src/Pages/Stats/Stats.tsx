@@ -162,7 +162,7 @@ export default function Stats() {
                     width='190px'
                     height='30px'
                     color='white'
-                    onClick={() => { router('/statistiken/' + `${publicId}/` + 'spiele/' + '1') }}
+                    onClick={() => { router('/stats/' + `${publicId}/` + 'games/' + '1') }}
                     boxShadow='5px 5px 10px rgba(0, 0, 0, 0.5)'
                     onHover={(e) => {
                       e.currentTarget.style.backgroundColor = 'rgba(152, 78, 248, 0.8)';

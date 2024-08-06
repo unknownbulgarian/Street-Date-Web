@@ -347,7 +347,7 @@ export default function ProfileArea() {
                                         </div>
 
                                         <div className={styles.notline}>
-                                            <MdHistory onClick={() => {router('/statistiken/' + localStorage.getItem('publicId') + '/spiele/1')}} className={styles.notification} />
+                                            <MdHistory onClick={() => {router('/stats/' + localStorage.getItem('publicId') + '/games/1')}} className={styles.notification} />
                                             <MdManageAccounts onClick={() => {setIsSettings(true); setSettingProgress(1)}} className={styles.notification} />
                                         </div>
                                     </div>
@@ -370,7 +370,7 @@ export default function ProfileArea() {
                                     <p>Leaderboards</p>
                                 </div>
 
-                                <div onClick={() => {router('/statistiken/' + localStorage.getItem('publicId'))}} className={styles.statbox}>
+                                <div onClick={() => {router('/stats/' + localStorage.getItem('publicId'))}} className={styles.statbox}>
                                     <IoStatsChart className={styles.staticon} />
                                     <p>Personal Stats</p>
                                 </div>
@@ -396,7 +396,7 @@ export default function ProfileArea() {
                                         <CiPlay1 />
                                     </TextIcon>
                                 </div>
-                                <p className={styles.begin}>Beginnen Sie jetzt mühelos mit der Suche nach einem Partner</p>
+                                <p className={styles.begin}>Start your search for a perfect partner effortlessly now.</p>
                             </div>
 
                             <div className={styles.id}>
@@ -444,12 +444,12 @@ export default function ProfileArea() {
                                 <div className={styles.gamemodes}>
                                     <div className={`${styles.mode} ${styles.selectedmode}`}>
                                         <FaPeopleArrows style={{ color: 'white' }} className={styles.modeicon} />
-                                        <p>2 Personen</p>
+                                        <p>2 Persons</p>
                                     </div>
 
                                     <div className={styles.mode}>
                                         <FaPersonCirclePlus className={styles.modeicon} />
-                                        <p>4 Personen</p>
+                                        <p>4 Persons</p>
                                     </div>
                                 </div>
                             </div>

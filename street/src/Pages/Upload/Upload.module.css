@@ -1,4 +1,4 @@
-.upload{
+.upload {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -6,7 +6,7 @@
     height: 100vh;
 }
 
-.uploadbox{
+.uploadbox {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -14,12 +14,13 @@
     justify-content: center;
     width: 500px;
     padding: 1em;
+    background: rgb(132, 62, 184);
+    background: linear-gradient(90deg, rgba(132, 62, 184, 1) 41%, rgba(96, 19, 236, 1) 100%);
     box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
-    background-color: hsla(0, 0%, 0%, 0.527);
     border-radius: 0.3em;
 }
 
-.uploadbox h2{
+.uploadbox h2 {
     padding: 0.5em;
     color: white;
     padding-left: 1em;
@@ -27,7 +28,7 @@
     text-align: center;
 }
 
-.input{
+.input {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -36,7 +37,7 @@
     gap: 0.5em;
 }
 
-.categories p{
+.categories p {
     margin-top: 0.5em;
     color: rgb(240, 237, 237);
     text-align: center;
@@ -44,7 +45,7 @@
     padding-right: 1em;
 }
 
-.thecategories{
+.thecategories {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -53,40 +54,57 @@
     gap: 0.5em;
 }
 
-.categoriebox{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   background-color: rgb(136, 109, 233);
-   padding-left: 0.6em;
-   padding-right:0.6em;
-   box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
-   border-radius: 0.3em;
-   height: 20px;
-   transition: all 0.3s;
-   cursor: pointer;
+.categoriebox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(191, 70, 230);
+    background: linear-gradient(98deg, rgba(191, 70, 230, 1) 0%, rgba(241, 139, 246, 1) 100%);
+    padding-left: 0.6em;
+    padding-right: 0.6em;
+    border-radius: 0.3em;
+    height: 20px;
+    transition: all 0.3s;
+    cursor: pointer;
 }
 
-.categoriebox h3{
+.categoriebox h3 {
     color: white;
     font-weight: 400;
     font-size: 0.9rem;
 }
 
-.categoriebox:hover{
-    background-color: rgba(80, 35, 240, 0.719);
+.categoriebox:hover {
+    background-color: rgba(66, 24, 218, 0.719)
 }
 
-.error{
+.error {
     display: flex;
     align-items: center;
     justify-content: center;
     margin-top: 1em;
-    color: red;
+    font-size: 1.1rem;
+    color: rgb(247, 87, 87);
 }
 
-.error p{
+.error p {
     padding-left: 1em;
+    font-weight: 500;
     padding-right: 1em;
     text-align: center;
+    animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+    0% {
+        opacity: 0;
+    }
+
+    50% {
+        opacity: 1;
+    }
+
+    100% {
+        opacity: 0;
+    }
 }

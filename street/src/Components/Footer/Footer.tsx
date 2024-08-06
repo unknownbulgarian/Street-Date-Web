@@ -29,32 +29,32 @@ export default function Footer() {
                         </div>
 
                         <div className={styles.footerbox}>
-                            <h2>Allgemein</h2>
-                            <Link className='link' to='/'><p>Startseite</p></Link>
-                            <Link className='link' to='/über'><p>Über</p></Link>
+                            <h2>General</h2>
+                            <Link className='link' to='/'><p>Home</p></Link>
+                            <Link className='link' to='/about'><p>About</p></Link>
                         </div>
 
                         <div className={styles.footerbox}>
-                            <h2>Die App</h2>
-                            <Link className='link' to='/herunterladen'><p>Herunterladen</p></Link>
-                            <p onClick={() => { window.open('', '_blank') }}>Für Android</p>
-                            <p onClick={() => { window.open('', '_blank') }}>Für IOS</p>
-                            <Link className='link' to='/versuchen'><p>Als Gast versuchen</p></Link>
+                            <h2>The App</h2>
+                            <Link className='link' to='/download'><p>Download</p></Link>
+                            <p onClick={() => { window.open('', '_blank') }}>For Android</p>
+                            <p onClick={() => { window.open('', '_blank') }}>For IOS</p>
+                            <Link className='link' to='/try'><p>Try as Guest</p></Link>
                             <p onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}>Discord Server</p>
+                            <Link className='link' to='/play'><p>Play</p></Link>
                         </div>
 
                         <div className={styles.footerbox}>
-                            <h2>Konto</h2>
-                            <Link className='link' to='/registrierung'><p>Registrierung</p></Link>
-                            <Link className='link' to='/anmelden'><p>Anmelden</p></Link>
-                            <Link className='link' to='/profilbereich'><p>Profilbereich</p></Link>
+                            <h2>Account</h2>
+                            <Link className='link' to='/register'><p>Register</p></Link>
+                            <Link className='link' to='/login'><p>Login</p></Link>
                         </div>
 
                         <div className={styles.footerbox}>
-                            <h2>Unbedingt lesen</h2>
-                            <Link className='link' to='/bedingungen und konditionen'><p>Bedingungen und Konditionen</p></Link>
-                            <Link className='link' to='/politiken'><p>Politiken</p></Link>
-                            <Link className='link' to='/regeln'><p>Regeln</p></Link>
+                            <h2>Read without fail</h2>
+                            <Link className='link' to='/terms and conditions'><p>Terms and conditions</p></Link>
+                            <Link className='link' to='/policies'><p>Policies</p></Link>
+                            <Link className='link' to='/rules'><p>Rules</p></Link>
                         </div>
                     </div>
 

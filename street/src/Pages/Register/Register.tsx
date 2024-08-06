@@ -61,7 +61,7 @@ export default function Register() {
             } else {
                 setErrors([])
                 setError('')
-                router('/profilbereich')
+                router('/play')
                 localStorage.setItem('token', data.userId)
                 localStorage.setItem('publicId', data.publicId)
             }
@@ -102,7 +102,6 @@ export default function Register() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.register} data-aos="fade-down">
 
                 <h1>Registrierung</h1>

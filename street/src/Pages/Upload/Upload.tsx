@@ -40,22 +40,22 @@ export default function Upload() {
     };
 
     const categories: Array<string> = [
-        'verrückt',
-        'Liebe',
+        'crazy',
+        'Love',
         'Idiot',
         'goofy',
-        'talahon',
+        'funny',
         'cool',
-        'chillen',
+        'chill',
         '10/10',
         'skibidi',
-        'auf keinen Fall',
-        'Ich bin verliebt',
+        'no chance',
+        'I am in love',
         '0/10',
-        'Premium Chaya',
+        'premium bitch',
         '100/10',
-        'heiß',
-        'Meme',
+        'hot',
+        'meme',
     ]
 
     const checkAuth = async () => {
@@ -131,17 +131,19 @@ export default function Upload() {
             {!isLoading &&
                 <div className={styles.upload}>
                     <div className={styles.uploadbox}>
-                        <h2>Lade deinen Chat hoch mit <span style={{ color: 'hsla(299, 100%, 81%, 1)' }}>{gameInfo?.partnerUsername}</span></h2>
+                        <h2>Upload your chat with <span style={{ color: 'hsla(299, 100%, 81%, 1)' }}>{gameInfo?.partnerUsername}</span></h2>
                         <div className={styles.input}>
                             <InputIcon
                                 title='Titel'
-                                backColor='hsla(279, 100%, 67%, 1)'
-                                width='300px'
-                                height='25px'
+                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                                width='350px'
+                                height='30px'
                                 borderRadius='0.3em'
                                 isBoxShadow={true}
                                 color='white'
                                 titleColor='white'
+                                fontSize='0.9rem'
+                                iconFontSize='1.1rem'
                                 type='text'
                                 onInput={(e) => { setTitle(e.currentTarget.value) }}
                             >
@@ -150,7 +152,7 @@ export default function Upload() {
                         </div>
 
                         <div className={styles.categories}>
-                            <p>Wähle eine oder mehrere Kategorien</p>
+                            <p>Choose one or more Categories</p>
                             <div className={styles.thecategories}>
                                 {categories.map((categorie, index) => (
                                     <div style={{
@@ -168,8 +170,8 @@ export default function Upload() {
                             width='160px'
                             borderRadius='0.3em'
                             color='white'
-                            backgroundColor='hsla(279, 100%, 67%, 1)'
-                            marginTop='1em'
+                            background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                            marginTop='1.5em'
                             onClick={() => { uploadGame() }}
                         >
                             <FaFileUpload />

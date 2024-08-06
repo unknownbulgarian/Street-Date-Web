@@ -27,10 +27,10 @@ export default function Pagination({ currentPage, totalPages, onPageChange, publ
     const handlePageChange = (page: number) => {
         if (page < 1 || page > totalPages) return;
         if(isGames === true) {
-            navigate(`/statistiken/${publicId}/spiele/${page}`);
+            navigate(`/stats/${publicId}/games/${page}`);
         }
         if(isPosts === true) {
-            navigate(`/erkunden/${page}`);
+            navigate(`/explore/${page}`);
         }
     };
 
@@ -71,11 +71,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange, publ
     return (
         <div className={styles.pagination}>
             <TextIcon
-                title='Erste'
+                title='First'
                 color="white"
                 fontSize="0.9rem"
                 iconFontSize="1.1rem"
-                backgroundColor="rgba(152, 78, 248, 0.568)"
+                background="rgba(152, 78, 248, 0.568)"
                 boxShadow="5px 5px 10px rgba(0, 0, 0, 0.5)"
                 borderRadius="0.3em"
                 width="80px"
@@ -87,11 +87,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange, publ
                 <MdFirstPage />
             </TextIcon>
             <TextIcon
-                title='Vorherige'
+                title='Back'
                 color="white"
                 fontSize="0.9rem"
                 iconFontSize="1.1rem"
-                backgroundColor="rgba(152, 78, 248, 0.568)"
+                background="rgba(152, 78, 248, 0.568)"
                 boxShadow="5px 5px 10px rgba(0, 0, 0, 0.5)"
                 borderRadius="0.3em"
                 width="100px"
@@ -111,7 +111,7 @@ export default function Pagination({ currentPage, totalPages, onPageChange, publ
                         color="white"
                         fontSize="0.9rem"
                         iconFontSize="1.1rem"
-                        backgroundColor={currentPage === page ? 'rgba(152, 78, 248, 1)' : 'rgba(152, 78, 248, 0.568)'}
+                        background={currentPage === page ? 'rgba(152, 78, 248, 1)' : 'rgba(152, 78, 248, 0.568)'}
                         boxShadow="5px 5px 10px rgba(0, 0, 0, 0.5)"
                         borderRadius="0.3em"
                         paddingLeft="0.5em"
@@ -126,11 +126,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange, publ
                 )
             ))}
             <TextIcon
-                title='Weiter'
+                title='Next'
                 color="white"
                 fontSize="0.9rem"
                 iconFontSize="1.1rem"
-                backgroundColor="rgba(152, 78, 248, 0.568)"
+                background="rgba(152, 78, 248, 0.568)"
                 boxShadow="5px 5px 10px rgba(0, 0, 0, 0.5)"
                 borderRadius="0.3em"
                 width="100px"
@@ -142,11 +142,11 @@ export default function Pagination({ currentPage, totalPages, onPageChange, publ
                 <MdSkipNext />
             </TextIcon>
             <TextIcon
-                title='Letzte'
+                title='Last'
                 color="white"
                 fontSize="0.9rem"
                 iconFontSize="1.1rem"
-                backgroundColor="rgba(152, 78, 248, 0.568)"
+                background="rgba(152, 78, 248, 0.568)"
                 boxShadow="5px 5px 10px rgba(0, 0, 0, 0.5)"
                 borderRadius="0.3em"
                 width="80px"

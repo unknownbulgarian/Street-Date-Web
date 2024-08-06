@@ -318,6 +318,8 @@
     margin-top: auto;
     color: black;
     margin-bottom: 0.5em;
+    padding-left: 0.5em;
+    padding-right: 0.5em;
     text-align: center;
 }
 

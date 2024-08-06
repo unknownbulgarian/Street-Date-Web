@@ -57,7 +57,6 @@ export default function Documentation() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.main}>
                 <div className={styles.side}>
                     <div className={styles.top}>

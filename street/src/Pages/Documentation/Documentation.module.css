@@ -1,5 +1,8 @@
 .main {
     display: flex;
+    align-items: center;
+    padding-top: 5em;
+    padding-bottom: 5em;
 }
 
 .side {

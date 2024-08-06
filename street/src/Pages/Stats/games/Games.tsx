@@ -99,7 +99,7 @@ export default function Games() {
 
             if (data.error) {
                 LoaderTime.loader(setIsLoading)
-                router('/statistiken/' + publicId)
+                router('/stats/' + publicId)
             } else {
                 getAuth()
             }
@@ -129,7 +129,7 @@ export default function Games() {
             //console.log(data)
 
             if (data.error) {
-                router(`/statistiken/${publicId}`)
+                router(`/stats/${publicId}`)
 
             } else {
                 //LoaderTime.loader(setIsLoading)
@@ -252,7 +252,7 @@ export default function Games() {
                                     width='500px'
                                     height='35px'
                                     borderRadius='0.3em'
-                                    backColor='hsla(273, 100%, 76%, 0.8)'
+                                    background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                     titleColor='white'
                                     type='text'
                                 >
@@ -261,14 +261,14 @@ export default function Games() {
                             </div>
 
                             <div className={styles.filters}>
-                                <p>Filtern:</p>
+                                <p>Filters</p>
                                 <div className={styles.thefilters}>
                                     <div
                                         style={{
                                             backgroundColor: isPublicGames ? 'hsla(246, 100%, 72%, 1)' : ''
                                         }}
                                         onClick={() => { togglePublicGames() }} className={styles.filterbox}>
-                                        <p>Öffentliche Spiele</p>
+                                        <p>Public Games</p>
                                     </div>
 
                                     <div
@@ -276,7 +276,7 @@ export default function Games() {
                                             backgroundColor: isPrivateGames ? 'hsla(246, 100%, 72%, 1)' : ''
                                         }}
                                         onClick={() => { togglePrivateGames() }} className={styles.filterbox}>
-                                        <p>Private Spiele</p>
+                                        <p>Private Games</p>
                                     </div>
                                 </div>
                             </div>
@@ -300,7 +300,7 @@ export default function Games() {
                                                     <FaRegTrashAlt onClick={() => { removeGame(game.roomId) }} className={styles.trashicon} />
                                                     {game.isPublic !== true
                                                         &&
-                                                        <FaCloudUploadAlt onClick={() => { router(`/hochladen/${game.roomId}`) }} className={styles.uploadicon} />
+                                                        <FaCloudUploadAlt onClick={() => { router(`/upload/${game.roomId}`) }} className={styles.uploadicon} />
                                                     }
                                                     {game.isPublic === true && <FaEye className={styles.eyeicon} />}
                                                 </div>
@@ -322,7 +322,7 @@ export default function Games() {
 
                                                         <div className={styles.actions}>
                                                             <FaRegTrashAlt onClick={() => { removeGame(game.roomId) }} className={styles.trashicon} />
-                                                            <FaCloudUploadAlt onClick={() => { router(`/hochladen/${game.roomId}`) }} className={styles.uploadicon} />
+                                                            <FaCloudUploadAlt onClick={() => { router(`/upload/${game.roomId}`) }} className={styles.uploadicon} />
                                                         </div>
                                                     </div>
                                                 }
@@ -379,7 +379,7 @@ export default function Games() {
                                     borderRadius='0.3em'
                                     width='140px'
                                     height='25px'
-                                    onClick={() => { router('/statistiken/' + publicId) }}
+                                    onClick={() => { router('/stats/' + publicId) }}
                                 >
                                     <IoMdArrowRoundBack />
                                 </TextIcon>
@@ -392,7 +392,7 @@ export default function Games() {
                                     borderRadius='0.3em'
                                     width='170px'
                                     height='25px'
-                                    onClick={() => { router('/dokumentation') }}
+                                    onClick={() => { router('/documentation') }}
                                 >
                                     <IoIosDocument />
                                 </TextIcon>

@@ -147,7 +147,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
             <div className={styles.settingsbox} data-aos="zoom-in">
                 <span onClick={close} className={styles.settingsclose}><IoMdClose /></span>
                 <div className={styles.settingstop}>
-                    <h2>Einstellungen</h2>
+                    <h2>Settings</h2>
                     <div className={styles.settingprogress}>
                         <div style={{ width: progessP }} className={styles.progress}></div>
                     </div>
@@ -161,7 +161,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                         }}
                             onClick={() => { setProgress(1) }}
                             className={styles.sidebox}>
-                            <p>Allgemein</p>
+                            <p>General</p>
                         </div>
 
                         <div style={{
@@ -170,7 +170,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                         }}
                             onClick={() => { setProgress(2) }}
                             className={styles.sidebox}>
-                            <p>Konto Typ</p>
+                            <p>Account Type</p>
                         </div>
 
                         <div style={{
@@ -179,7 +179,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                         }}
                             onClick={() => { setProgress(3) }}
                             className={styles.sidebox}>
-                            <p>Sicherheit</p>
+                            <p>Security</p>
                         </div>
 
                         <div style={{
@@ -188,7 +188,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                         }}
                             onClick={() => { setProgress(4) }}
                             className={styles.sidebox}>
-                            <p>Das Spiel</p>
+                            <p>The Game</p>
                         </div>
 
                         <div style={{
@@ -197,7 +197,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                         }}
                             onClick={() => { setProgress(5) }}
                             className={styles.sidebox}>
-                            <p>Hilfe</p>
+                            <p>Help</p>
                         </div>
 
                     </div>
@@ -227,8 +227,8 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                             <>
                                 <div className={styles.gameinfo}>
                                     <div className={styles.all}>
-                                        <h2>Profil-Informationen</h2>
-                                        <p>Ändern Sie Ihre persönlichen Daten</p>
+                                        <h2>Profile Information</h2>
+                                        <p>Change your personal information</p>
 
                                         <div className={styles.profileinputs}>
                                             <InputIcon
@@ -274,9 +274,9 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
                                             <TextIcon
                                                 marginTop='0.3em'
-                                                title='Aktualisierung'
+                                                title='Update'
                                                 background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
-                                                width='145px'
+                                                width='115px'
                                                 titleColor='white'
                                                 borderRadius='0.3em'
                                                 color='white'
@@ -307,10 +307,10 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
                                 <div className={styles.gameinfo}>
                                     <div className={styles.all}>
-                                        <h2>Ihr Vorzeigefoto</h2>
+                                        <h2>Your Showcase Picture</h2>
                                         <p style={{
                                             marginBottom: photoPreview ? '' : '1em'
-                                        }}>Ändern Ihres Hauptfotos</p>
+                                        }}>Change your Main Picture</p>
                                         {photoPreview && <img alt="Selected file preview" src={photoPreview ? photoPreview : photoUrl}></img>}
                                         <input onChange={(e) => {
                                             const files = e.currentTarget.files;
@@ -325,12 +325,12 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             }
 
                                         }} type="file" name="file" id="file" className={styles.inputfile} />
-                                        <label htmlFor="file">Wählen Sie ein Foto</label>
+                                        <label htmlFor="file">Upload Photo</label>
                                         <TextIcon
                                             marginTop='1em'
-                                            title='Aktualisierung'
+                                            title='Update'
                                             background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
-                                            width='145px'
+                                           width='115px'
                                             titleColor='white'
                                             borderRadius='0.3em'
                                             color='white'

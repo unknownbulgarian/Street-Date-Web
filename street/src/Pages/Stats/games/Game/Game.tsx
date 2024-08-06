@@ -70,7 +70,7 @@ export default function Game() {
             //console.log(data)
 
             if (data.error) {
-                router(`/statistiken/${publicId}`)
+                router(`/stats/${publicId}`)
             } else {
                 //LoaderTime.loader(setIsLoading)
                 checkIfGameExist()
@@ -101,7 +101,7 @@ export default function Game() {
 
             if (data.error) {
                 LoaderTime.loader(setIsLoading)
-                router(`/statistiken/${publicId}/spiele/1`)
+                router(`/stats/${publicId}/games/1`)
             } else {
                 LoaderTime.loader(setIsLoading)
                 setIsFirst(data.first)
@@ -141,7 +141,7 @@ export default function Game() {
                                 marginTop="1em"
                                 borderRadius="0.3em"
                                 height="30px"
-                                onClick={() => {router(`/hochladen/${game}`)}}
+                                onClick={() => {router(`/upload/${game}`)}}
                                 onHover={(e) => {e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 1)'}}
                                 onUnHover={(e) => {e.currentTarget.style.backgroundColor = 'hsla(290, 100%, 69%, 0.8)'}}
                             >

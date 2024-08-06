@@ -44,7 +44,7 @@ export default function Login() {
                 setError(data.error)
             } else {
                 setError('')
-                router('/profilbereich')
+                router('/play')
                 localStorage.setItem('token', data.userId)
                 localStorage.setItem('publicId', data.publicId)
             }
@@ -58,7 +58,6 @@ export default function Login() {
 
     return (
         <>
-            <Navbar />
             <div className={styles.login} data-aos="zoom-in">
 
                 <h1>Anmelden</h1>

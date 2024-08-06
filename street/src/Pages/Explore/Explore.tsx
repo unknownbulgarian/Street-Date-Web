@@ -98,7 +98,6 @@ export default function Explore() {
 
             {!isLoading &&
                 <>
-                    <Navbar tab={3} />
 
                     <div className={styles.posts}>
                         {posts?.map((post, index) => (
