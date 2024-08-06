@@ -23,10 +23,11 @@ export default function Navbar({ tab }: NavProps) {
 
             <div className={styles.hrefs}>
                 <Link className='link' to='/'><p className={`${tab === 1 ? styles.selected : ''}`}>Home</p></Link>
-                <Link className='link' to='/download'><p className={`${tab === 2 ? styles.selected : ''}`}>Download</p></Link>
                 <Link className='link' to='/explore/1'><p className={`${tab === 3 ? styles.selected : ''}`}>Explore Dates</p></Link>
+                {isSession && <Link className='link' to='/play'><p className={styles.play}>Play</p></Link>}
+                <Link className='link' to='/download'><p className={`${tab === 2 ? styles.selected : ''}`}>Download</p></Link>
                 <Link className='link' to='/documentation'><p className={`${tab === 4 ? styles.selected : ''}`}>Documentation</p></Link>
-                {isSession && <Link className='link' to='/play'><p className={`${tab === 5 ? styles.selected : ''}`}>Play</p></Link>}
+              
                 {!isSession &&
                     <>
                         <Link className='link' to='/register'><p className={`${tab === 6 ? styles.selected : ''}`}>Register</p></Link>

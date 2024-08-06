@@ -15,6 +15,19 @@
     width: 100px;
 }
 
+.play{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: linear-gradient(90deg, rgba(176,88,242,1) 60%, rgba(197,165,255,1) 100%) !important;
+    box-shadow: 0 0 70px 10px #9069f5;
+    padding-left: 1.7em;
+    padding-right: 1.7em;
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    border-radius: 0.3em;
+}
 
 .hrefs {
     position: absolute;
@@ -32,6 +45,10 @@
     cursor: pointer;
     transition: all 0.3s;
     color: white;
+}
+
+.hrefs p:hover{
+    color: rgb(231, 209, 250);
 }
 
 
