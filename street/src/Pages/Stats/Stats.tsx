@@ -74,7 +74,7 @@ export default function Stats() {
   const getAuth = async () => {
     const token = localStorage.getItem('token')
     try {
-      const response = await fetch(API.api + '/getAuth', {
+      const response = await fetch(API.api + '/getStatsAuth', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -133,7 +133,7 @@ export default function Stats() {
           {name && (
             <div className={styles.area}>
               <h1>
-                <span>{name[0].toUpperCase() + name.slice(1)}</span> Statistiken
+                <span>{name[0].toUpperCase() + name.slice(1)}</span> Stats
               </h1>
               <div className={styles.stats}>
                 <div className={styles.statbox}>
