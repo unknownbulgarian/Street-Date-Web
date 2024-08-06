@@ -61,9 +61,9 @@ export default function Register() {
             } else {
                 setErrors([])
                 setError('')
-                router('/play')
                 localStorage.setItem('token', data.userId)
                 localStorage.setItem('publicId', data.publicId)
+                router('/play')
             }
 
             //console.log(data)
