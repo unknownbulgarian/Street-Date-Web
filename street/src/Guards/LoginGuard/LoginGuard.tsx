@@ -31,7 +31,7 @@ const LoginGuardRoute: React.FC<ProtectedRouteProps> = ({ component: Component }
         return <div className={styles.loader}><span className={styles.loadericon}><AiOutlineLoading /></span></div>;
     }
 
-    return !isSession ? <Component /> : <Navigate to="/profilbereich" replace />;
+    return !isSession ? <Component /> : <Navigate to="/play" replace />;
 };
 
 export default LoginGuardRoute;

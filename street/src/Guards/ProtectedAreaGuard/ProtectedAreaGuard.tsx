@@ -31,7 +31,7 @@ const ProtectedRoute: React.FC<ProtectedRouteProps> = ({ component: Component })
         return <div className={styles.loader}><span className={styles.loadericon}><AiOutlineLoading /></span></div>;
     }
 
-    return isSession ? <Component /> : <Navigate to="/anmelden" replace />;
+    return isSession ? <Component /> : <Navigate to="/login" replace />;
 };
 
 export default ProtectedRoute;
