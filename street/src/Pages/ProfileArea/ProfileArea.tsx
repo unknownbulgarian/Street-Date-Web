@@ -24,6 +24,7 @@ import { CiInstagram } from "react-icons/ci";
 import { PiGameControllerFill, PiGameControllerThin } from "react-icons/pi";
 import { FaPersonCirclePlus } from "react-icons/fa6";
 import { CiPlay1 } from "react-icons/ci";
+import LoaderTime from '../../Utils/LoaderTime.tsx';
 
 import { useSession } from '../../States/Session/Session.tsx';
 import { useOnlineProvider } from '../../States/Online/Online.tsx';
@@ -33,6 +34,7 @@ import { PiNumberCircleFourFill } from "react-icons/pi";
 import Blank from '../../Components/Blank/Blank.tsx';
 import TextIcon from '../../Components/TextIcon/TextIcon.tsx';
 import InputIcon from '../../Components/InputIcon/InputIcon.tsx';
+import Loader from '../../Components/Loader/Loader.tsx';
 
 
 export default function ProfileArea() {
@@ -50,9 +52,11 @@ export default function ProfileArea() {
     const [gender, setGender] = useState<string>('')
     const [instagram, setInstagram] = useState<string>('')
     const [photo, setPhoto] = useState<any>(null);
+    const [showPhoto, setShowPhoto] = useState<string>('')
     const [publicId, setPublicId] = useState<string>('')
 
     const [name, setName] = useState<string>('')
+    const [showName, setShowName] = useState<string>('')
     const [finalName, setFinalName] = useState<string>('')
     const [email, setEmail] = useState<string>('')
 
@@ -62,6 +66,8 @@ export default function ProfileArea() {
     const [rizzLevel, setRizzLevel] = useState<number>(0)
 
     const [settingProgress, setSettingProgress] = useState<number>(1)
+
+    const [isLoading, setIsLoading] = useState<boolean>(true)
 
 
 
@@ -169,11 +175,16 @@ export default function ProfileArea() {
                 setGender(data.gender)
                 setInstagram(data.instagram)
                 setPhoto(data.photo)
+                setShowPhoto(data.photo)
                 setName(data.name)
+                setShowName(data.name)
                 setFinalName(data.name)
                 setPublicId(data.publicId)
 
                 getPublicInfo(data.publicId)
+
+                LoaderTime.loader(setIsLoading)
+
             }
 
             //console.log(data)
@@ -280,7 +291,7 @@ export default function ProfileArea() {
             if (rizzLevel !== 100) {
                 setRizzLevel(100);
             }
-        } 
+        }
         return rizzLevel;
     }
 
@@ -291,12 +302,13 @@ export default function ProfileArea() {
             <Blank />
 
 
+            {isLoading && <Loader />}
 
             {isSettings &&
                 <Settings
                     gender={gender}
                     instagram={instagram}
-                    name={finalName}
+                    name={name}
                     photoUrl={photo}
                     setGender={setGender}
                     setPhoto={setPhoto}
@@ -315,7 +327,7 @@ export default function ProfileArea() {
                         <div className={styles.firstcontent}>
                             <div className={styles.first}>
                                 <div className={styles.mainprofile}>
-                                    <img src={photo !== '' ? 'https://birtwistlewiki.com.au/images/d/dd/Unknown.png' : 'https://birtwistlewiki.com.au/images/d/dd/Unknown.png'}></img>
+                                    <img src={photo !== '' ? showPhoto : 'https://birtwistlewiki.com.au/images/d/dd/Unknown.png'}></img>
                                     <div className={styles.instagrams}>
                                         <div className={styles.instabox}>
                                             <div className={styles.theinstagrams}>
@@ -347,15 +359,15 @@ export default function ProfileArea() {
                                         </div>
 
                                         <div className={styles.notline}>
-                                            <MdHistory onClick={() => {router('/stats/' + localStorage.getItem('publicId') + '/games/1')}} className={styles.notification} />
-                                            <MdManageAccounts onClick={() => {setIsSettings(true); setSettingProgress(1)}} className={styles.notification} />
+                                            <MdHistory onClick={() => { router('/stats/' + localStorage.getItem('publicId') + '/games/1') }} className={styles.notification} />
+                                            <MdManageAccounts onClick={() => { setIsSettings(true); setSettingProgress(1) }} className={styles.notification} />
                                         </div>
                                     </div>
 
                                 </div>
 
                                 <div className={styles.xp}>
-                                    <h2>{name}</h2>
+                                    <h2>{showName}</h2>
                                     <div className={styles.rizz}>
                                         <div style={{ width: getRizzLevel() + '%' }} className={styles.level}></div>
                                         <p>{rizz.toFixed(0)}%/RIZZ</p>
@@ -370,7 +382,7 @@ export default function ProfileArea() {
                                     <p>Leaderboards</p>
                                 </div>
 
-                                <div onClick={() => {router('/stats/' + localStorage.getItem('publicId'))}} className={styles.statbox}>
+                                <div onClick={() => { router('/stats/' + localStorage.getItem('publicId')) }} className={styles.statbox}>
                                     <IoStatsChart className={styles.staticon} />
                                     <p>Personal Stats</p>
                                 </div>
