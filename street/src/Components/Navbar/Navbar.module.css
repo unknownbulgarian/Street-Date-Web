@@ -111,8 +111,20 @@
     height: 100vh;
     width: 300px;
     background: linear-gradient(180deg, rgba(176, 88, 242, 1) 15%, rgba(197, 165, 255, 1) 100%);
+    overflow: hidden;
     z-index: 55;
     gap: 1em;
+    animation: navShow 0.8s forwards;
+}
+
+@keyframes navShow {
+    0% {
+        right: -60em;
+    }
+
+    100% {
+        right: 0em;
+    }
 }
 
 .play2 {
