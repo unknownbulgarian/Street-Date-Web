@@ -10,6 +10,30 @@
     gap: 0.5em;
 }
 
+
+.reactions{
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 1em;
+    margin-right: 2em;
+}
+
+.reactionbox{
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    color: white;
+}
+
+.reactionbox p{
+    font-size: 0.9rem;
+}
+
+.reactionicon{
+    font-size: 1.2rem;
+}
+
 .post {
     position: relative;
     display: flex;
