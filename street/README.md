@@ -4,6 +4,8 @@ Welcome to the **official documentation** of the Online Street Date.
 
 Only maintained by one person, you will find all the information about the app here. Online Street Date gives you the opportunity to find a date in seconds. I can promise you one thing: this platform is not profit-oriented. Have fun with the simplest dating!
 
+<img src="https://i.postimg.cc/SNdjmtVM/Screenshot-20.png" width="500">
+
 ## Explore StreetDate Features
 
 StreetDate was meant to be free and never chargeable, but to have successful dates you should know our features and how they work.
