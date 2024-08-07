@@ -53,9 +53,9 @@ StreetDate was meant to be free and never chargeable, but to have successful dat
 
 - You are able to change the Post Title
 
- -You are able to add reactions
+ - You are able to add reactions
 
- -You are able to comment
+ - You are able to comment
 
 
 ## What is StreetDate ?
