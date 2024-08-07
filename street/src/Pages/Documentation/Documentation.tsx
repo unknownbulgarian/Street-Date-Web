@@ -8,13 +8,17 @@ import { IoMdArrowBack } from "react-icons/io";
 import { FiKey } from "react-icons/fi";
 import StreetInfo from './StreetInfo/StreetInfo';
 import Tutorial from './Tutorial/Tutorial';
+import ExploreFeatures from './Explore/Explore';
+import AccountFeatures from './Account/Accounts';
 
 export default function Documentation() {
 
     const [isClicked, setClicked] = useState<boolean>(false)
-    const [mainTitle, setMainTitle] = useState<string>('Willkommen')
-    const [streetTitle, setStreetTitle] = useState<string>('Über')
-    const [tutorialTitle, setTutorialTitle] = useState<string>('Wie man spielt')
+    const [mainTitle, setMainTitle] = useState<string>('Welcome')
+    const [streetTitle, setStreetTitle] = useState<string>('About')
+    const [tutorialTitle, setTutorialTitle] = useState<string>('How can I play')
+    const [featuresTitle, setFeaturesTitle] = useState<string>('Explore StreetDate Features')
+    const [accountTitle, setAccountTitle] = useState<string>('Learn more about your Account')
 
     const [progress, setProgress] = useState<number>(1)
     const [mainProgress, setMainProgress] = useState<number>(0)
@@ -22,20 +26,22 @@ export default function Documentation() {
 
     const [streetProgress, setStreetProgress] = useState<number>(1)
     const [tutorialProgress, setTutorialProgress] = useState<number>(1)
+    const [featuresProgress, setFeaturesProgress] = useState<number>(1)
+    const [accountProgress, setAccountProgress] = useState<number>(1)
 
 
     const returnMainTitle = () => {
         switch (mainProgress) {
             case 0:
-                return 'Einführung'
+                return 'Introduction'
             case 1:
-                return 'Über'
+                return 'About'
             case 2:
-                return 'Herunterladen'
+                return 'Features'
             case 3:
                 return 'Tutorial'
             case 4:
-                return 'Konto'
+                return 'Account'
         }
     }
 
@@ -85,7 +91,7 @@ export default function Documentation() {
                             {mainProgress === 2 &&
                                 <div className={`${styles.progress} ${styles.rightL} `}>
                                     <div style={{
-                                        top: returnTop(progress)
+                                        top: returnTop(featuresProgress)
                                     }} className={styles.bar}></div>
                                 </div>
                             }
@@ -101,7 +107,7 @@ export default function Documentation() {
                             {mainProgress === 4 &&
                                 <div className={`${styles.progress} ${styles.rightL} `}>
                                     <div style={{
-                                        top: returnTop(progress)
+                                        top: returnTop(accountProgress)
                                     }} className={styles.bar}></div>
                                 </div>
                             }
@@ -111,12 +117,12 @@ export default function Documentation() {
 
                         <div className={`${styles.boxes} ${mainProgress > 0 ? styles.leftL : isClicked ? styles.reverse : ''}`}>
                             <div onClick={() => { setProgress(1); setMainProgress(1); setClicked(true); }} className={styles.box}>
-                                <p>Was ist StreetDate ?</p>
+                                <p>What is StreetDate ?</p>
                                 <IoIosArrowForward className={styles.arrow} />
                             </div>
 
                             <div onClick={() => { setProgress(2); setMainProgress(2); setClicked(true) }} className={styles.box}>
-                                <p>Einrichtung</p>
+                                <p>Features</p>
                                 <IoIosArrowForward className={styles.arrow} />
                             </div>
 
@@ -126,7 +132,7 @@ export default function Documentation() {
                             </div>
 
                             <div onClick={() => { setProgress(4); setMainProgress(4);; setClicked(true) }} className={styles.box}>
-                                <p>Konto</p>
+                                <p>Account</p>
                                 <IoIosArrowForward className={styles.arrow} />
                             </div>
                         </div>
@@ -134,15 +140,15 @@ export default function Documentation() {
                         {mainProgress === 1 &&
                             <div className={`${styles.boxes} ${styles.rightL}`}>
                                 <div onClick={(e) => { setStreetProgress(1); setStreetTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Über</p>
+                                    <p>About</p>
                                 </div>
 
                                 <div onClick={(e) => { setStreetProgress(2); setStreetTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Wer hat damit begonnen ?</p>
+                                    <p>Who started it ?</p>
                                 </div>
 
                                 <div onClick={(e) => { setStreetProgress(3); setStreetTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Wie es begann ?</p>
+                                    <p>How it all began ?</p>
                                 </div>
                             </div>
                         }
@@ -150,12 +156,11 @@ export default function Documentation() {
 
                         {mainProgress === 2 &&
                             <div className={`${styles.boxes} ${styles.rightL}`}>
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
-                                    <p>Android</p>
+                                <div onClick={() => { setFeaturesProgress(1) }} className={styles.box}>
+                                    <p>General</p>
                                 </div>
-
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
-                                    <p>IOS</p>
+                                <div onClick={() => { setFeaturesProgress(2) }} className={styles.box}>
+                                    <p>In the Future</p>
                                 </div>
                             </div>
                         }
@@ -163,40 +168,29 @@ export default function Documentation() {
                         {mainProgress === 3 &&
                             <div className={`${styles.boxes} ${styles.rightL}`}>
                                 <div onClick={(e) => { setTutorialProgress(1); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Wie man spielt ?</p>
+                                    <p>How to play ?</p>
                                 </div>
 
                                 <div onClick={(e) => { setTutorialProgress(2); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Konto erstellen</p>
+                                    <p>Creating Account</p>
                                 </div>
 
-                                <div onClick={(e) => { setTutorialProgress(3); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Profileinstellungen ändern</p>
-                                </div>
-
-                                <div onClick={(e) => { setTutorialProgress(4); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Spiel hochladen</p>
-                                </div>
-
-                                <div onClick={(e) => { setTutorialProgress(5); setTutorialTitle(e.currentTarget.innerText) }} className={styles.box}>
-                                    <p>Spiel löschen</p>
-                                </div>
                             </div>
                         }
 
                         {mainProgress === 4 &&
                             <div className={`${styles.boxes} ${styles.rightL}`}>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
-                                    <p>Sicherheit</p>
+                                <div onClick={() => { setAccountProgress(1) }} className={styles.box}>
+                                    <p>Security</p>
                                 </div>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
-                                    <p>Passwort ändern</p>
+                                <div onClick={() => { setAccountProgress(2) }} className={styles.box}>
+                                    <p>Change Password</p>
                                 </div>
 
-                                <div onClick={() => { setStreetProgress(1) }} className={styles.box}>
-                                    <p>E-Mail ändern</p>
+                                <div onClick={() => { setAccountProgress(3) }} className={styles.box}>
+                                    <p>Change Email</p>
                                 </div>
                             </div>
                         }
@@ -209,28 +203,32 @@ export default function Documentation() {
                     <div className={styles.maintitle}>
                         {mainProgress === 0 && <h1>{mainTitle}</h1>}
                         {mainProgress === 1 && <h1>{streetTitle}</h1>}
+                        {mainProgress === 2 && <h1>{featuresTitle}</h1>}
                         {mainProgress === 3 && <h1>{tutorialTitle}</h1>}
+                        {mainProgress === 4 && <h1>{accountTitle}</h1>}
                         <FiKey className={styles.mainicon} />
                     </div>
 
 
                     {mainProgress === 0 &&
                         <div className={`${styles.thecontent} ${styles.op}`}>
-                            <p className={styles.header}>Willkommen bei der offiziellen Dokumentation des Online Street Date.</p>
+                            <p className={styles.header}>Welcome to the official documentation of the Online Street Date.</p>
                             <p className={styles.small}>
-                                Nur von <strong>einer Person gepflegt</strong>, finden Sie hier alle Informationen über die App.
-                                Online Street Date gibt Ihnen die Möglichkeit, in <strong>Sekundenschnelle</strong> ein Date zu finden.
-                                Ich kann Ihnen eines versprechen: Diese Plattform ist nicht <strong>gewinnorientiert</strong>.
-                                Viel Spaß mit dem <strong>einfachsten</strong> Dating !
+                                Only maintained by one person, you will find all the information about the app here.
+                                Online Street Date gives you the opportunity to find a date in seconds.
+                                I can promise you one thing: this platform is not profit-oriented.
+                                Have fun with the simplest dating!
                             </p>
 
                             <p>
-                                <strong>Möchten Sie mehr darüber erfahren? </strong>
+                                <strong>Would you like to learn more about it? </strong>
                                 <span style={{
                                     textDecoration: 'underline',
                                     color: 'rgba(114, 221, 247, 0.8)'
-                                }}>Unserem Discord-Server beitreten</span>
+                                }}>Join in our Discord Server</span>
                             </p>
+
+                            <img src='https://i.postimg.cc/SNdjmtVM/Screenshot-20.png'></img>
                         </div>
                     }
 
@@ -241,11 +239,25 @@ export default function Documentation() {
                         styles={`${styles.thecontent} ${styles.op}`}
                     />}
 
+                    {mainProgress === 2 && <ExploreFeatures
+                        progress={featuresProgress}
+                        headerClass={styles.header}
+                        smallClass={styles.small}
+                        styles={`${styles.thecontent} ${styles.op}`}
+                    />}
+
                     {mainProgress === 3 && <Tutorial
                         progress={tutorialProgress}
                         headerClass={styles.header}
                         smallClass={styles.small}
                         styles2={`${styles.thecontent} ${styles.op}`}
+                    />}
+
+                    {mainProgress === 4 && <AccountFeatures
+                        progress={accountProgress}
+                        headerClass={styles.header}
+                        smallClass={styles.small}
+                        styles={`${styles.thecontent} ${styles.op}`}
                     />}
                 </div>
             </div >
