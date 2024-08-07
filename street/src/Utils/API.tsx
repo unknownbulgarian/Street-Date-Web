@@ -1,4 +1,4 @@
-const api = 'http://localhost:5431'
+const api = 'http://streetdate.loca.lt'
 const frontEndURL = 'http://localhost:5173/'
 
 
