@@ -11,6 +11,8 @@ import { useEffect, useState } from 'react'
 import { FaComment, FaHeart, FaLaughBeam } from 'react-icons/fa'
 import { BsEmojiDizzyFill, BsFillEmojiHeartEyesFill } from 'react-icons/bs'
 
+import { useSession } from '../../States/Session/Session'
+
 interface answers {
     answer: string;
     instagram: string;
@@ -63,6 +65,8 @@ export default function Explore() {
     const [publicId, setPublicId] = useState<string>('')
 
     const [posts, setPosts] = useState<Array<Post>>()
+
+    const {isSession} = useSession()
 
     const [isLoading, setIsLoading] = useState<boolean>(true)
 
@@ -326,22 +330,22 @@ export default function Explore() {
                                     <>
                                         <div className={styles.reactions}>
                                             <div className={styles.reactionbox}>
-                                                <FaHeart onClick={(e) => {addLike(post.roomId);  e.stopPropagation()}} style={{color: post.likeUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
+                                                <FaHeart onClick={(e) => {isSession ? addLike(post.roomId) : '';  isSession ? e.stopPropagation() : ''}} style={{color: post.likeUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
                                                 <p>{post.likes}</p>
                                             </div>
 
                                             <div className={styles.reactionbox}>
-                                                <FaLaughBeam onClick={(e) => {addLaugh(post.roomId);  e.stopPropagation()}} style={{color: post.laughUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
+                                                <FaLaughBeam onClick={(e) => {isSession ? addLaugh(post.roomId) : '';  isSession ? e.stopPropagation() : ''}} style={{color: post.laughUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
                                                 <p>{post.laugh}</p>
                                             </div>
 
                                             <div className={styles.reactionbox}>
-                                                <BsEmojiDizzyFill onClick={(e) => {addLol(post.roomId);  e.stopPropagation()}} style={{color: post.lolUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
+                                                <BsEmojiDizzyFill onClick={(e) => {isSession ? addLol(post.roomId) : '';   isSession ? e.stopPropagation() : ''}} style={{color: post.lolUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
                                                 <p>{post.lol}</p>
                                             </div>
 
                                             <div className={styles.reactionbox}>
-                                                <BsFillEmojiHeartEyesFill onClick={(e) => {addLove(post.roomId);  e.stopPropagation()}} style={{color: post.loveUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
+                                                <BsFillEmojiHeartEyesFill onClick={(e) => {isSession ? addLove(post.roomId) : '';   isSession ? e.stopPropagation() : ''}} style={{color: post.loveUsers.includes(publicId) ? '#dd62c9' : ''}} className={styles.reactionicon} />
                                                 <p>{post.love}</p>
                                             </div>
 
