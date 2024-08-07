@@ -35,15 +35,19 @@ import Blank from '../../Components/Blank/Blank.tsx';
 import TextIcon from '../../Components/TextIcon/TextIcon.tsx';
 import InputIcon from '../../Components/InputIcon/InputIcon.tsx';
 import Loader from '../../Components/Loader/Loader.tsx';
+import NotificationIndbox from '../../Components/NotificationIndbox/NotificationIndbox.tsx';
+import Error from '../../Components/Error/Error.tsx';
 
 
 export default function ProfileArea() {
 
     const router = useNavigate()
 
+    const [isNotificationMenu, setIsNotificationMenu] = useState<boolean>(false)
+
     const { removeOnline } = useOnlineProvider()
 
-    const { isBlank, toggleBlank, enableBlank } = useBlank()
+    const { isBlank, toggleBlank, enableBlank, disableBlank } = useBlank()
 
     const [isUserInfo, setIsUserInfo] = useState<boolean>(true)
     const [isPlaying, setIsPlaying] = useState<boolean>(false)
@@ -65,6 +69,10 @@ export default function ProfileArea() {
     const [rizz, setRizz] = useState<number>(0)
     const [rizzLevel, setRizzLevel] = useState<number>(0)
 
+    const [inviteId, setInviteId] = useState<string>('')
+
+    const [error, setError] = useState<string>('')
+
     const [notificationNumber, setNotificationNumber] = useState<number>(0)
 
     const [settingProgress, setSettingProgress] = useState<number>(1)
@@ -82,9 +90,19 @@ export default function ProfileArea() {
         if (isSettings) {
             enableBlank()
         }
-    }, [isUserInfo, isSettings])
+        if (isNotificationMenu) {
+            enableBlank()
+        }
+    }, [isUserInfo, isSettings, isNotificationMenu])
 
 
+    useEffect(() => {
+        if (error !== '') {
+            setTimeout(() => {
+                setError('')
+            }, 3500);
+        }
+    }, [error])
 
     useEffect(() => {
         if (isPlaying === false) {
@@ -114,6 +132,7 @@ export default function ProfileArea() {
             if (data.error) {
                 setIsSettings(true)
                 setSettingProgress(4)
+                setError('Please fill every option in order to play !')
             } else {
                 setIsUserInfo(true)
                 play()
@@ -327,12 +346,13 @@ export default function ProfileArea() {
 
     const getRizzLevel = () => {
         if (rizz > 100) {
-            if (rizzLevel !== 100) {
-                setRizzLevel(100);
-            }
+            return 100;
+        } else if (Number.isNaN(rizz)) {
+            return 0;
+        } else {
+            return rizz; // Adjust as needed
         }
-        return rizzLevel;
-    }
+    };
 
 
     const handleCopyClick = () => {
@@ -349,6 +369,61 @@ export default function ProfileArea() {
         }
     }
 
+    const removeNotifications = async () => {
+        try {
+            const response = await fetch(API.api + '/removeNewNotifications', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+            //   console.log(data)
+
+            if (data.error) {
+
+            } else {
+                getNotificationsNumber()
+            }
+
+            //console.log(data)
+
+        } catch (error: any) {
+        }
+    }
+
+    const sendInvite = async (publicId: string) => {
+        const ourId = localStorage.getItem('publicId')
+        try {
+            const response = await fetch(API.api + '/sendInvite', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token'), ourId, publicId })
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+            //   console.log(data)
+
+            if (data.error) {
+                setError(data.error)
+            } else {
+                getNotificationsNumber()
+            }
+
+            //console.log(data)
+
+        } catch (error: any) {
+        }
+    }
+
 
     return (
         <>
@@ -356,6 +431,9 @@ export default function ProfileArea() {
 
 
             {isLoading && <Loader />}
+
+            {error !== '' && <Error error={error} />}
+            {isNotificationMenu && <NotificationIndbox close={() => { toggleBlank(); setIsNotificationMenu(false) }} />}
 
 
 
@@ -411,12 +489,14 @@ export default function ProfileArea() {
 
                                             <div className={styles.indbox}>
                                                 <div className={styles.notline}>
-                                                    <div className={styles.notificationbox}>
+                                                    <div onClick={() => { setIsNotificationMenu(true); removeNotifications() }} className={styles.notificationbox}>
                                                         <IoIosNotifications className={styles.notification} />
-                                                        <div className={styles.notificationnumber}>
-                                                            {notificationNumber < 9 && <p>{notificationNumber}</p>}
-                                                            {notificationNumber > 9 && <p>9+</p>}
-                                                        </div>
+                                                        {notificationNumber !== 0 &&
+                                                            <div className={styles.notificationnumber}>
+                                                                {notificationNumber < 9 && <p>{notificationNumber}</p>}
+                                                                {notificationNumber > 9 && <p>9+</p>}
+                                                            </div>
+                                                        }
                                                     </div>
                                                     <PiGameControllerFill onClick={() => { checkUserInfo() }} className={styles.notification} />
                                                 </div>
@@ -548,6 +628,7 @@ export default function ProfileArea() {
                                             title='User Public ID (5d57b7ea-b...)'
                                             background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
                                             width='380px'
+                                            onInput={(e) => { setInviteId(e.currentTarget.value) }}
                                         >
                                             <IoLinkOutline />
                                         </InputIcon>
@@ -561,7 +642,7 @@ export default function ProfileArea() {
                                             height='35px'
                                             iconFontSize='1.3rem'
                                             transition='all 800ms'
-                                            onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}
+                                            onClick={() => { sendInvite(inviteId) }}
                                         >
                                             <IoSendSharp />
                                         </TextIcon>
