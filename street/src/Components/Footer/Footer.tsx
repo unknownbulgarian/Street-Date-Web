@@ -36,7 +36,7 @@ export default function Footer() {
 
                         <div className={styles.footerbox}>
                             <h2>The App</h2>
-                            <Link className='link'><p>Download</p></Link>
+                            <Link to={'/'} className='link'><p>Download</p></Link>
                             <p>For Android</p>
                             <p>For IOS</p>
                             <Link className='link' to='/try'><p>Try as Guest</p></Link>
