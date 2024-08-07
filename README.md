@@ -1,5 +1,5 @@
 # StreetDate deployment & general info documentation
-Public link for the app: [StreetDate](https://chance-now.vercel.app/)
+Public link for the app: [StreetDate](https://streetdate.vercel.app/)
 
 Project documentation: [Project documentation](https://github.com/unknownbulgarian/chance/tree/main/chance#readme)
 
