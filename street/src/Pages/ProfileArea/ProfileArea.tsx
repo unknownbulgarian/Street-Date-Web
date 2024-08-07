@@ -65,6 +65,8 @@ export default function ProfileArea() {
     const [rizz, setRizz] = useState<number>(0)
     const [rizzLevel, setRizzLevel] = useState<number>(0)
 
+    const [notificationNumber, setNotificationNumber] = useState<number>(0)
+
     const [settingProgress, setSettingProgress] = useState<number>(1)
 
     const [isLoading, setIsLoading] = useState<boolean>(true)
@@ -288,9 +290,37 @@ export default function ProfileArea() {
         }
     }
 
+    const getNotificationsNumber = async () => {
+        try {
+            const response = await fetch(API.api + '/notificationsNumber', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token: localStorage.getItem('token') })
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+            //   console.log(data)
+
+            if (data.error) {
+
+            } else {
+                setNotificationNumber(data.count)
+            }
+
+            //console.log(data)
+
+        } catch (error: any) {
+        }
+    }
+
 
 
     useEffect(() => {
+        getNotificationsNumber()
         getUserInfo()
         getUserMain()
     }, [])
@@ -354,7 +384,7 @@ export default function ProfileArea() {
                                 <div className={styles.firstcontent}>
                                     <div className={styles.first}>
                                         <div className={styles.mainprofile}>
-                                            <img onClick={() => {setIsSettings(true); setSettingProgress(4)}} src={getPhoto()}></img>
+                                            <img onClick={() => { setIsSettings(true); setSettingProgress(4) }} src={getPhoto()}></img>
                                             <div className={styles.instagrams}>
                                                 <div className={styles.instabox}>
                                                     <div className={styles.theinstagrams}>
@@ -381,7 +411,13 @@ export default function ProfileArea() {
 
                                             <div className={styles.indbox}>
                                                 <div className={styles.notline}>
-                                                    <IoIosNotifications className={styles.notification} />
+                                                    <div className={styles.notificationbox}>
+                                                        <IoIosNotifications className={styles.notification} />
+                                                        <div className={styles.notificationnumber}>
+                                                            {notificationNumber < 9 && <p>{notificationNumber}</p>}
+                                                            {notificationNumber > 9 && <p>9+</p>}
+                                                        </div>
+                                                    </div>
                                                     <PiGameControllerFill onClick={() => { checkUserInfo() }} className={styles.notification} />
                                                 </div>
 
