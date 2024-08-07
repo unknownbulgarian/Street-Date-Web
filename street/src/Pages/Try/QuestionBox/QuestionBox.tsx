@@ -30,7 +30,7 @@ export default function QuestionBox({ isGameReview, from, gameProgress, isFirst,
 
     const returnFragt = () => {
         if(isGameReview === '1') {
-            return 'fragt:'
+            return 'asked:'
         } else {
             return ''
         }
@@ -38,7 +38,7 @@ export default function QuestionBox({ isGameReview, from, gameProgress, isFirst,
 
     const returnSagt = () => {
         if(isGameReview === '1') {
-            return 'sagt:'
+            return 'said:'
         } else {
             return ''
         }
