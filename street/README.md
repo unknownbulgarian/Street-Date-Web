@@ -128,6 +128,16 @@ Blind dates originally came from America. It was mostly the big YouTube content 
 
 There was one thing I never understood, why nobody did this thing online.
 
+## For Nerds 🤓
+
+For a smoother experience, I used logic on the client side most of the time.
+
+So basically lets say I got the addLike function to increase the total likes of the posts, I would have to pull up the back end to get the likes for the targeted posts
+
+But why should I get every single like again? Instead, I first render everything on the client with client-side functions, so if someone likes it, it will call the addLocalLike function, so that way I don't need to pull all the likes again on the back end.
+
+
+
 # React + TypeScript + Vite
 
 This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
