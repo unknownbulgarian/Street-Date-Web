@@ -15,6 +15,8 @@ import API from '../../../Utils/API';
 import LoaderTime from '../../../Utils/LoaderTime';
 import Loader from '../../../Components/Loader/Loader';
 
+import { useSession } from '../../../States/Session/Session';
+
 import { FaComment, FaEdit, FaHeart, FaLaughBeam } from "react-icons/fa";
 import { IoIosSend, IoMdExit, IoMdTrash } from "react-icons/io";
 import { FaRegTrashAlt } from "react-icons/fa";
@@ -83,6 +85,8 @@ export default function ExploreGame() {
     const { page, game } = useParams()
 
     const router = useNavigate()
+
+    const {isSession} = useSession()
 
     const [gameProgress, setGameProgress] = useState<number>(15)
     const [photoUrl, setPhotoUrl] = useState<string>('')
@@ -867,24 +871,24 @@ export default function ExploreGame() {
                         <div className={styles.actions}>
                             <div className={styles.action}>
                                 <div className={styles.actionbox}>
-                                    <FaHeart onClick={() => { addLike() }}
+                                    <FaHeart onClick={() => { isSession ? addLike() : router('/login') }}
                                         style={{ cursor: 'pointer', color: isInteractions?.likeExists ? '#dd62c9' : '' }}
                                     />
                                     <p>{interactions?.likes}</p>
                                 </div>
 
                                 <div className={styles.actionbox}>
-                                    <FaLaughBeam onClick={() => { addLaugh() }} style={{ cursor: 'pointer', color: isInteractions?.laughExists ? '#dd62c9' : '' }} />
+                                    <FaLaughBeam onClick={() => { isSession ? addLaugh() : router('/login') }} style={{ cursor: 'pointer', color: isInteractions?.laughExists ? '#dd62c9' : '' }} />
                                     <p>{interactions?.laugh}</p>
                                 </div>
 
                                 <div className={styles.actionbox}>
-                                    <BsEmojiDizzyFill onClick={() => { addLol() }} style={{ cursor: 'pointer', color: isInteractions?.lolExists ? '#dd62c9' : '' }} />
+                                    <BsEmojiDizzyFill onClick={() => { isSession ? addLol() : router('/login') }} style={{ cursor: 'pointer', color: isInteractions?.lolExists ? '#dd62c9' : '' }} />
                                     <p>{interactions?.lol}</p>
                                 </div>
 
                                 <div className={styles.actionbox}>
-                                    <BsFillEmojiHeartEyesFill onClick={() => { addLove() }} style={{ cursor: 'pointer', color: isInteractions?.loveExists ? '#dd62c9' : '' }} />
+                                    <BsFillEmojiHeartEyesFill onClick={() => { isSession ? addLove() : router('/login') }}style={{ cursor: 'pointer', color: isInteractions?.loveExists ? '#dd62c9' : '' }} />
                                     <p>{interactions?.love}</p>
                                 </div>
                             </div>
@@ -902,7 +906,7 @@ export default function ExploreGame() {
                                     fontSize='0.9rem'
                                     height='35px'
                                     type='text'
-                                    onFocus={() => { }}
+                                    onFocus={() => { isSession ? '' : router('/login') }}
                                     border={'unset'}
                                     onKeyDown={(e: any) => {
                                         if (e.keyCode === 13) {
@@ -925,7 +929,7 @@ export default function ExploreGame() {
                                     height='33px'
                                     iconFontSize='1.3rem'
                                     transition='all 800ms'
-                                    onClick={() => { addComment() }}
+                                    onClick={() => { isSession ? addComment() : router('/login') }}
                                 >
                                     <IoIosSend />
                                 </TextIcon>
