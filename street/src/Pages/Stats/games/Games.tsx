@@ -302,7 +302,7 @@ export default function Games() {
                                                         &&
                                                         <FaCloudUploadAlt onClick={() => { router(`/upload/${game.roomId}`) }} className={styles.uploadicon} />
                                                     }
-                                                    {game.isPublic === true && <FaEye className={styles.eyeicon} />}
+                                                    {game.isPublic === true && <FaEye onClick={() => {router(`/explore/1/${game.roomId}`)}} className={styles.eyeicon} />}
                                                 </div>
                                             </div>
                                         }
