@@ -11,6 +11,7 @@ import InputIcon from '../InputIcon/InputIcon';
 import { FaUser } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import TextIcon from '../TextIcon/TextIcon';
+import { useSettings } from '../../States/Settings/SettingsState';
 
 interface SettingsProps {
     close: MouseEventHandler<any>;
@@ -28,7 +29,7 @@ interface SettingsProps {
 
 export default function Settings({ close, name, photoUrl, gender, instagram, setGender, setPhoto, setName, setInstagram, progress, setProgress }: SettingsProps) {
 
-    const [isParticles, setIsParticles] = useState<boolean>(true)
+    const {isParticles, setIsParticles} = useSettings()
 
 
     const [progessP, setProgressP] = useState<string>('')
@@ -212,16 +213,8 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                         {progress === 1 &&
                             <>
                                 <SettingToggler
-                                    title='Hintergrundpartikel'
-                                    description='Aktivieren/Deaktivieren der Hintergrundpartikel'
-                                    onClick={() => { }}
-                                    toggled={isParticles}
-                                    setToggle={setIsParticles}
-                                />
-
-                                <SettingToggler
-                                    title='Hintergrundpartikel'
-                                    description='Aktivieren/Deaktivieren der Hintergrundpartikel'
+                                    title='Background Particles'
+                                    description='Enable/Disable the Background Particles'
                                     onClick={() => { }}
                                     toggled={isParticles}
                                     setToggle={setIsParticles}

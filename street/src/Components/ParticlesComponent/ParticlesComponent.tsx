@@ -6,10 +6,12 @@ import {
   MoveDirection,
   OutMode,
 } from "@tsparticles/engine";
-import { loadSlim } from "@tsparticles/slim"; 
+import { loadSlim } from "@tsparticles/slim";
+import { useSettings } from "../../States/Settings/SettingsState";
 
 export const ParticlesComponent = () => {
   const [init, setInit] = useState(false);
+  const { isParticles, setIsParticles } = useSettings()
 
   useEffect(() => {
     initParticlesEngine(async (engine) => {
@@ -20,7 +22,7 @@ export const ParticlesComponent = () => {
   }, []);
 
   const particlesLoaded = async (container?: Container): Promise<void> => {
-   // console.log(container);
+    // console.log(container);
   };
 
   const options: ISourceOptions = useMemo(
@@ -96,11 +98,15 @@ export const ParticlesComponent = () => {
 
   if (init) {
     return (
-      <Particles
-        id="tsparticles"
-        particlesLoaded={particlesLoaded}
-        options={options}
-      />
+      <>
+        {isParticles &&
+          <Particles
+            id="tsparticles"
+            particlesLoaded={particlesLoaded}
+            options={options}
+          />}
+
+      </>
     );
   }
 
