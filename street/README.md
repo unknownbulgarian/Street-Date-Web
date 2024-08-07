@@ -47,9 +47,9 @@ StreetDate was meant to be free and never chargeable, but to have successful dat
 
 - You can share your finished Games
 
--You are able to remove comments from your published Posts
+- You are able to remove comments from your published Posts
 
--You are able to remove your published Post
+- You are able to remove your published Post
 
 - You are able to change the Post Title
 
