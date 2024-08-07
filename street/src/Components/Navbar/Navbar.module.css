@@ -11,16 +11,16 @@
     cursor: pointer;
 }
 
-.logo img{
+.logo img {
     width: 100px;
 }
 
-.play{
+.play {
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    background: linear-gradient(90deg, rgba(176,88,242,1) 60%, rgba(197,165,255,1) 100%) !important;
+    background: linear-gradient(90deg, rgba(176, 88, 242, 1) 60%, rgba(197, 165, 255, 1) 100%) !important;
     box-shadow: 0 0 70px 10px #9069f5;
     padding-left: 1.7em;
     padding-right: 1.7em;
@@ -47,7 +47,7 @@
     color: white;
 }
 
-.hrefs p:hover{
+.hrefs p:hover {
     color: rgb(231, 209, 250);
 }
 
@@ -91,4 +91,81 @@
     }
 }
 
+.burger {
+    display: none;
+    margin-left: auto;
+    color: white;
+    font-size: 2.5rem;
+    margin-right: 1em;
+    cursor: pointer;
+}
 
+.mobilenav {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 100vh;
+    width: 300px;
+    background: linear-gradient(180deg, rgba(176, 88, 242, 1) 15%, rgba(197, 165, 255, 1) 100%);
+    z-index: 55;
+    gap: 1em;
+}
+
+.play2 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgb(221, 98, 201);
+    background: linear-gradient(98deg, rgba(221, 98, 201, 1) 16%, rgba(247, 192, 192, 1) 100%);
+    box-shadow: 0 0 70px 10px #9069f5;
+    padding-left: 1.7em;
+    padding-right: 1.7em;
+    padding-top: 0.3em;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.5);
+    padding-bottom: 0.3em;
+    border-radius: 0.3em;
+}
+
+.mobilenav h2 {
+    color: white;
+    font-size: 2.7rem;
+}
+
+.mobilenav p {
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+
+.mobilehrefs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5em;
+}
+
+.mobiledisc {
+    margin-top: 0.3em;
+    color: white;
+    font-size: 3.3rem;
+    animation: expander 3s infinite;
+}
+
+@media only screen and (max-width: 1017px) {
+    .hrefs {
+        display: none;
+    }
+
+    .discord {
+        display: none;
+    }
+
+    .burger {
+        display: flex;
+    }
+}
