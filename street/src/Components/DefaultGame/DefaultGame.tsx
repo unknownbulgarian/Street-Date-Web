@@ -1329,6 +1329,7 @@ export default function DefaultGame({ setIsPlaying }: DefaultGameProps) {
     }
 
     const joinRoom = async (user_id: string, found_id: string) => {
+        const publicId = localStorage.getItem('publicId')
         try {
             const response = await fetch(API.api + '/createRoom', {
                 method: 'POST',
