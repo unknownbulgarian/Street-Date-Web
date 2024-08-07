@@ -31,6 +31,7 @@ import Reviews from './Components/SwitchFaq/SwitchFaq'
 export default function App() {
 
   const nav = useNavigate()
+  
 
   const { removeOnline } = useOnlineProvider()
   const { isSession } = useSession()
