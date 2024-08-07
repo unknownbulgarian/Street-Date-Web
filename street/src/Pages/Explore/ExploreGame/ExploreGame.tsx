@@ -73,7 +73,6 @@ interface comments {
     name: string;
     publicId: string;
     timestamp: string;
-    userId: string;
     commentId: string;
 }
 
@@ -306,7 +305,7 @@ export default function ExploreGame() {
             // console.log(data)
 
             if (data.error) {
-
+                setError(data.error)
             } else {
                 if (data.message === 'Like removed.') {
                     setIsInteractions((prevI) => ({
@@ -365,7 +364,7 @@ export default function ExploreGame() {
             //   console.log(data)
 
             if (data.error) {
-
+                setError(data.error)
 
             } else {
                 if (data.message === 'Like removed.') {
@@ -422,7 +421,7 @@ export default function ExploreGame() {
             //  console.log(data)
 
             if (data.error) {
-
+                setError(data.error)
 
             } else {
                 if (data.message === 'Like removed.') {
@@ -479,7 +478,7 @@ export default function ExploreGame() {
             // console.log(data)
 
             if (data.error) {
-
+                setError(data.error)
 
             } else {
                 if (data.message === 'Like removed.') {
@@ -536,10 +535,22 @@ export default function ExploreGame() {
             // console.log(data)
 
             if (data.error) {
-
-
+                setError(data.error)
             } else {
                 setComment('')
+                setComments((prev) => {
+                    if (!prev) return [];
+
+                    const newComment = {
+                        comment: comment,
+                        name: data.name,
+                        publicId: data.publicId,
+                        timestamp: data.timestamp,
+                        commentId: data.commentId, 
+
+                    };
+                    return [...prev, newComment];
+                })
             }
         } catch (error: any) {
         }
@@ -586,7 +597,7 @@ export default function ExploreGame() {
 
             const data = responseData
 
-            // console.log(data)
+        ///console.log(data)
 
             if (data.error) {
 
@@ -618,10 +629,14 @@ export default function ExploreGame() {
             //console.log(data)
 
             if (data.error) {
-
+                setError(data.error)
 
             } else {
+                setComments((prev) => {
+                    if (!prev) return [];
 
+                    return prev.filter(comment => comment.commentId !== commentId);
+                })
             }
         } catch (error: any) {
         }
@@ -645,10 +660,14 @@ export default function ExploreGame() {
             //console.log(data)
 
             if (data.error) {
-
+                setError(data.error)
 
             } else {
+                setComments((prev) => {
+                    if (!prev) return [];
 
+                    return prev.filter(comment => comment.commentId !== commentId);
+                })
             }
         } catch (error: any) {
         }
@@ -718,7 +737,7 @@ export default function ExploreGame() {
                     <div className={styles.found}>
                         <div className={styles.foundmain} data-aos="fade-down">
                             <div className={styles.removetitle}>
-                                <h1>Blind Date between {data?.from} and {data?.game.partnerUsername}</h1>
+                                <h1>Blind Date between <span onClick={() => {router(`/stats/${data?.publicId}`)}} style={{textDecoration: 'underline', cursor: 'pointer'}}>{data?.from}</span> and {data?.game.partnerUsername}</h1>
                                 {isAuth && <FaRegTrashAlt onClick={() => { removeGame() }} className={styles.trashicon} />}
                             </div>
                             {data?.title &&
