@@ -240,7 +240,7 @@ export default function Stats() {
         <>
 
           {name && (
-            <div className={styles.area}>
+            <div className={styles.area} data-aos="zoom-in">
               <h1>
                 <span>{name[0].toUpperCase() + name.slice(1)}</span> Stats
               </h1>

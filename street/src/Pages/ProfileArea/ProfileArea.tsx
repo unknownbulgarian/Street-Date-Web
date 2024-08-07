@@ -81,6 +81,10 @@ export default function ProfileArea() {
 
     const [idRef, setIdRef] = useState<any>()
 
+    useEffect(() => {
+        disableBlank()
+    }, [])
+
 
 
     useEffect(() => {
@@ -457,7 +461,7 @@ export default function ProfileArea() {
 
                     {!isPlaying &&
                         <>
-                            <div className={styles.area}>
+                            <div className={styles.area} data-aos="zoom-in">
 
                                 <div className={styles.firstcontent}>
                                     <div className={styles.first}>
@@ -520,7 +524,7 @@ export default function ProfileArea() {
                                     </div>
 
                                     <div className={styles.stats}>
-                                        <div className={styles.statbox}>
+                                        <div onClick={() => {router(`/stats/${localStorage.getItem('publicId')}`)}} className={styles.statbox}>
                                             <MdOutlineLeaderboard className={styles.staticon} />
                                             <p>Leaderboards</p>
                                         </div>
@@ -642,7 +646,7 @@ export default function ProfileArea() {
                                             height='35px'
                                             iconFontSize='1.3rem'
                                             transition='all 800ms'
-                                            onClick={() => { sendInvite(inviteId) }}
+                                            onClick={() => { alert('Coming Soon') }}
                                         >
                                             <IoSendSharp />
                                         </TextIcon>

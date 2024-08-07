@@ -31,14 +31,14 @@ export default function Footer() {
                         <div className={styles.footerbox}>
                             <h2>General</h2>
                             <Link className='link' to='/'><p>Home</p></Link>
-                            <Link className='link' to='/about'><p>About</p></Link>
+                            <Link className='link' to='/documentation'><p>Documentation</p></Link>
                         </div>
 
                         <div className={styles.footerbox}>
                             <h2>The App</h2>
-                            <Link className='link' to='/download'><p>Download</p></Link>
-                            <p onClick={() => { window.open('', '_blank') }}>For Android</p>
-                            <p onClick={() => { window.open('', '_blank') }}>For IOS</p>
+                            <Link className='link'><p>Download</p></Link>
+                            <p>For Android</p>
+                            <p>For IOS</p>
                             <Link className='link' to='/try'><p>Try as Guest</p></Link>
                             <p onClick={() => { window.open('https://discord.gg/YDWqmevJxk', '_blank') }}>Discord Server</p>
                             <Link className='link' to='/play'><p>Play</p></Link>
@@ -54,7 +54,6 @@ export default function Footer() {
                             <h2>Read without fail</h2>
                             <Link className='link' to='/terms and conditions'><p>Terms and conditions</p></Link>
                             <Link className='link' to='/policies'><p>Policies</p></Link>
-                            <Link className='link' to='/rules'><p>Rules</p></Link>
                         </div>
                     </div>
 

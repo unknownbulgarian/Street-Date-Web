@@ -314,7 +314,7 @@ export default function Explore() {
             {!isLoading &&
                 <>
 
-                    <div className={styles.posts}>
+                    <div className={styles.posts} data-aos="zoom-in">
                         {posts?.map((post, index) => (
                             <div
                                 onClick={() => { router(`/explore/${page}/${post.roomId}`) }}

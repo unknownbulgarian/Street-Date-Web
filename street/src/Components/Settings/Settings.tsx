@@ -3,15 +3,18 @@ import styles from './Settings.module.css'
 import { IoMdClose } from "react-icons/io";
 import SettingToggler from '../SettingToggler/SettingToggler';
 import { GrDocumentUpdate } from "react-icons/gr";
+import { useNavigate } from 'react-router-dom';
 import API from '../../Utils/API';
 
 import InputIcon from '../InputIcon/InputIcon';
 
 
-import { FaUser } from "react-icons/fa";
+import { FaLock, FaUser } from "react-icons/fa";
 import { IoLogoInstagram } from "react-icons/io5";
 import TextIcon from '../TextIcon/TextIcon';
 import { useSettings } from '../../States/Settings/SettingsState';
+import { CiLock, CiUnlock } from 'react-icons/ci';
+import { FaUnlock } from 'react-icons/fa6';
 
 interface SettingsProps {
     close: MouseEventHandler<any>;
@@ -29,7 +32,10 @@ interface SettingsProps {
 
 export default function Settings({ close, name, photoUrl, gender, instagram, setGender, setPhoto, setName, setInstagram, progress, setProgress }: SettingsProps) {
 
-    const {isParticles, setIsParticles} = useSettings()
+    const nav = useNavigate()
+
+    const { isParticles, setIsParticles } = useSettings()
+    const [fa, setFa] = useState<boolean>(false)
 
 
     const [progessP, setProgressP] = useState<string>('')
@@ -40,6 +46,9 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
 
     const [success, setSuccess] = useState<string>('')
     const [successNum, setSuccessNum] = useState<number>(0)
+
+    const [oldPassword, setOldPassword] = useState<string>('')
+    const [newPassword, setNewPassword] = useState<string>('')
 
     useEffect(() => {
         switch (progress) {
@@ -87,7 +96,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                 setSuccess('')
                 setSuccessNum(0)
             } else {
-                setSuccess('Benutzerinformationen erfolgreich aktualisiert')
+                setSuccess('Updated successfully')
                 setSuccessNum(1)
                 setErrorNum(0)
                 setError('')
@@ -147,6 +156,46 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
         }
     };
 
+    const updatePassword = async () => {
+        try {
+            const token = localStorage.getItem('token')
+
+            const response = await fetch(API.api + '/changePassword', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ token, oldPassword, newPassword }),
+            });
+
+            const responseData = await response.json();
+
+            const data = responseData
+
+            console.log(data)
+
+            if (data.error) {
+                setError(data.error)
+                setErrorNum(1)
+                setSuccess('')
+                setSuccessNum(0)
+            } else {
+                setSuccess('Updated successfully')
+                setSuccessNum(1)
+                setErrorNum(0)
+                setError('')
+                setTimeout(() => {
+                    location.reload()
+                }, 1000);
+            }
+
+            // console.log(data)
+
+        } catch (error: any) {
+            //  console.log(error)
+        }
+    };
+
 
 
     return (
@@ -171,14 +220,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                             <p>General</p>
                         </div>
 
-                        <div style={{
-                            borderLeft: progress === 2 ? '3px solid rgb(169, 50, 224)' : '',
-                            backgroundColor: progress === 2 ? 'rgba(103, 16, 189, 0.575)' : ''
-                        }}
-                            onClick={() => { setProgress(2) }}
-                            className={styles.sidebox}>
-                            <p>Account Type</p>
-                        </div>
+
 
                         <div style={{
                             borderLeft: progress === 3 ? '3px solid rgb(169, 50, 224)' : '',
@@ -202,7 +244,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                             borderLeft: progress === 5 ? '3px solid rgb(169, 50, 224)' : '',
                             backgroundColor: progress === 5 ? 'rgba(103, 16, 189, 0.575)' : ''
                         }}
-                            onClick={() => { setProgress(5) }}
+                            onClick={() => { nav('/documentation') }}
                             className={styles.sidebox}>
                             <p>Help</p>
                         </div>
@@ -218,6 +260,93 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                     onClick={() => { }}
                                     toggled={isParticles}
                                     setToggle={setIsParticles}
+                                />
+                            </>
+                        }
+
+                        {progress === 3 &&
+                            <>
+                                <div className={styles.gameinfo}>
+                                    <div className={styles.all}>
+                                        <h2>Change Password</h2>
+                                        <p>Change your password</p>
+
+                                        <div className={styles.profileinputs}>
+                                            <InputIcon
+                                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                                                borderRadius='0.3em'
+                                                color='white'
+                                                title='Old Password'
+                                                value={oldPassword}
+                                                width='70%'
+                                                isBoxShadow={true}
+                                                titleColor='white'
+                                                height='30px'
+                                                iconFontSize='1.1rem'
+                                                type='password'
+                                                border='unset'
+                                                onInput={(e) => { setOldPassword(e.currentTarget.value) }}
+                                            >
+                                                <FaUnlock />
+                                            </InputIcon>
+
+                                            <InputIcon
+                                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                                                borderRadius='0.3em'
+                                                color='white'
+                                                value={newPassword}
+                                                title='New Password'
+                                                width='70%'
+                                                isBoxShadow={true}
+                                                titleColor='white'
+                                                height='30px'
+                                                iconFontSize='1.1rem'
+                                                type='password'
+                                                border='unset'
+                                                onInput={(e) => { setNewPassword(e.currentTarget.value) }}
+                                            >
+                                                <FaLock />
+                                            </InputIcon>
+
+                                            <TextIcon
+                                                marginTop='0.3em'
+                                                title='Update'
+                                                background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
+                                                width='115px'
+                                                titleColor='white'
+                                                borderRadius='0.3em'
+                                                color='white'
+                                                height='30px'
+                                                onHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.7)' }}
+                                                onUnHover={(e) => { e.currentTarget.style.backgroundColor = 'hsla(272, 100%, 70%, 0.5)' }}
+                                                fontSize='0.9rem'
+                                                onClick={() => { updatePassword() }}
+                                            >
+                                                <GrDocumentUpdate />
+                                            </TextIcon>
+
+                                            {error !== '' && errorNum === 1 && <p style={{
+                                                color: 'red',
+                                                fontWeight: '500'
+                                            }} >{error} !</p>}
+
+                                            {success !== '' && successNum === 1 &&
+                                                <p style={{
+                                                    color: 'green',
+                                                    fontWeight: '500'
+                                                }} >{success} !</p>}
+
+
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <SettingToggler
+                                    title='2FA'
+                                    description='Enable/Disable 2FA'
+                                    onClick={() => { alert('Coming Soon') }}
+                                    toggled={fa}
+                                    setToggle={setFa}
                                 />
                             </>
                         }
@@ -329,7 +458,7 @@ export default function Settings({ close, name, photoUrl, gender, instagram, set
                                             marginTop='1em'
                                             title='Update'
                                             background='linear-gradient(90deg, rgba(176,88,242,1) 65%, rgba(197,165,255,1) 100%)'
-                                           width='115px'
+                                            width='115px'
                                             titleColor='white'
                                             borderRadius='0.3em'
                                             color='white'

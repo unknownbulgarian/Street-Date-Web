@@ -39,32 +39,34 @@ import NotFound from './Pages/NotFound/NotFound.tsx'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <SessionProvider>
-        <SettingsProvider>
-          <OnlineProvider>
-            <BlankProvider>
-              <ParticlesComponent />
-              <Navbar />
-              <Routes>
-                <Route path='/' element={<App />} />
-                <Route path='/try' element={<LoginGuardRoute component={Try} />} />
-                <Route path='/register' element={<LoginGuardRoute component={Register} />} />
-                <Route path='/login' element={<LoginGuardRoute component={Login} />} />
-                <Route path='/play' element={<ProtectedRoute component={ProfileArea} />} />
-                <Route path='/stats/:publicId' element={<Stats />} />
-                <Route path='/stats/:publicId/games/:page' element={<Games />} />
-                <Route path='/stats/:publicId/games/history/:game' element={<Game />} />
-                <Route path='/upload/:game' element={<ProtectedRoute component={Upload} />} />
-                <Route path='/explore/:page' element={<Explore />} />
-                <Route path='/explore/:page/:game' element={<ExploreGame />} />
-                <Route path='/documentation' element={<Documentation />} />
-                <Route path='*' element={<NotFound />} />
-              </Routes>
-              <Footer />
-            </BlankProvider>
-          </OnlineProvider>
-        </SettingsProvider>
-      </SessionProvider>
+      <AOSProvider>
+        <SessionProvider>
+          <SettingsProvider>
+            <OnlineProvider>
+              <BlankProvider>
+                <ParticlesComponent />
+                <Navbar />
+                <Routes>
+                  <Route path='/' element={<App />} />
+                  <Route path='/try' element={<LoginGuardRoute component={Try} />} />
+                  <Route path='/register' element={<LoginGuardRoute component={Register} />} />
+                  <Route path='/login' element={<LoginGuardRoute component={Login} />} />
+                  <Route path='/play' element={<ProtectedRoute component={ProfileArea} />} />
+                  <Route path='/stats/:publicId' element={<Stats />} />
+                  <Route path='/stats/:publicId/games/:page' element={<Games />} />
+                  <Route path='/stats/:publicId/games/history/:game' element={<Game />} />
+                  <Route path='/upload/:game' element={<ProtectedRoute component={Upload} />} />
+                  <Route path='/explore/:page' element={<Explore />} />
+                  <Route path='/explore/:page/:game' element={<ExploreGame />} />
+                  <Route path='/documentation' element={<Documentation />} />
+                  <Route path='*' element={<NotFound />} />
+                </Routes>
+                <Footer />
+              </BlankProvider>
+            </OnlineProvider>
+          </SettingsProvider>
+        </SessionProvider>
+      </AOSProvider>
     </BrowserRouter>
   </React.StrictMode >,
 )

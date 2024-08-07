@@ -96,7 +96,7 @@ export default function NotificationIndbox({ close }: NotProps) {
 
     return (
         <div className={styles.main}>
-            <div className={styles.box}>
+            <div className={styles.box} data-aos="zoom-in">
                 <IoMdClose onClick={close} className={styles.close} />
                 <h2>Notifications</h2>
                 <div className={styles.categories}>

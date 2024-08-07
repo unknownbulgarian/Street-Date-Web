@@ -95,7 +95,7 @@ export default function App() {
         </div>
       </div>
 
-      <div className={styles.boxes}>
+      <div className={styles.boxes} data-aos="fade-down">
         <div className={styles.box}>
           <div className={styles.boxtop}>
             <CiViewTimeline className={styles.boxicon} />

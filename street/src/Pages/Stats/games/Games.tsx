@@ -244,7 +244,7 @@ export default function Games() {
             {!isLoading &&
                 <>
                     {games &&
-                        <div className={styles.games}>
+                        <div className={styles.games} data-aos="zoom-in">
                             <div className={styles.search}>
                                 <InputIcon
                                     title='Search (Username...)'

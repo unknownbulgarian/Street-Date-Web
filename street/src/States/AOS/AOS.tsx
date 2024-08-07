@@ -27,7 +27,7 @@ export const AOSProvider: React.FC<AOSProviderProps> = ({ children }) => {
     useEffect(() => {
         AOS.init({
             once: true,
-            duration: 1000,
+            duration: 1300,
         });
     })
 
