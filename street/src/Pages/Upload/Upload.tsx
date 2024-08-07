@@ -114,6 +114,7 @@ export default function Upload() {
                 setError(data.error)
             } else {
                 setError('')
+                router(`/explore/1/${data.roomId}`)
             }
 
             //console.log(data)
