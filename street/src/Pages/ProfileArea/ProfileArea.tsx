@@ -115,6 +115,15 @@ export default function ProfileArea() {
     }, [isPlaying])
 
 
+    useEffect(() => {
+        const noti = setInterval(() => {
+            getNotificationsNumber()
+        }, 5000);
+
+        return () => clearInterval(noti)
+    }, [])
+
+
 
 
 
@@ -524,7 +533,7 @@ export default function ProfileArea() {
                                     </div>
 
                                     <div className={styles.stats}>
-                                        <div onClick={() => {router(`/stats/${localStorage.getItem('publicId')}`)}} className={styles.statbox}>
+                                        <div onClick={() => { router(`/stats/${localStorage.getItem('publicId')}`) }} className={styles.statbox}>
                                             <MdOutlineLeaderboard className={styles.staticon} />
                                             <p>Leaderboards</p>
                                         </div>
