@@ -12,37 +12,32 @@ export default function StreetInfo({ progress, styles, headerClass, smallClass }
             {progress === 1 &&
                 <div className={styles}>
                     <p className={headerClass}>
-                        Was ist StreetDate genau ?
+                        What exactly is StreetDate?
                     </p>
 
                     <p className={smallClass}>
-                        Dies wurde in Deutschland sehr <strong>populär</strong>. Im Grunde können sich 2 Personen
-                        <strong> nicht sehen</strong>, bis sie die <strong>3</strong> Fragen der anderen Person <strong>nicht beantworten</strong>,
-                        und am Ende können sie sich sehen und müssen sagen, ob sie <strong>Interesse</strong>
-                        an dem anderen haben.
+                        This became very popular in Germany. Basically, two people cannot see each other until they have answered the other person's three questions. In the end, they can see each other and must say if they are interested in the other.
                     </p>
 
-                    <p className={smallClass}>Manchmal können sie <strong>mehr</strong> als 3 Fragen stellen !</p>
+                    <img src="https://i.ytimg.com/vi/QAkdYfSC97I/maxresdefault.jpg"></img>
+
+                    <p className={smallClass}>Sometimes they can ask more than 3 questions!</p>
+                    
                 </div>
             }
 
             {progress === 2 &&
                 <div className={styles}>
                     <p className={headerClass}>
-                        Die Geschichte des Blind Dates.
+                        The story of the blind date.
                     </p>
 
                     <p className={smallClass}>
-                        Ursprünglich kamen die Blind Dates aus <strong>Amerika</strong>.
-                        Meistens haben die <strong>großen YouTube-Inhaltsersteller</strong> damit angefangen.
-                        Aber die Blind Dates fanden meist in <strong>speziellen Studios</strong> statt, und
-                        die Leute mussten sich dafür bewerben. Nach einer Weile begann man
-                        in <strong>Deutschland</strong>, Blind Dates auf <strong>der Straße zu arrangieren</strong>.
+                        Blind dates originally came from America. It was mostly the big YouTube content creators who started it. But the blind dates usually took place in special studios and people had to apply for them. After a while, people in Germany started arranging blind dates on the street.
                     </p>
 
                     <p className={smallClass}>
-                        Es gab eine Sache, die ich <strong>nie verstanden habe</strong>, warum niemand
-                        diese Sache <strong>online</strong> gemacht hat.
+                        There was one thing I never understood, why nobody did this thing online.
                     </p>
 
                     <iframe width="560" height="315"
@@ -58,15 +53,14 @@ export default function StreetInfo({ progress, styles, headerClass, smallClass }
             {progress === 3 &&
                 <div className={styles}>
                     <p className={headerClass}>
-                        Wie ich die Motivation bekam, eine Blind Date App zu entwickeln ?
+                        How I got the motivation to develop a blind date app ?
                     </p>
 
                     <p className={smallClass}>
-                        Es gab so viele Videos auf meiner <strong>„For You“-Seite in Tiktok</strong>, und sie hatten so
-                        <strong> viele Aufrufe und Likes</strong>. Zu dieser Zeit lernte ich auch, wie man <strong>mobile Apps entwickelt</strong>,
-                        also sagte ich zu mir, warte, ich kann diese App für Handys <strong>einfach entwickeln</strong> und auch
-                        <strong> eine Website</strong> dafür erstellen.
+                        There were so many videos on my "For You" page in Tiktok, and they had so many views and likes. At that time, I was also learning how to develop mobile apps, so I said to myself, wait, I can easily develop this app for mobile and also create a website for it.
                     </p>
+
+                    <img src="https://extension.harvard.edu/wp-content/uploads/sites/8/2020/10/computer-programming.jpg"></img>
                 </div>
             }
         </>
