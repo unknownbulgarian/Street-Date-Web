@@ -59,6 +59,33 @@ StreetDate was meant to be free and never chargeable, but to have successful dat
 
  - You are able to comment
 
+## Tutorial 
+
+### How can I play ?
+
+You can play the game as a guest, i.e. no registration is required. Please note that guests only have a limited number of games per day.
+
+### For Guests
+
+- Visit the Try Page
+  
+- Enter your Username (1 - 15 characters)
+  
+- Enter your Gender (If Male search = Female, If Female search - Male, if Other search Other)
+  
+- Enter your Instagram(It should be real and yours)
+  
+- Upload your own photo (It should be a image of you.. selfie .. )
+
+  ### For Authenticated Users
+
+- Visit the Play Page
+  
+- You will need to provide Gender, Instagram and a Showcase Photo in the Settings in order to Play
+
+- Simply click on the Play Button
+
+  <img src="https://i.postimg.cc/jSFZDcv8/Screenshot-17.png" width="800">
 
 ## What is StreetDate ?
 
