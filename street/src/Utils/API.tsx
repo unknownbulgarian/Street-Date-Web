@@ -1,5 +1,5 @@
 const api = 'http://streetdate.loca.lt'
-const frontEndURL = 'http://localhost:5173/'
+const frontEndURL = 'https://streetdate.vercel.app'
 
 
 export default {api}
