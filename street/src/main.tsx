@@ -41,7 +41,7 @@ import NotFound from './Pages/NotFound/NotFound.tsx'
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
     <BrowserRouter>
-      <AOSProvider>
+  
         <WelcomeProvider>
           <SessionProvider>
             <SettingsProvider>
@@ -70,7 +70,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
             </SettingsProvider>
           </SessionProvider>
         </WelcomeProvider>
-      </AOSProvider>
+     
     </BrowserRouter>
   </React.StrictMode >,
 )

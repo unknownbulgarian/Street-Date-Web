@@ -10,6 +10,7 @@ import { FaDiscord } from "react-icons/fa";
 import { MdOutlineMenu } from 'react-icons/md';
 import Blank from '../Blank/Blank';
 import { useBlank } from '../../States/BlankState/BlankState';
+import { IoMdClose } from 'react-icons/io';
 
 interface NavProps {
     tab?: number;
@@ -34,6 +35,7 @@ export default function Navbar({ tab }: NavProps) {
 
             {isNav &&
                 <div className={styles.mobilenav}>
+                    <IoMdClose onClick={() => {setNav(false); disableBlank() }} className={styles.closenav} />
                     <h2>StreetDate</h2>
 
                     <div className={styles.mobilehrefs}>
