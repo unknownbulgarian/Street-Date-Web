@@ -87,6 +87,37 @@ You can play the game as a guest, i.e. no registration is required. Please note 
 
   <img src="https://i.postimg.cc/jSFZDcv8/Screenshot-17.png" width="800">
 
+
+  ## Future
+
+  Find out more about the new functions that will be added in the future
+
+  ### React Native
+
+  The app will soon be available for both IOS and ANDROID.
+
+  - The servers will not be changed, i.e. you can also play with browser users.
+ 
+  ### Discord DEV
+
+  We are working on our own Discord bot so that you can also play our game in Discord.
+
+  - We will use seperated servers probably, for optimizations.
+ 
+  ### Invite Function
+
+  We are working on the invite functionality, and it will be soon released.
+
+  ### More Gamemodes
+
+  As you know, this game can be played than more people in once, we will soon add double Date. ( 4 Persons )
+
+  ### Report Function
+
+  Soon report function will be added to our App, so you can avoid Trolls.
+
+  - With the report function, ban functionality will also be added.
+
 ## What is StreetDate ?
 
 This became very popular in Germany. Basically, two people cannot see each other until they have answered the other person's three questions. In the end, they can see each other and must say if they are interested in the other.
