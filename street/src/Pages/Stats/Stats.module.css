@@ -4,7 +4,8 @@
     justify-content: center;
     flex-direction: column;
     padding-top: 20em;
-    padding-bottom: 20em;;
+    padding-bottom: 20em;
+    ;
     text-align: center;
     width: 100%;
 }
@@ -40,10 +41,8 @@
 }
 
 .notexist {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) !important;
+    padding-top: 20em;
+    padding-bottom: 20em;
     display: flex;
     align-items: center;
     flex-direction: column;
@@ -61,10 +60,125 @@
     color: white;
 }
 
-.auth{
+.auth {
     margin-top: 3em;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 1em;
+}
+
+.posts {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 3em;
+    width: 100%;
+    flex-wrap: wrap;
+    margin-bottom: 2em;
+    gap: 0.5em;
+}
+
+.tit{
+    font-weight: 400 !important;
+    margin-bottom: 0.5em;
+}
+
+
+.reactions {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 1em;
+    margin-right: 2em;
+}
+
+.reactionbox {
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    color: white;
+}
+
+.reactionbox p {
+    font-size: 0.9rem;
+}
+
+.reactionicon {
+    font-size: 1.2rem;
+}
+
+.post {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    height: 60px;
+    background-color: rgba(193, 87, 255, 0.623);
+    border-radius: 0.3em;
+    transition: all 0.3s;
+
+    cursor: pointer;
+}
+
+.post:hover {
+    background-color: rgba(193, 87, 255, 0.923);
+}
+
+.posts h2 {
+    font-weight: 500;
+    padding-left: 1em;
+    padding-right: 0.5em;
+    font-size: 1.3rem;
+    color: rgb(252, 246, 246);
+}
+
+.posts p {
+    color: rgb(247, 241, 241);
+}
+
+.categories {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    padding-left: 1em;
+    padding-right: 1em;
+    gap: 0.5em;
+}
+
+
+.categoriebox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: hsla(283, 92%, 74%, 0.5);
+    padding-left: 1em;
+    padding-right: 1em;
+    box-shadow: rgba(0, 0, 0, 0.5) 5px 5px 10px;
+    border-radius: 0.3em;
+    height: 30px;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+.categoriebox h3 {
+    color: white;
+    font-weight: 400;
+    font-size: 0.9rem;
+}
+
+.categoriebox:hover {
+    background-color: hsla(283, 92%, 74%, 0.795);
+}
+
+.poster {
+    color: hsla(299, 100%, 79%, 1);
+    font-weight: 800;
+}
+
+.date {
+    color: rgb(211, 171, 235);
 }
