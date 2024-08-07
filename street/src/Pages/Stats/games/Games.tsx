@@ -247,7 +247,7 @@ export default function Games() {
                         <div className={styles.games}>
                             <div className={styles.search}>
                                 <InputIcon
-                                    title='Suche (Benutzernamen...)'
+                                    title='Search (Username...)'
                                     color='white'
                                     width='500px'
                                     height='35px'
@@ -288,7 +288,7 @@ export default function Games() {
                                         {!isPrivateGames && !isPublicGames &&
                                             <div className={styles.gamecontainer}>
                                                 <div className={styles.gamebox} onClick={() => { window.open(`/stats/${publicId}/games/history/${game.roomId}`, '_blank') }}>
-                                                    <h2>Du hast gespielt mit
+                                                    <h2>You have played with
                                                         <span style={{
                                                             color: 'hsla(293, 100%, 79%, 1)'
                                                         }}> {game.partnerUsername}</span>
@@ -312,7 +312,7 @@ export default function Games() {
                                                 {!game.isPublic &&
                                                     <div className={styles.gamecontainer}>
                                                         <div className={styles.gamebox} onClick={() => { window.open(`/stats/${publicId}/games/history/${game.roomId}`, '_blank') }}>
-                                                            <h2>Du hast gespielt mit
+                                                            <h2>You have played with
                                                                 <span style={{
                                                                     color: 'hsla(293, 100%, 79%, 1)'
                                                                 }}> {game.partnerUsername}</span>
@@ -334,7 +334,7 @@ export default function Games() {
                                                 {game.isPublic === true &&
                                                     <div className={styles.gamecontainer}>
                                                         <div className={styles.gamebox} onClick={() => { window.open(`/stats/${publicId}/games/history/${game.roomId}`, '_blank') }}>
-                                                            <h2>Du hast gespielt mit
+                                                            <h2>You have played with
                                                                 <span style={{
                                                                     color: 'hsla(293, 100%, 79%, 1)'
                                                                 }}> {game.partnerUsername}</span>
