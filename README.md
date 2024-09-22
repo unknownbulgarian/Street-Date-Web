@@ -1,5 +1,5 @@
 # StreetDate deployment & general info documentation
-Public link for the app: [StreetDate](https://streetdate.vercel.app/)
+Public link for the app: [StreetDate](https://www.street-date.xyz/)
 
 Project documentation: [Project documentation](https://github.com/unknownbulgarian/Street-Date-Web/tree/main/street)
 
